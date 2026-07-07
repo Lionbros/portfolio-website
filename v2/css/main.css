@@ -146,9 +146,14 @@ body {
     position: relative;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
+    padding-top: 5vh;
     pointer-events: none;
     will-change: transform, scale;
 }
+@media (max-width: 768px) {
+    #hero-text-group { padding-top: 2vh; }
+}
+
 #hero-text {
     font-size: clamp(2.5rem, 7vw, 8rem);
     font-weight: 900;
