@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maarten van der Leeuw</title>
+    <!-- Google Fonts for modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Tailwind for Loader (matches mobile style) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- Themed Loading Screen -->
+    <div id="site-loader"
+        class="fixed inset-0 z-[1000] bg-white flex flex-col items-center justify-center pointer-events-auto opacity-100">
+        <div class="overflow-hidden mb-4">
+            <h2 class="loader-text text-2xl font-black tracking-[0.3em] uppercase translate-y-full">MAARTEN</h2>
+        </div>
+        <div class="w-12 h-[1px] bg-black/10 relative overflow-hidden">
+            <div class="loader-bar absolute top-0 left-0 h-full w-full bg-black -translate-x-full"></div>
+        </div>
+    </div>
+
+    <!-- Film Dust Canvas -->
+    <canvas id="dust-canvas"></canvas>
+
+    <!-- Custom Reactive Cursor -->
+    <div id="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle">
+            <span class="cursor-text">VIEW</span>
+        </div>
+    </div>
+
+    <!-- Project Quick-View Modal -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="modal-layout">
+                <div class="modal-image-side">
+                    <img src="" alt="" id="modal-img">
+                </div>
+                <div class="modal-content-side">
+                        <div class="modal-header">
+                            <span id="modal-tag" class="modal-tag">Project Details</span>
+                            <h2 id="modal-title" class="modal-title"></h2>
+                        </div>
+                    <div class="modal-body">
+                        <p id="modal-desc" class="modal-description"></p>
+                        <div class="modal-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Year</span>
+                                <span class="spec-value">2025</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Languages</span>
+                                <span class="spec-value">Python & VBA</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Hero / Header -->
+    <div id="hero-container">
+        <div id="header-bg"></div>
+        <nav id="main-nav">
+            <div class="nav-container">
+                <!-- Left Column: Categories -->
+                <div class="nav-column nav-left">
+                    <a href="#gateways-container" class="nav-link">Videography</a>
+                    <a href="#gateways-container" class="nav-link">Taarten van Maarten</a>
+                    <a href="#gateways-container" class="nav-link">Solutions</a>
+                </div>
+
+                <!-- Center Column: Logo Placeholder (Logo is absolutely centered in hero-container) -->
+                <div class="nav-column nav-center">
+                    <!-- This space is reserved for the logo to breathe (40px-60px padding) -->
+                </div>
+
+                <!-- Right Column: Navigation & CTA -->
+                <div class="nav-column nav-right">
+                    <a href="#philosophy-section" class="nav-link">About</a>
+                    <a href="#projects-section" class="nav-link">Projects</a>
+                    <a href="#contact-section" class="nav-cta">
+                        <span>Let's Talk</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div id="hero-text-group">
+            <a href="#" id="home-link">
+                <h1 id="hero-text">MAARTEN VAN DER LEEUW</h1>
+            </a>
+            <div id="hero-slogan">
+                <div class="slogan-line slogan-line-1">
+                    <div class="flag-pill dutch-pill"></div>
+                    <span class="slogan-text">DUTCH QUALITY</span>
+                </div>
+                <div class="slogan-line slogan-line-2">
+                    <div class="flag-pill hungary-pill"></div>
+                    <span class="slogan-base">BASED IN HUNGARY</span>
+                </div>
+            </div>
+            <div id="hero-button-wrapper" style="opacity: 0; transform: translateY(30px);">
+                <button class="work-button" onclick="lenis.scrollTo('#gateways-container')">
+                    <span class="button-text">View my Work</span>
+                    <i class="button-icon-box">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spacer to cause scrolling for the intro animation -->
+    <div class="spacer"></div>
+
+    <!-- The Gateways -->
+    <div id="gateways-container">
+        <!-- Base Layer of Links -->
+        <a href="#videography" class="gateway">
+            <div class="gw-content">
+                <span class="gw-number">01 /</span>
+                <span class="gw-text">VIDEOGRAPHY</span>
+            </div>
+        </a>
+
+        <a href="#taarten" class="gateway">
+            <div class="gw-content">
+                <span class="gw-number">02 /</span>
+                <span class="gw-text">TAARTEN VAN MAARTEN</span>
+            </div>
+        </a>
+
+        <a href="#technical" class="gateway">
+            <div class="gw-content">
+                <span class="gw-number">03 /</span>
+                <span class="gw-text">TECHNICAL SOLUTIONS</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Phase G: My Recent Projects (Vanilla Embla Adaptation) -->
+    <section id="projects-section">
+        <div class="projects-header">
+            <h2 class="projects-title">My Recent Projects</h2>
+            <div class="projects-nav">
+                <button id="projects-prev" class="nav-btn" aria-label="Previous slide">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="projects-next" class="nav-btn" aria-label="Next slide">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="embla-projects">
+            <div class="embla__viewport">
+                <div class="embla__container">
+                    <!-- Project 1 -->
+                    <div class="embla__slide">
+                        <div class="project-card group">
+                            <div class="project-image-box">
+                                <img src="assets/img/Automated%20Bookkeeping%20image.png" alt="Automated Bookkeeping"
+                                    class="project-img">
+                                <div class="project-overlay"></div>
+                                <div class="project-content">
+                                    <h3 class="project-item-title">Automated Bookkeeping in Excel</h3>
+                                    <p class="project-description">In this project I built an automation that parses WooCommerce order emails and instantly fills a structured Excel sheet with the press of a button, my client now gets a complete bookkeeping record in a matter of seconds.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="embla__slide">
+                        <a href="https://tailwindcss.com" class="project-card group">
+                            <div class="project-image-box">
+                                <img src="https://images.unsplash.com/photo-1551250928-e4a05afaed1e?auto=format&fit=crop&q=80&w=1080"
+                                    alt="Tailwind CSS" class="project-img">
+                                <div class="project-overlay"></div>
+                                <div class="project-content">
+                                    <h3 class="project-item-title">Tailwind CSS: Utility-First Revolution</h3>
+                                    <p class="project-description">Transforming the way developers style applications
+                                        with complete design flexibility.</p>
+                                    <div class="project-read-more">
+                                        <span>Read more</span>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="embla__slide">
+                        <a href="https://astro.build" class="project-card group">
+                            <div class="project-image-box">
+                                <img src="https://images.unsplash.com/photo-1536735561749-fc87494598cb?auto=format&fit=crop&q=80&w=1080"
+                                    alt="Astro" class="project-img">
+                                <div class="project-overlay"></div>
+                                <div class="project-content">
+                                    <h3 class="project-item-title">Astro: All-in-One Web Framework</h3>
+                                    <p class="project-description">Innovative 'Islands Architecture' for building faster
+                                        websites with rich interactivity.</p>
+                                    <div class="project-read-more">
+                                        <span>Read more</span>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="embla__slide">
+                        <a href="https://react.dev" class="project-card group">
+                            <div class="project-image-box">
+                                <img src="https://images.unsplash.com/photo-1548324215-9133768e4094?auto=format&fit=crop&q=80&w=1080"
+                                    alt="React" class="project-img">
+                                <div class="project-overlay"></div>
+                                <div class="project-content">
+                                    <h3 class="project-item-title">React: Component-Based UI</h3>
+                                    <p class="project-description">Continuing to shape modern web development with
+                                        reusable, maintainable code.</p>
+                                    <div class="project-read-more">
+                                        <span>Read more</span>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="embla__slide">
+                        <a href="https://nextjs.org" class="project-card group">
+                            <div class="project-image-box">
+                                <img src="https://images.unsplash.com/photo-1550070881-a5d71eda5800?auto=format&fit=crop&q=80&w=1080"
+                                    alt="Next.js" class="project-img">
+                                <div class="project-overlay"></div>
+                                <div class="project-content">
+                                    <h3 class="project-item-title">Next.js: The React Framework</h3>
+                                    <p class="project-description">The go-to framework for full-stack React applications
+                                        with automatic optimization.</p>
+                                    <div class="project-read-more">
+                                        <span>Read more</span>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-progress-container">
+            <div class="projects-progress-bar"></div>
+        </div>
+    </section>
+
+    <div style="height: 10rem;"></div> <!-- Spacing between sections -->
+
+
+    <!-- Phase E: Philosophy & About Me Section (Hybrid Triptych/Editorial) -->
+    <section id="philosophy-section">
+        <div id="philosophy-container">
+            <!-- Sidebar (Empty space at first) -->
+            <div class="about-sidebar"></div>
+
+            <!-- Center Column: The Primary Reveal -->
+            <div class="about-center">
+                <div id="liquid-philosophy-text">
+                    <span class="morph-text-1">MY PHILOSOPHY</span>
+                    <span class="morph-text-2">ABOUT ME</span>
+                </div>
+
+                <div id="philosophy-subtext">
+                    <p class="philosophy-line-1">I don't believe in <span class="accent-word">problems.</span></p>
+                    <p class="philosophy-line-2">I believe in <span class="accent-word">solutions.</span></p>
+                </div>
+
+                <!-- NEW: Integrated Editorial Card -->
+                <div id="editorial-card-wrapper">
+                    <div class="card-main-content">
+                        <div class="card-portrait-box">
+                            <img src="assets/img/maarten.png" alt="Maarten van der Leeuw" class="card-img">
+                        </div>
+                        <div class="card-info-box">
+                            <div class="card-name-group">
+                                <h2 class="card-first-name">MAARTEN</h2>
+                                <h2 class="card-last-name">VAN DER LEEUW</h2>
+                            </div>
+                            <div class="card-footer-row">
+                                <div class="card-bio-col">
+                                    <p class="card-description">
+                                        My experience spans <strong class="s1-bold">software engineering</strong>,
+                                        <strong class="s1-bold">cinematic drone filming</strong>, and <strong
+                                            class="s1-bold">baking traditional Dutch pies</strong>.
+                                        Though the fields vary, my standard is <strong
+                                            class="s2-bold">consistent</strong>—striving for <strong
+                                            class="s2-bold">perfection</strong> and
+                                        delivering <strong class="s2-bold">high-quality</strong> results in every
+                                        project.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Narrative Wing (Empty at first) -->
+            <div class="about-narrative"></div>
+        </div>
+    </section>
+
+    <!-- SVG Filters for Liquid Effect -->
+    <svg id="liquid-filters" class="hidden-svg">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                                                        0 1 0 0 0
+                                                                        0 0 1 0 0
+                                                                        0 0 0 255 -140" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Phase F: Contact Section (Architectural Card) -->
+    <section id="contact-section">
+        <div class="contact-card">
+            <!-- Decorative Plus Icons at Corners -->
+            <div class="plus-icon plus-top-left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </div>
+            <div class="plus-icon plus-top-right">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </div>
+            <div class="plus-icon plus-bottom-left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </div>
+            <div class="plus-icon plus-bottom-right">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </div>
+
+            <div class="contact-main-grid">
+                <!-- Info Section -->
+                <div class="contact-info-panel">
+                    <div class="contact-content-inner">
+                        <h2 class="contact-title">Connect With Me</h2>
+                        <p class="contact-description">
+                            Got a project in mind or something I can help you with? Get in touch.
+                        </p>
+
+                        <div class="contact-info-grid">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.21-2.21a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Phone</span>
+                                    <span class="contact-value">+31 (0) 6 12345678</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">hello@maarten.com</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Location</span>
+                                    <span class="contact-value">Hungary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Section (Placeholder for children in React) -->
+                <div class="contact-form-panel">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="simple-form">
+                        <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="hello@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="4" placeholder="Tell me about your project..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                    <div id="form-success" class="form-feedback hidden">
+                        <div class="success-icon">✓</div>
+                        <h3>Message Sent</h3>
+                        <p>I'll get back to you shortly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 400px White Spacing -->
+    <section style="height: 400px; background: white;"></section>
+
+
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="footer-name">MAARTEN VAN DER LEEUW</span>
+            </div>
+            <p class="footer-tagline">
+                Software Engineering • Cinematic Videography • Dutch Baking
+            </p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="Facebook" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="TikTok" class="social-link">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
+                    </svg>
+                </a>
+                <a href="mailto:hello@maarten.com" aria-label="Email" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                © 2026 Maarten van der Leeuw. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
