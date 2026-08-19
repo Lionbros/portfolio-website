@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>Video Projects — Maarten van der Leeuw</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+
+    <style>
+        .blog-hero__title .inner { display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
+        .blog-hero.is-in .blog-hero__title .inner { transform: translateY(0); }
+        .blog-hero__sub { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s; }
+        .blog-hero.is-in .blog-hero__sub { opacity: 1; transform: translateY(0); }
+        .no-animation .blog-hero__title .inner, .no-animation .blog-hero__sub { transform: none !important; opacity: 1 !important; transition: none !important; }
+        .blog-article__title a { color: var(--text); text-decoration: none; }
+        .blog-article__title a:hover { color: var(--accent); }
+    </style>
+
+    <script>
+        (function(){
+            var visited = sessionStorage.getItem('v');
+            if(visited) { document.documentElement.classList.add('no-animation'); }
+            else { sessionStorage.setItem('v','1'); }
+            document.addEventListener('DOMContentLoaded', function(){
+                var h = document.querySelector('.blog-hero');
+                if(h) { if(visited) { h.classList.add('is-in'); } else { setTimeout(function(){ h.classList.add('is-in'); }, 100); } }
+            });
+        })();
+    </script>
+</head>
+<body>
+
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
+
+<a href="../../contact.html" class="floating-cta">
+    <span class="cta-label" data-short="Talk">Let's Talk</span>
+    <span class="cta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+</a>
+
+<nav class="top-nav">
+    <div class="nav-left"><div class="nav-status"><span class="status-dot"></span><span class="status-text">Available · Budapest</span></div></div>
+    <div class="nav-right">
+        <div class="lang-toggle"><button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button></div>
+        <a href="../../index.html#projects-section" class="nav-link">Work</a>
+        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+</nav>
+
+<header class="blog-hero">
+    <div class="blog-hero__meta"><span>Collection</span><span>Film &amp; Motion</span></div>
+    <h1 class="blog-hero__title"><span class="line"><span class="inner">Video <em>Projects</em></span></span></h1>
+    <p class="blog-hero__sub">Films and motion work - from client hero videos to a self-directed short film, all planned, shot and edited by me.</p>
+</header>
+
+<main class="blog-body">
+    <section class="blog-section" data-reveal>
+        <span class="blog-section__label">Section 01</span>
+        <h2 class="blog-section__title">Short <em>Films</em></h2>
+        <div class="blog-articles">
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="camperplaats-zsana-landing-page-video/index.html">Camperplaats Zsana - Landing Page Video</a></h3>
+                <p class="blog-article__desc">A cinematic homepage hero video for the campsite, shot, edited, graded and web-encoded.</p>
+                <div class="blog-article__tools"><strong>Tools:</strong> Video production, cinematography, editing, colour grading, MP4/WebM</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="ib-personal-project/index.html">IB Diploma - Personal Project Short Film</a></h3>
+                <p class="blog-article__desc">A short film written, directed and edited for the IB Personal Project, with deliberate pacing and structure.</p>
+                <div class="blog-article__tools"><strong>Tools:</strong> Video production, screenwriting, direction, editing, grading</div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand"><h3>LEEUW.</h3><p>Software. Film. Baking. All from scratch.</p></div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="../../index.html#projects-section">Selected Work</a></li>
+                <li><a href="../../index.html#about-section">About Me</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+31 (0) 6 12345678</li>
+                <li>Budapest, 1051 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+    </div>
+</footer>
+
+<svg style="position:absolute;width:0;height:0;pointer-events:none;">
+    <defs><filter id="threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 255 -140"/></filter></defs>
+</svg>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

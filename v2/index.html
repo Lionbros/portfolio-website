@@ -2,43 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maarten van der Leeuw — Software, Cinema & Craft</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>Maarten van der Leeuw</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind (just for the loader, keeps things snappy) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- Inline hero entrance animations (from Final LP) -->
+    <style>
+        .hero-title .inner {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1.2s cubic-bezier(.22, 1, .36, 1);
+        }
+        #hero-container.is-in .hero-title .inner {
+            transform: translateY(0);
+        }
+        .hero-meta {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+        #hero-container.is-in .hero-meta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .no-animation .hero-title .inner,
+        .no-animation .hero-meta {
+            transform: none !important;
+            opacity: 1 !important;
+            transition: none !important;
+        }
+
+        #gateways-section { margin-top: 0 !important; }
+
+        /* Section title line reveals */
+        .section-title .line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+        .section-title .inner {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1s cubic-bezier(.22, 1, .36, 1);
+            transition-delay: calc(var(--i, 0) * 100ms);
+        }
+        section.is-in .section-title .inner { transform: translateY(0); }
+    </style>
+
+    <!-- sessionStorage check: skip entrance on return visits -->
+    <script>
+        (function(){
+            var visited = sessionStorage.getItem('v');
+            if(visited) {
+                document.documentElement.classList.add('no-animation');
+            } else {
+                sessionStorage.setItem('v','1');
+            }
+            document.addEventListener('DOMContentLoaded', function(){
+                var c = document.getElementById('hero-container');
+                if(c) {
+                    if(visited) {
+                        c.classList.add('is-in');
+                    } else {
+                        setTimeout(function(){ c.classList.add('is-in'); }, 100);
+                    }
+                }
+            });
+        })();
+    </script>
 </head>
 <body>
 
-<!-- ─── Themed Loader ─── -->
-<div id="site-loader" class="fixed inset-0 z-[10000] bg-white flex flex-col items-center justify-center pointer-events-auto opacity-100">
-    <div class="overflow-hidden mb-4">
-        <h2 class="loader-text">MAARTEN</h2>
-    </div>
-    <div class="loader-bar-track">
-        <div class="loader-bar"></div>
-    </div>
-</div>
-
-<!-- ─── Custom Cursor (Desktop Enhancement) ─── -->
-<div id="custom-cursor" style="position:fixed;top:0;left:0;pointer-events:none;z-index:20000;mix-blend-mode:difference;opacity:0;">
-    <div class="cursor-dot" style="position:absolute;width:6px;height:6px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);"></div>
-    <div class="cursor-circle" style="position:absolute;width:40px;height:40px;border:1px solid rgba(255,255,255,0.4);border-radius:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;">
-        <span class="cursor-text" style="font-size:7px;font-weight:900;letter-spacing:0.1em;opacity:0;transition:opacity 0.3s;">VIEW</span>
-    </div>
-</div>
+<!-- ─── Overlays ─── -->
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
 
 <!-- ─── Floating CTA ─── -->
-<a href="#contact-section" class="floating-cta" onclick="lenis.scrollTo('#contact-section')">
-    <span class="cta-label">Let's Talk</span>
+<a href="#contact-section" class="floating-cta">
+    <span class="cta-label" data-short="Talk">Let's Talk</span>
     <span class="cta-icon">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -46,115 +92,61 @@
     </span>
 </a>
 
-<!-- ─── Project Quick-View Modal ─── -->
-<div class="project-modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-container">
-        <button class="modal-close" aria-label="Close">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-        </button>
-        <div class="modal-layout">
-            <div class="modal-image-side">
-                <img src="" alt="" id="modal-img">
-            </div>
-            <div class="modal-content-side">
-                <span class="modal-tag">Project Details</span>
-                <h2 class="modal-title" id="modal-title"></h2>
-                <p class="modal-description" id="modal-desc"></p>
-                <div class="modal-specs">
-                    <div>
-                        <span class="spec-label">Year</span>
-                        <span class="spec-value">2025</span>
-                    </div>
-                    <div>
-                        <span class="spec-label">Category</span>
-                        <span class="spec-value">Technical</span>
-                    </div>
-                </div>
-            </div>
+<!-- ─── Navigation ─── -->
+<nav class="top-nav">
+    <div class="nav-left">
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Available · Budapest</span>
         </div>
     </div>
-</div>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button>
+            <button class="lang-btn">NL</button>
+            <button class="lang-btn">HU</button>
+        </div>
+        <a href="#projects-section" class="nav-link">Work</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+</nav>
 
 <!-- ─── Hero ─── -->
 <div id="hero-container">
     <div id="header-bg"></div>
 
-    <!-- Navigation -->
-    <nav id="main-nav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="#gateways-section" class="nav-link">Videography</a>
-                <a href="#gateways-section" class="nav-link">Taarten van Maarten</a>
-                <a href="#gateways-section" class="nav-link">Solutions</a>
-            </div>
-            <div class="nav-center">
-                <a href="#" id="home-link" style="text-decoration:none;color:inherit;pointer-events:auto;">
-                    <span style="font-weight:900;font-size:1.2rem;letter-spacing:-0.03em;text-transform:uppercase;">MAARTEN</span>
-                </a>
-            </div>
-            <div class="nav-right">
-                <a href="#about-section" class="nav-link">About</a>
-                <a href="#projects-section" class="nav-link">Work</a>
-                <a href="#contact-section" class="nav-cta">
-                    <span>Let's Talk</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
+    <!-- Hero Content (from Final LP) -->
+    <div class="hero-meta">
+        <div class="hero-slogan">
+            <span>Dutch Quality</span>
+            <span>Based in Hungary</span>
         </div>
-    </nav>
-
-    <!-- Hero Content -->
-    <div id="hero-text-group">
-        <h1 id="hero-text">MAARTEN VAN DER LEEUW</h1>
-
-        <div id="hero-slogan">
-            <div class="slogan-line slogan-line-1">
-                <span class="flag-pill dutch-pill"></span>
-                <span class="slogan-text">DUTCH QUALITY</span>
-            </div>
-            <div class="slogan-line slogan-line-2">
-                <span class="flag-pill hungary-pill"></span>
-                <span class="slogan-base">BASED IN HUNGARY</span>
-            </div>
-        </div>
-
-        <!-- Language Toggle -->
-        <div id="hero-lang-toggle">
-            <button class="lang-btn active">EN</button>
-            <button class="lang-btn">NL</button>
-            <button class="lang-btn">HU</button>
-        </div>
-
-        <div id="hero-button-wrapper">
-            <button class="work-button" onclick="lenis.scrollTo('#gateways-section')">
-                See What I Do
-            </button>
-        </div>
+        <span>v2.0.1 · 2024</span>
     </div>
-</div>
 
-<!-- ─── Scroll Spacer (for hero animation) ─── -->
-<div class="spacer"></div>
+    <h1 class="hero-title" id="hero-title">
+        <span class="line"><span class="inner">MAARTEN</span></span>
+        <span class="line"><span class="inner">VAN DER <em>LEEUW</em></span></span>
+    </h1>
+
+
+</div>
 
 <!-- ═══════════════════════════════════════════ -->
 <!-- ─── SECTION: What I Do (Gateways) ─────── -->
 <!-- ═══════════════════════════════════════════ -->
 <section id="gateways-section" class="section">
+    <div class="deco deco--cross" style="bottom:2rem;left:2rem;"></div>
 
-    <div class="gateway gateway-videography" onclick="lenis.scrollTo('#contact-section')">
+    <div class="gateway gateway-videography" onclick="window.location.href='videography.html'">
         <div class="gateway-bg"></div>
         <div class="gateway-overlay"></div>
         <div class="gateway-content">
             <span class="gateway-number">01 /</span>
             <h2 class="gateway-title">Videography</h2>
-            <p class="gateway-desc">Cinematic drone films, corporate videos, and event coverage — shot with a filmmaker's eye.</p>
+            <p class="gateway-desc">I shoot drone footage, corporate videos, and events. Every project is framed and edited to tell the story clearly and professionally.</p>
             <span class="gateway-arrow">
-                <span>Let's Talk</span>
+                <span>See More</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -162,15 +154,15 @@
         </div>
     </div>
 
-    <div class="gateway gateway-taarten" onclick="lenis.scrollTo('#contact-section')">
+    <div class="gateway gateway-taarten" onclick="window.location.href='taarten.html'">
         <div class="gateway-bg"></div>
         <div class="gateway-overlay"></div>
         <div class="gateway-content">
             <span class="gateway-number">02 /</span>
             <h2 class="gateway-title">Taarten van Maarten</h2>
-            <p class="gateway-desc">Traditional Dutch pies — appeltaart, peperkoek, kruimeltaart. Baked fresh, local delivery in Hungary.</p>
+            <p class="gateway-desc">I bake traditional Dutch pies including appeltaart, peperkoek, and kruimeltaart. Everything is made fresh from scratch. Local delivery across Hungary.</p>
             <span class="gateway-arrow">
-                <span>Let's Talk</span>
+                <span>See More</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -178,15 +170,15 @@
         </div>
     </div>
 
-    <div class="gateway gateway-tech" onclick="lenis.scrollTo('#contact-section')">
+    <div class="gateway gateway-tech" onclick="window.location.href='solutions.html'">
         <div class="gateway-bg"></div>
         <div class="gateway-overlay"></div>
         <div class="gateway-content">
             <span class="gateway-number">03 /</span>
             <h2 class="gateway-title">Technical Solutions</h2>
-            <p class="gateway-desc">Custom software, process automations, and web tools — built to solve real problems.</p>
+            <p class="gateway-desc">I build custom software, automations, and web tools. I focus on practical solutions that deliver real results for my clients.</p>
             <span class="gateway-arrow">
-                <span>Let's Talk</span>
+                <span>See More</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -200,32 +192,65 @@
 <!-- ─── SECTION: How I Work (Process) ─────── -->
 <!-- ═══════════════════════════════════════════ -->
 <section id="process-section" class="section">
-    <span class="section-label">How I Work</span>
-    <h2 class="section-title">From Idea to Done</h2>
-    <p style="color:var(--text-muted);font-size:1rem;max-width:600px;line-height:1.6;margin-bottom:2rem;">
-        Whether it's software, a film, or a pie — my process stays the same. Here's what you can expect when we work together.
-    </p>
+    <div class="deco deco--dots" style="top:6rem;right:3rem;"></div>
+    <div class="deco deco--ring" style="bottom:4rem;left:2rem;"></div>
+    <div class="process-header">
+        <h2 class="section-title process-title"><span class="line"><span class="inner">From Idea to <em>Done</em></span></span></h2>
+        <p class="process-subtitle">
+            Software, film, or baking. The process is the same. Here is what you can expect when we work together.
+        </p>
+    </div>
 
-    <div class="process-grid">
-        <div class="process-step">
-            <div class="process-num">01</div>
-            <h3 class="process-step-title">Discovery</h3>
-            <p class="process-step-desc">We talk about what you need, your goals, and your vision. No jargon, no pressure — just an honest conversation.</p>
+    <div class="process-wrapper">
+        <div class="timeline">
+            <div class="timeline-track">
+                <div class="timeline-track-fill"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <span class="timeline-icon-text">01</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Discovery</h3>
+                    <p class="timeline-desc">We talk about what you need and what you want to achieve. Understanding the problem is the most important step. No jargon, just a clear conversation.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <span class="timeline-icon-text">02</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Planning</h3>
+                    <p class="timeline-desc">I put together a plan with the solution, timeline, and cost. No surprises. Once you approve we move forward.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <span class="timeline-icon-text">03</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Execution</h3>
+                    <p class="timeline-desc">I build, film, or bake depending on the project. I keep you updated throughout and changes are easy. Just let me know what you need.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <span class="timeline-icon-text">04</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Delivery</h3>
+                    <p class="timeline-desc">You receive the finished product and I follow up to make sure everything works. If anything needs adjusting I take care of it.</p>
+                </div>
+            </div>
         </div>
-        <div class="process-step">
-            <div class="process-num">02</div>
-            <h3 class="process-step-title">Planning</h3>
-            <p class="process-step-desc">I map out the solution, timeline, and cost. You get a clear plan with no surprises. You approve, we move forward.</p>
-        </div>
-        <div class="process-step">
-            <div class="process-num">03</div>
-            <h3 class="process-step-title">Execution</h3>
-            <p class="process-step-desc">I build, film, or bake. You get regular updates so you're never in the dark. Changes are easy — just say the word.</p>
-        </div>
-        <div class="process-step">
-            <div class="process-num">04</div>
-            <h3 class="process-step-title">Delivery</h3>
-            <p class="process-step-desc">You receive a polished, finished product. I follow up to make sure everything works — and stays working.</p>
+
+        <div class="process-visual">
+            <span class="process-visual-label">Placeholder</span>
+            <span class="process-visual-big-num">04</span>
         </div>
     </div>
 </section>
@@ -234,159 +259,76 @@
 <!-- ─── SECTION: Featured Work ────────────── -->
 <!-- ═══════════════════════════════════════════ -->
 <section id="projects-section" class="section">
-    <div class="projects-header">
-        <h2 class="section-title" style="margin-bottom:0;">Featured Work</h2>
-        <div class="projects-nav">
-            <button id="projects-prev" class="nav-btn" aria-label="Previous">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-            </button>
-            <button id="projects-next" class="nav-btn" aria-label="Next">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h2 class="section-title"><span class="line"><span class="inner">Featured <em>Work</em></span></span></h2>
+            <p class="gallery-subtitle">Client projects and personal work — websites, video, and baked goods.</p>
         </div>
-    </div>
 
-    <div class="embla-projects">
-        <div class="embla__viewport">
-            <div class="embla__container">
-
-                <!-- Project 1: Real project -->
-                <div class="embla__slide">
-                    <div class="project-card">
-                        <div class="project-image-box">
-                            <img src="../assets/img/Automated%20Bookkeeping%20image.png" alt="Automated Bookkeeping" class="project-img">
-                            <div class="project-overlay"></div>
-                            <div class="project-content">
-                                <div class="project-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-                                </div>
-                                <h3 class="project-item-title">Automated Bookkeeping in Excel</h3>
-                                <p class="project-description">Built an automation that parses WooCommerce order emails and fills structured Excel sheets with one click.</p>
-                                <span class="project-read-more">
-                                    <span>View Details</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+        <div class="circular-gallery" id="circular-gallery" aria-label="Featured work projects">
+            <noscript>
+                <div class="circular-gallery__fallback">
+                    <img src="assets/img/Camperplaats%20Zsana%20Cover.png" alt="Camperplaats Zsana">
+                    <img src="assets/img/Camperplaats%20Zsana%20VIDEO%20Cover.png" alt="Camperplaats Zsana Cover Video">
+                    <img src="assets/img/Plattegrond%20Generator%20Cover.png" alt="Plattegrond Generator">
+                    <img src="assets/img/Suzhou%20Center%20Cover.png" alt="Suzhou Center">
+                    <img src="assets/img/Worstenbroodjes%20Cover.jpg" alt="Worstenbroodjes">
+                    <img src="https://images.unsplash.com/photo-1548324215-9133768e4094?auto=format&fit=crop&q=80&w=1080" alt="Appeltaart">
                 </div>
-
-                <!-- Project 2: Placeholder -->
-                <div class="embla__slide">
-                    <div class="project-card">
-                        <div class="project-image-box">
-                            <img src="https://images.unsplash.com/photo-1551250928-e4a05afaed1e?auto=format&fit=crop&q=80&w=1080" alt="Project" class="project-img">
-                            <div class="project-overlay"></div>
-                            <div class="project-content">
-                                <div class="project-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                                </div>
-                                <h3 class="project-item-title">Your Project Here</h3>
-                                <p class="project-description">This could be your next project. Let's build something great together.</p>
-                                <span class="project-read-more">
-                                    <span>Get in Touch</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Drone/Videography placeholder -->
-                <div class="embla__slide">
-                    <div class="project-card">
-                        <div class="project-image-box">
-                            <img src="https://images.unsplash.com/photo-1536735561749-fc87494598cb?auto=format&fit=crop&q=80&w=1080" alt="Videography" class="project-img">
-                            <div class="project-overlay"></div>
-                            <div class="project-content">
-                                <div class="project-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                                </div>
-                                <h3 class="project-item-title">Cinematic Drone Reel</h3>
-                                <p class="project-description">Aerial footage showcasing landscapes, properties, and events from a unique perspective.</p>
-                                <span class="project-read-more">
-                                    <span>View Details</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Bakery placeholder -->
-                <div class="embla__slide">
-                    <div class="project-card">
-                        <div class="project-image-box">
-                            <img src="https://images.unsplash.com/photo-1548324215-9133768e4094?auto=format&fit=crop&q=80&w=1080" alt="Bakery" class="project-img">
-                            <div class="project-overlay"></div>
-                            <div class="project-content">
-                                <div class="project-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                                </div>
-                                <h3 class="project-item-title">Dutch Apple Pie</h3>
-                                <p class="project-description">Traditional appeltaart baked fresh with love. Available for local delivery in Hungary.</p>
-                                <span class="project-read-more">
-                                    <span>Order Now</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            </noscript>
         </div>
+
+        <p class="gallery-hint">Scroll or drag &middot; Click a project to view it</p>
     </div>
 
-    <div class="projects-progress-container">
-        <div class="projects-progress-bar"></div>
-    </div>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
 <!-- ─── SECTION: Trust & Stats ────────────── -->
 <!-- ═══════════════════════════════════════════ -->
 <section id="trust-section" class="section">
+    <div class="deco deco--cross" style="top:7rem;left:3rem;"></div>
+    <div class="deco deco--dash" style="bottom:6rem;right:4rem;"></div>
     <div class="trust-container">
+
+        <div class="section-header">
+            <h2 class="section-title"><span class="line"><span class="inner">Track <em>Record</em></span></span></h2>
+        </div>
 
         <!-- Stats Counters -->
         <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number" data-target="12" data-suffix="+">0</div>
-                <div class="stat-label">Years Experience</div>
+            <div class="stat-item" data-reveal>
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Disciplines</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="50" data-suffix="+">0</div>
+            <div class="stat-item" data-reveal>
+                <div class="stat-number" data-target="13">0</div>
                 <div class="stat-label">Projects Delivered</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="3">0</div>
-                <div class="stat-label">Countries Lived In</div>
-            </div>
-            <div class="stat-item">
+            <div class="stat-item" data-reveal>
                 <div class="stat-number" data-target="100" data-suffix="%">0</div>
                 <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item" data-reveal>
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Countries Lived In</div>
             </div>
         </div>
 
         <!-- Punchy Claim Splash -->
-        <div class="claim-splash">
+        <div class="claim-splash" data-reveal>
             <p>I don't believe in <span class="highlight">problems.</span><br>I believe in <span class="highlight">solutions.</span></p>
         </div>
 
         <!-- Testimonials -->
         <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Maarten built a complete workflow automation that saved us hours every week. He explained everything in plain language — no tech nonsense. Highly recommend."</p>
+            <div class="testimonial-card" data-reveal>
+                <p class="testimonial-text">"Maarten built an automation for our bookkeeping that saves us hours every week. He explained everything clearly without unnecessary jargon. I highly recommend his work."</p>
                 <div class="testimonial-author">— Client, E-commerce</div>
                 <div class="testimonial-role">Bookkeeping Automation</div>
             </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The drone footage was stunning. Maarten captured angles I didn't even know existed. Professional from start to finish."</p>
+            <div class="testimonial-card" data-reveal>
+                <p class="testimonial-text">"The drone footage was excellent. Maarten captured angles we did not know were possible and was professional throughout the entire project."</p>
                 <div class="testimonial-author">— Client, Real Estate</div>
                 <div class="testimonial-role">Property Aerial Tour</div>
             </div>
@@ -402,57 +344,24 @@
     <div class="about-container">
         <div class="about-layout">
 
-            <div class="about-portrait">
+            <div class="about-portrait" data-reveal>
                 <img src="../assets/img/maarten.png" alt="Maarten van der Leeuw">
             </div>
 
             <div class="about-bio">
-                <h2>Maarten van der Leeuw</h2>
-                <div class="subhead">Dutch Quality. Based in Hungary.</div>
+                <h2 class="section-title"><span class="line"><span class="inner">Maarten van der</span></span><span class="line"><span class="inner"><em>Leeuw.</em></span></span></h2>
 
                 <p>
-                    I'm a Dutch software engineer, cinematographer, and baker — currently based in Hungary.
-                    I know that sounds like three different careers. But to me, they're the same thing: making things that matter, and making them well.
+                    I am a Dutch software engineer, filmmaker, and baker based in Hungary. I know those sound like three different worlds, but they all come from the same place: I care about quality and I deliver on it.
                 </p>
                 <p>
-                    Whether I'm writing code, flying a drone, or baking an appeltaart, my standard is the same:
-                    no shortcuts, no compromises, just quality work that I'm proud to put my name on.
+                    I build software, shoot film, and bake Dutch pies. My approach is the same in every medium: understand what is needed, execute it well, and make sure the result is something I stand behind.
                 </p>
                 <p>
-                    I help businesses, creators, and families get things done — whether that's automating their workflow,
-                    capturing their project from the air, or bringing a taste of the Netherlands to their table in Hungary.
+                    I work with businesses, creators, and families. Whether it is automating a workflow, filming a property from above, or baking an appeltaart for your table in Hungary, I treat every project with the same standard of care.
                 </p>
 
                 <!-- Personal Widgets (hellohello-inspired) -->
-                <div class="about-personal-widgets">
-                    <div class="personal-widget">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <div>
-                            <span class="widget-label">Currently Reading</span>
-                            <span class="widget-value">Deep Work — Cal Newport</span>
-                        </div>
-                    </div>
-                    <div class="personal-widget">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                        </div>
-                        <div>
-                            <span class="widget-label">Latest Gear</span>
-                            <span class="widget-value">DJI Mavic 3 Pro</span>
-                        </div>
-                    </div>
-                    <div class="personal-widget">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                        </div>
-                        <div>
-                            <span class="widget-label">Latest Bake</span>
-                            <span class="widget-value">Appeltaart met Kruimel</span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -463,101 +372,46 @@
 <!-- ─── SECTION: Contact ──────────────────── -->
 <!-- ═══════════════════════════════════════════ -->
 <section id="contact-section" class="section">
-    <div class="contact-card-simple">
-
-        <!-- Warm pre-form copy -->
-        <div class="contact-pre-form">
-            <span class="section-label" style="margin-bottom:0.5rem;">Let's Talk</span>
-            <p>Every project I've worked on started with a message like this one. Just tell me what you're building — no need to polish it.</p>
+    <div class="deco deco--dots" style="top:5rem;right:2rem;"></div>
+    <div class="deco deco--triangle" style="bottom:8rem;left:3rem;opacity:0.05;"></div>
+    <div class="contact-grid">
+        <div class="contact-info" data-reveal>
+            <h2 class="section-title"><span class="line"><span class="inner">Let's build something <em>together.</em></span></span></h2>
+            <div class="contact-info-item"><span>EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
+            <div class="contact-info-item"><span>PHONE</span><span>+31 (0) 6 12345678</span></div>
+            <div class="contact-info-item"><span>LOCATION</span><span>Budapest, Hungary</span></div>
         </div>
 
-        <div class="contact-grid">
-            <!-- Form -->
-            <div>
-                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="simple-form">
-                    <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
-
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <span class="field-hint">First name is fine. Keeps it human.</span>
-                        <input type="text" name="name" id="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <span class="field-hint">The real one. I won't spam you.</span>
-                        <input type="email" name="email" id="email" placeholder="hello@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">What are you looking for?</label>
-                        <span class="field-hint">Pick one, or tell me in the message.</span>
-                        <select name="service" id="service" style="padding:0.9rem 1rem;background:#fafafa;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:0.9rem;">
-                            <option value="">Not sure yet — let's talk</option>
-                            <option value="videography">Videography / Drone</option>
-                            <option value="taarten">Taarten van Maarten</option>
-                            <option value="tech">Technical Solutions</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <span class="field-hint">What's on your mind? No need to overthink it.</span>
-                        <textarea name="message" id="message" rows="4" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-
-                <div id="form-success" class="hidden">
-                    <div class="success-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path d="M20 6L9 17l-5-5"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size:1.5rem;font-weight:900;text-transform:uppercase;margin-bottom:0.5rem;">Message Sent</h3>
-                    <p style="color:var(--text-muted);">Thanks! I'll get back to you within 24 hours.</p>
-                </div>
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-input" placeholder="Your name" required>
             </div>
-
-            <!-- Contact Info -->
-            <div class="contact-info-list">
-                <div class="contact-info-item">
-                    <div class="contact-info-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.21-2.21a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
-                    <div>
-                        <span class="contact-info-label">Phone</span>
-                        <span class="contact-info-value">+31 (0) 6 12345678</span>
-                    </div>
-                </div>
-                <div class="contact-info-item">
-                    <div class="contact-info-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </div>
-                    <div>
-                        <span class="contact-info-label">Email</span>
-                        <span class="contact-info-value">hello@maarten.com</span>
-                    </div>
-                </div>
-                <div class="contact-info-item">
-                    <div class="contact-info-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    </div>
-                    <div>
-                        <span class="contact-info-label">Location</span>
-                        <span class="contact-info-value">Hungary</span>
-                    </div>
-                </div>
-                <div class="contact-info-item">
-                    <div class="contact-info-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
-                    <div>
-                        <span class="contact-info-label">Languages</span>
-                        <span class="contact-info-value">NL &middot; EN &middot; HU</span>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-input" placeholder="hello@example.com" required>
             </div>
+            <div class="form-group">
+                <label class="form-label">Service</label>
+                <select name="service" class="form-select">
+                    <option value="">Select an option...</option>
+                    <option value="videography">Videography / Drone</option>
+                    <option value="taarten">Taarten van Maarten</option>
+                    <option value="tech">Technical Solutions</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Brief</label>
+                <textarea name="message" class="form-textarea" placeholder="Tell me what you need..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <div id="form-success" class="hidden">
+            <div class="success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Message Sent</h3>
+            <p>Thanks for reaching out. I will respond within 24 hours.</p>
         </div>
-
     </div>
 </section>
 
@@ -566,30 +420,35 @@
 <!-- ═══════════════════════════════════════════ -->
 <footer class="main-footer">
     <div class="footer-content">
-        <div class="footer-name">Maarten van der Leeuw</div>
-        <p class="footer-tagline">
-            Software Engineering &middot; Cinematic Videography &middot; Dutch Baking
-        </p>
-        <div class="footer-socials">
-            <a href="#" aria-label="Instagram" class="social-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube" class="social-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok" class="social-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" class="social-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="mailto:hello@maarten.com" aria-label="Email" class="social-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </a>
+        <div class="footer-brand">
+            <h3>LEEUW.</h3>
+            <p>Software. Film. Baking. All from scratch.</p>
         </div>
-        <div class="footer-bottom">
-            <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All rights reserved.</div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="#gateways-section">Disciplines</a></li>
+                <li><a href="#process-section">Process</a></li>
+                <li><a href="#projects-section">Selected Work</a></li>
+                <li><a href="#about-section">About Me</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
         </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+31 (0) 6 12345678</li>
+                <li>Budapest, 1051 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top" data-cursor-hover>
+            <span>Back to Top</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
     </div>
 </footer>
 
@@ -603,11 +462,10 @@
 </svg>
 
 <!-- ─── Scripts ─── -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/circular-gallery.js"></script>
 
 </body>
 </html>

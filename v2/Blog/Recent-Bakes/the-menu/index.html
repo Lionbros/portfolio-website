@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>The Menu (Recent Bakes & Bespoke Orders) — Maarten van der Leeuw</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/blog.css">
+    <link rel="stylesheet" href="../../../css/blog-article.css">
+
+    <style>
+        .article-hero__title .inner { display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
+        .article-hero.is-in .article-hero__title .inner { transform: translateY(0); }
+        .article-hero__meta { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s; }
+        .article-hero.is-in .article-hero__meta { opacity: 1; transform: translateY(0); }
+        .no-animation .article-hero__title .inner, .no-animation .article-hero__meta { transform: none !important; opacity: 1 !important; transition: none !important; }
+    </style>
+
+    <script>
+        (function(){
+            var visited = sessionStorage.getItem('v');
+            if(visited) { document.documentElement.classList.add('no-animation'); }
+            else { sessionStorage.setItem('v','1'); }
+            document.addEventListener('DOMContentLoaded', function(){
+                var h = document.querySelector('.article-hero');
+                if(h) { if(visited) { h.classList.add('is-in'); } else { setTimeout(function(){ h.classList.add('is-in'); }, 100); } }
+            });
+        })();
+    </script>
+</head>
+<body>
+
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
+
+<a href="../../../contact.html" class="floating-cta">
+    <span class="cta-label" data-short="Talk">Let's Talk</span>
+    <span class="cta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+</a>
+
+<nav class="top-nav">
+    <div class="nav-left"><div class="nav-status"><span class="status-dot"></span><span class="status-text">Available · Budapest</span></div></div>
+    <div class="nav-right">
+        <div class="lang-toggle"><button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button></div>
+        <a href="../../../index.html#projects-section" class="nav-link">Work</a>
+        <a href="../../../contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+</nav>
+
+<header class="article-hero">
+    <div class="article-breadcrumb">
+        <a href="../../../index.html">Home</a>
+        <span class="crumb-sep">/</span>
+        <a href="../index.html">Recent Bakes</a>
+    </div>
+    <h1 class="article-hero__title"><span class="line"><span class="inner">The Menu (Recent Bakes & Bespoke Orders)</span></span></h1>
+    <div class="article-hero__meta"><span><strong>Category:</strong> Baking</span><span><strong>Order:</strong> custom & seasonal</span></div>
+</header>
+
+<!-- Cover image placeholder: put your image file in this folder and uncomment / point the src -->
+<div class="article-cover">
+    <figure class="img-slot">
+        <!-- <img src="cover.jpg" alt="Display of fresh baked goods"> -->
+        <span>Cover image · drop your image here</span>
+    </figure>
+</div>
+
+<main class="article-body">
+<h2>Baked the Way It Should Be</h2>
+<p>Everything on this page is baked by me, from scratch, in my own kitchen — no mixes, no shortcuts. This is a living menu updated with whatever I have baked recently, plus a range of bespoke orders I can make to order: everything from hearty breads to celebration cakes.</p>
+
+<h2>From My Oven</h2>
+<p>Recent bakes typically include classic white and wholewheat loaves, doughnuts, and seasonal goods using fresh fruit. I bake small batches so the quality stays high and nothing sits around.</p>
+
+<h2>Bespoke Orders</h2>
+<p>For special occasions I take custom cake orders — designed to your theme, taste and serving size. Get in touch with what you have in mind and I'll bake it for you.</p>
+
+    <div class="article-tools">
+        <div class="tools-block">
+            <span class="tools-label">Languages &amp; Tools</span>
+            <span class="tools-value">Baking (from scratch), sourdough & yeast breads, doughnuts & pastries, custom celebration cakes, dietary-aware recipes</span>
+        </div>
+    </div>
+</main>
+
+<!-- Gallery placeholder: add your images here and point the src attributes -->
+<div class="article-gallery">
+    <div class="article-gallery__title">Gallery</div>
+    <div class="article-gallery__grid">
+        <figure class="img-slot"><!-- <img src="photo-1.jpg" alt="..."> --><span>Photo 1 · drop your image here</span></figure>
+        <figure class="img-slot"><!-- <img src="photo-2.jpg" alt="..."> --><span>Photo 2 · drop your image here</span></figure>
+        <figure class="img-slot"><!-- <img src="photo-3.jpg" alt="..."> --><span>Photo 3 · drop your image here</span></figure>
+    </div>
+</div>
+
+<nav class="article-footer-nav">
+    <a href="../index.html">← Back to Recent Bakes</a>
+</nav>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand"><h3>LEEUW.</h3><p>Software. Film. Baking. All from scratch.</p></div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="../../../index.html#projects-section">Selected Work</a></li>
+                <li><a href="../../../index.html#about-section">About Me</a></li>
+                <li><a href="../../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+31 (0) 6 12345678</li>
+                <li>Budapest, 1051 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+    </div>
+</footer>
+
+<svg style="position:absolute;width:0;height:0;pointer-events:none;">
+    <defs><filter id="threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 255 -140"/></filter></defs>
+</svg>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="../../../js/main.js"></script>
+</body>
+</html>

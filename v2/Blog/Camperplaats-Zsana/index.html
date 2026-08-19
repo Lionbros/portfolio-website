@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>Camperplaats Zsana — Maarten van der Leeuw</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+
+    <style>
+        .blog-hero__title .inner { display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
+        .blog-hero.is-in .blog-hero__title .inner { transform: translateY(0); }
+        .blog-hero__sub { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s; }
+        .blog-hero.is-in .blog-hero__sub { opacity: 1; transform: translateY(0); }
+        .no-animation .blog-hero__title .inner, .no-animation .blog-hero__sub { transform: none !important; opacity: 1 !important; transition: none !important; }
+        .blog-article__title a { color: var(--text); text-decoration: none; }
+        .blog-article__title a:hover { color: var(--accent); }
+    </style>
+
+    <script>
+        (function(){
+            var visited = sessionStorage.getItem('v');
+            if(visited) { document.documentElement.classList.add('no-animation'); }
+            else { sessionStorage.setItem('v','1'); }
+            document.addEventListener('DOMContentLoaded', function(){
+                var h = document.querySelector('.blog-hero');
+                if(h) { if(visited) { h.classList.add('is-in'); } else { setTimeout(function(){ h.classList.add('is-in'); }, 100); } }
+            });
+        })();
+    </script>
+</head>
+<body>
+
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
+
+<a href="../../contact.html" class="floating-cta">
+    <span class="cta-label" data-short="Talk">Let's Talk</span>
+    <span class="cta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+</a>
+
+<nav class="top-nav">
+    <div class="nav-left"><div class="nav-status"><span class="status-dot"></span><span class="status-text">Available · Budapest</span></div></div>
+    <div class="nav-right">
+        <div class="lang-toggle"><button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button></div>
+        <a href="../../index.html#projects-section" class="nav-link">Work</a>
+        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+</nav>
+
+<header class="blog-hero">
+    <div class="blog-hero__meta"><span>Client Project</span><span>Web, SEO, Branding, Photo &amp; Video</span></div>
+    <h1 class="blog-hero__title"><span class="line"><span class="inner">Camperplaats <em>Zsana</em></span></span></h1>
+    <p class="blog-hero__sub">The complete digital presence for a small camper place on the Hungarian puszta — from a trilingual website and international SEO to branding, photography and film. Each project below opens into its own article.</p>
+</header>
+
+<main class="blog-body">
+    <section class="blog-section" data-reveal>
+        <span class="blog-section__label">Section 01</span>
+        <h2 class="blog-section__title">Web &amp; <em>Development</em></h2>
+        <div class="blog-articles">
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="trilingual-camperplaats-website/index.html">Trilingual Camperplaats Website</a></h3>
+                <p class="blog-article__desc">A full end-to-end rebuild: trilingual (NL/DE/HU) campsite website with clean routing and a bookable, professional presence.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Joomla, PHP, HTML5, CSS3, JavaScript, LiteSpeed, TLS, MySQL</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="automated-multilingual-pipeline/index.html">Automated Multilingual Translation Pipeline</a></h3>
+                <p class="blog-article__desc">A pipeline that translates every website string NL to DE and HU in one pass, with diffs and translation memory.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Python, Google Colab, JSON/YAML, deep_translator, automated QA diffing</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="under-construction-landing-page/index.html">Under Construction Landing Page</a></h3>
+                <p class="blog-article__desc">A clean, branded placeholder with an animated hero while the full site was being prepared.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> HTML5, CSS3, JavaScript, responsive design</div>
+            </article>
+        </div>
+    </section>
+    <section class="blog-section" data-reveal>
+        <span class="blog-section__label">Section 02</span>
+        <h2 class="blog-section__title">SEO &amp; <em>Marketing</em></h2>
+        <div class="blog-articles">
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="on-page-seo-structured-data/index.html">On-Page SEO & Structured Data</a></h3>
+                <p class="blog-article__desc">Proper meta, semantic structure, Open Graph and JSON-LD schema so the camp is understood correctly by search engines.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> JSON-LD, schema.org, meta/OG/OPF, sitemap, robots.txt</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="international-seo-crawlability/index.html">International SEO & Crawlability</a></h3>
+                <p class="blog-article__desc">Multi-language SEO with hreflang, canonical URLs and multilingual sitemaps so each market ranks separately and cleanly.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> hreflang, x-default, canonicals, multilingual sitemaps, Search Console</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="link-building-backlink-outreach/index.html">Link Building & Backlink Outreach</a></h3>
+                <p class="blog-article__desc">Structured outreach across NL/DE/HU directories and relevant sites to win real, trusted backlinks.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Screaming Frog, Ahrefs, competitor backlink analysis, outreach CRM</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="local-platform-listings/index.html">Local Platform Listings</a></h3>
+                <p class="blog-article__desc">Google Business Profile, Maps and campground directory listings kept consistent for local search trust.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Google Business Profile, directory listings, NAP consistency</div>
+            </article>
+        </div>
+    </section>
+    <section class="blog-section" data-reveal>
+        <span class="blog-section__label">Section 03</span>
+        <h2 class="blog-section__title">Identity &amp; <em>Branding</em></h2>
+        <div class="blog-articles">
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="logo-design-favicon/index.html">Logo Design & Favicon</a></h3>
+                <p class="blog-article__desc">A clean, recognisable logo with the full favicon and app-icon set for consistent branding everywhere.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Figma, SVG, favicon & apple-touch-icon generation</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="visual-identity-art-direction/index.html">Visual Identity & Art Direction</a></h3>
+                <p class="blog-article__desc">A cohesive palette, typography and art direction applied across website, social and the guestbook.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Figma, colour system, typography pairing, asset library</div>
+            </article>
+        </div>
+    </section>
+    <section class="blog-section" data-reveal>
+        <span class="blog-section__label">Section 04</span>
+        <h2 class="blog-section__title">Photo &amp; <em>Video</em></h2>
+        <div class="blog-articles">
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="photoshoot-campsite-puszta/index.html">Photoshoot: Campsite on the Puszta</a></h3>
+                <p class="blog-article__desc">An authentic on-location shoot of the campsite, edited and colour-graded for the site galleries.</p>
+                <div class="blog-article__tools"><strong>Tools:</strong> Photography, natural light, Golden Hour, editing & colour grading</div>
+            </article>
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="hero-video-production/index.html">Hero Video Production</a></h3>
+                <p class="blog-article__desc">A cinematic homepage hero video, shot, edited, graded and web-encoded for smooth streaming.</p>
+                <div class="blog-article__tools"><strong>Tools:</strong> Video production, cinematography, editing, colour grading, MP4/WebM encoding</div>
+            </article>
+        </div>
+    </section>
+    <section class="blog-section" data-reveal>
+        <span class="blog-section__label">Section 05</span>
+        <h2 class="blog-section__title">Software &amp; <em>Automation</em></h2>
+        <div class="blog-articles">
+            <article class="blog-article">
+                <h3 class="blog-article__title"><a href="automated-image-optimization-pipeline/index.html">Automated Image Optimization Pipeline</a></h3>
+                <p class="blog-article__desc">Batch resize, WebP encoding, EXIF stripping and filename sanitising for a fast image-heavy site.</p>
+                <div class="blog-article__tools"><strong>Languages & tools:</strong> Python, Pillow, WebP, EXIF handling, batch processing</div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand"><h3>LEEUW.</h3><p>Software. Film. Baking. All from scratch.</p></div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="../../index.html#projects-section">Selected Work</a></li>
+                <li><a href="../../index.html#about-section">About Me</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+31 (0) 6 12345678</li>
+                <li>Budapest, 1051 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+    </div>
+</footer>
+
+<svg style="position:absolute;width:0;height:0;pointer-events:none;">
+    <defs><filter id="threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 255 -140"/></filter></defs>
+</svg>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>
