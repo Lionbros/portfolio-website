@@ -30,56 +30,7 @@ body {
 
 /* â”€â”€â”€ Loader (removed) â”€â”€â”€ */
 
-/* â”€â”€â”€ Floating CTA â”€â”€â”€ */
-.floating-cta {
-    position: fixed; right: 2rem; bottom: 2rem;
-    z-index: 5000;
-    display: flex; align-items: center; gap: 0.75rem;
-    background: var(--text); color: var(--bg);
-    padding: 0.85rem 1rem;
-    border-radius: 100px;
-    font-size: 0.75rem; font-weight: 800;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    transition: transform var(--transition), box-shadow var(--transition);
-    cursor: pointer;
-    border: none;
-}
-.floating-cta:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-.floating-cta .cta-label {
-    max-width: 0; overflow: hidden; white-space: nowrap;
-    transition: max-width 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-.floating-cta:hover .cta-label {
-    max-width: 150px;
-    margin-right: 0.25rem;
-}
-.floating-cta .cta-icon {
-    width: 36px; height: 36px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-    .floating-cta { display: none; }
-    .floating-cta .cta-label {
-        max-width: none; overflow: visible;
-        margin-right: 0.25rem;
-        font-size: 0;
-    }
-    .floating-cta .cta-label::before { content: attr(data-short); font-size: 0.75rem; }
-    .floating-cta .cta-label:not([data-short]) { font-size: 0.75rem; }
-}
-@media (max-width: 480px) {
-    .floating-cta .cta-label { font-size: 0; }
-    .floating-cta .cta-label::before { font-size: 0.7rem; }
-}
+/* ─── Navigation ─── */
 
 /* â”€â”€â”€ Hero (from Final Landing Page) â”€â”€â”€ */
 #hero-container {
@@ -88,7 +39,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 2rem 10rem;
+    padding: clamp(6rem, 14vh, 9rem) 2rem 10rem;
     overflow: hidden;
     background: var(--bg);
     z-index: 2;
@@ -137,24 +88,6 @@ body {
     display: flex;
     gap: 2rem;
     align-items: center;
-}
-.nav-status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-.nav-status .status-text {
-    font-size: 10px;
-}
-.status-dot {
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: pulse-quiet 2s ease-in-out infinite;
-}
-@keyframes pulse-quiet {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
 }
 .lang-toggle {
     display: flex;
@@ -224,7 +157,7 @@ body {
 .hero-title {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: clamp(3.5rem, 14vw, 16rem);
+    font-size: clamp(3.5rem, min(14vw, 22vh), 16rem);
     line-height: 0.85;
     letter-spacing: -0.04em;
     color: var(--text);
@@ -586,7 +519,7 @@ body {
     height: clamp(360px, 46vw, 560px);
     overflow: hidden;
     cursor: grab;
-    touch-action: none;
+    touch-action: pan-y;
     font-family: var(--font-sans);
     font-weight: 700;
     font-size: 30px;
@@ -616,8 +549,6 @@ body {
     background: transparent;
     box-shadow: none;
     will-change: transform, opacity;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
-                opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     transform-origin: center bottom;
 }
 .arc-card__img {
@@ -723,6 +654,55 @@ body {
     text-transform: uppercase;
     color: var(--text-muted);
     margin-top: 1.5rem;
+}
+
+/* â”€â”€â”€ Featured Work Controls (arrows + progress) â”€â”€â”€ */
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+.gallery-arrow {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.3s var(--ease-quiet), color 0.3s var(--ease-quiet), transform 0.3s var(--ease-quiet);
+    flex-shrink: 0;
+}
+.gallery-arrow:hover {
+    background: var(--text);
+    color: var(--bg);
+    transform: scale(1.05);
+}
+.gallery-arrow:active { transform: scale(0.95); }
+.gallery-progress {
+    flex: 1;
+    max-width: 260px;
+    height: 3px;
+    background: var(--line);
+    border-radius: 100px;
+    overflow: hidden;
+}
+.gallery-progress__fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 100px;
+    transition: width 0.4s var(--ease-quiet);
+}
+
+@media (max-width: 480px) {
+    .gallery-controls { gap: 1rem; }
+    .gallery-arrow { width: 38px; height: 38px; }
 }
 
 /* â”€â”€â”€ Work Groups â”€â”€â”€ */
@@ -1255,9 +1235,6 @@ body {
 .gateway:nth-child(2) { transition-delay: 0.15s; }
 .gateway:nth-child(3) { transition-delay: 0.3s; }
 
-@media (max-width: 900px) {
-    .lang-toggle { display: none; }
-}
 @media (max-width: 768px) {
     .top-nav { padding: 1rem 1.5rem; }
     .top-nav > * { gap: 1rem; }

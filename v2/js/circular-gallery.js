@@ -228,6 +228,23 @@
     var lastTime = 0;
     var raf = null;
     var snapTimer = null;
+    var prevBtn = document.getElementById("gallery-prev");
+    var nextBtn = document.getElementById("gallery-next");
+    var progressFill = document.getElementById("gallery-progress-fill");
+
+    function currentIndex() {
+      var offset = slideWidth / 2 - container.clientWidth / 2;
+      var raw = (targetScrollX - offset) / step;
+      return ((Math.round(raw) % N) + N) % N;
+    }
+
+    function updateProgress() {
+      if (!progressFill) return;
+      var idx = currentIndex();
+      var pct = ((idx + 1) / N) * 100;
+      progressFill.style.width = pct + "%";
+      progressFill.parentElement.setAttribute("aria-valuenow", Math.round(pct));
+    }
 
     function scheduleSnap() {
       clearTimeout(snapTimer);
@@ -253,7 +270,7 @@
     }
 
     function update() {
-      scrollX = lerp(scrollX, targetScrollX, 0.1);
+      scrollX = lerp(scrollX, targetScrollX, 0.025);
       if (Math.abs(scrollX - targetScrollX) < 0.5) scrollX = targetScrollX;
 
       if (!isDown) wrap();
@@ -278,6 +295,7 @@
         cards[i].style.opacity = opa;
       }
 
+      updateProgress();
       raf = requestAnimationFrame(update);
     }
 
@@ -313,15 +331,6 @@
         wrap();
       }
     }
-    function onWheel(e) {
-      var rect = container.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      var delta = e.deltaY || e.wheelDelta || e.detail;
-      if (!delta) return;
-      targetScrollX += delta * 0.8;
-      scheduleSnap();
-      e.preventDefault();
-    }
     function onResize() {
       var oldStep = step;
       slideWidth = getSlideWidth(container);
@@ -346,8 +355,17 @@
     container.addEventListener("touchstart", onPointerDown, { passive: true });
     window.addEventListener("touchmove", onPointerMove, { passive: true });
     window.addEventListener("touchend", onPointerUp);
-    container.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchcancel", onPointerUp);
     window.addEventListener("resize", onResize);
+
+    function goStep(dir) {
+      targetScrollX += dir * step;
+      scheduleSnap();
+      wrap();
+      update();
+    }
+    if (prevBtn) prevBtn.addEventListener("click", function () { goStep(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { goStep(1); });
 
     targetScrollX = Math.floor(CLONES / 2) * setWidth + slideWidth / 2 - container.clientWidth / 2;
     scrollX = targetScrollX;
@@ -362,8 +380,10 @@
       container.removeEventListener("touchstart", onPointerDown);
       window.removeEventListener("touchmove", onPointerMove);
       window.removeEventListener("touchend", onPointerUp);
-      container.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchcancel", onPointerUp);
       window.removeEventListener("resize", onResize);
+      if (prevBtn) prevBtn.removeEventListener("click", goStep);
+      if (nextBtn) nextBtn.removeEventListener("click", goStep);
       container.innerHTML = "";
     };
   }
@@ -388,10 +408,11 @@
     window.addEventListener("mousemove", function (e) { if (!isDown) return; track.scrollLeft = startLeft - (e.clientX - startX); });
     window.addEventListener("mouseup", function () { isDown = false; track.classList.remove("is-dragging"); });
     track.addEventListener("wheel", function (e) {
-      if (e.deltaX && Math.abs(e.deltaX) > Math.abs(e.deltaY)) { track.scrollLeft += e.deltaX; }
-      else { track.scrollLeft += e.deltaY; }
-      e.preventDefault();
-    }, { passive: false });
+      var dx = Math.abs(e.deltaX) || 0;
+      var dy = Math.abs(e.deltaY) || 0;
+      if (dx <= dy) return;
+      track.scrollLeft += e.deltaX;
+    }, { passive: true });
   }
 
   /* ─── Boot ─── */
