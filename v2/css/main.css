@@ -1236,12 +1236,18 @@ body {
 .gateway:nth-child(3) { transition-delay: 0.3s; }
 
 @media (max-width: 768px) {
+    #hero-container { min-height: 0; height: 78vh; padding: 2rem 1.5rem 1.5rem; justify-content: center; }
+
+    .hero-meta { margin-bottom: 1.5rem; }
+
     .top-nav { padding: 1rem 1.5rem; }
     .top-nav > * { gap: 1rem; }
 
     .gateway-arrow { opacity: 0.7; transform: translateY(0); }
 
     .social-link { padding: 0.75rem; }
+
+    .footer-content { grid-template-columns: 1fr; gap: 2.5rem; }
 
     #process-section { padding: 6rem 2rem 8rem; }
 }
