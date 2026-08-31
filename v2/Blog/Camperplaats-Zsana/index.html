@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/svg+xml" href="../../assets/logo.svg">
     <title>Camperplaats Zsana — Maarten van der Leeuw</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,12 +42,36 @@
 <div class="noise-overlay"></div>
 
 <nav class="top-nav">
-    <div class="nav-left"><div class="lang-toggle"><button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button></div></div>
-    <div class="nav-right">
+    <div class="nav-group nav-group--left">
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+        </div>
         <a href="../../index.html#projects-section" class="nav-link">Work</a>
-        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+        <a href="../../index.html#about-section" class="nav-link">About</a>
+        <a href="../index.html" class="nav-link">Blog</a>
     </div>
+    <a href="../../index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <img src="../../assets/logo-badge.png" alt="Maarten van der Leeuw">
+        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="../../index.html#contact-section" class="nav-link">Contact</a>
+        <a href="../../index.html#contact-section" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+        </div>
+        <a href="../../index.html#projects-section" class="nav-overlay__link">Work</a>
+        <a href="../../index.html#about-section" class="nav-overlay__link">About</a>
+        <a href="../index.html" class="nav-overlay__link">Blog</a>
+        <a href="../../index.html#contact-section" class="nav-overlay__link">Contact</a>
+        <a href="../../index.html#contact-section" class="nav-cta">Let's Talk</a>
+    </div>
+</div>
 
 <header class="blog-hero">
     <div class="blog-hero__meta"><span>Client Project</span><span>Web, SEO, Branding, Photo &amp; Video</span></div>
@@ -155,7 +180,7 @@
             <ul>
                 <li><a href="../../index.html#projects-section">Selected Work</a></li>
                 <li><a href="../../index.html#about-section">About Me</a></li>
-                <li><a href="../../contact.html">Contact</a></li>
+                <li><a href="../../index.html#contact-section">Contact</a></li>
             </ul>
         </div>
         <div class="footer-col">

@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="description" content="Custom software, automations and web tools by Maarten van der Leeuw. Practical solutions that deliver real results: bookkeeping automation, generators, trilingual websites.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <title>Technical Solutions â€” Maarten van der Leeuw</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css?v=step15">
+    <link rel="stylesheet" href="css/solutions.css?v=1">
+
+    <!-- Hero entrance -->
+    <style>
+        .hero-headline .line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+        .hero-headline .inner {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1.1s cubic-bezier(.22, 1, .36, 1);
+        }
+        .hero.is-in .hero-headline .inner { transform: translateY(0); }
+        .hero-sub {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+        .hero.is-in .hero-sub { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<!-- impeccable-disable overused-font: Space Grotesk + JetBrains Mono are the site-wide brand fonts -->
+<body class="page-solutions">
+
+<!-- â”€â”€â”€ Overlays â”€â”€â”€ -->
+<div class="noise-overlay"></div>
+
+<!-- â”€â”€â”€ Navigation â”€â”€â”€ -->
+<nav class="top-nav">
+    <div class="nav-group nav-group--left">
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-link">Work</a>
+        <a href="index.html#about-section" class="nav-link">About</a>
+        <a href="Blog/index.html" class="nav-link">Blog</a>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <img src="assets/logo-badge.png" alt="Maarten van der Leeuw">
+        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <a href="index.html#projects-section" class="nav-overlay__link">Work</a>
+        <a href="index.html#about-section" class="nav-overlay__link">About</a>
+        <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
+        <a href="#contact" class="nav-overlay__link">Contact</a>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+    </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header class="hero" id="hero">
+    <div class="hero-inner">
+        <div class="hero-copy">
+            <h1 class="hero-headline">
+                <span class="line"><span class="inner">You describe</span></span>
+                <span class="line"><span class="inner">the problem.</span></span>
+                <span class="line"><span class="inner"><em>I ship the fix.</em></span></span>
+            </h1>
+            <p class="hero-sub">
+                Custom software, automations and web tools for small businesses.
+                Built to do one thing well: remove the work you keep doing by hand.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-dev">Describe your problem
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#cases" class="btn-dev btn-dev--ghost">See shipped work</a>
+            </div>
+            <p class="hero-kicker"><span class="prompt">$</span>TECHNICAL_SOLUTIONS<span class="cursor-block" aria-hidden="true"></span></p>
+        </div>
+
+        <div class="terminal" data-reveal aria-label="Demo terminal">
+            <div class="terminal__bar">
+                <span class="t-dot t-dot--r"></span>
+                <span class="t-dot t-dot--y"></span>
+                <span class="t-dot t-dot--g"></span>
+                <span class="terminal__title">maarten@leeuw:~/client-work</span>
+            </div>
+            <div class="terminal__body" id="terminal-body">
+                <p><span class="t-prompt">$</span> <span class="t-cmd">whoami</span></p>
+                <p class="t-out">Maarten van der Leeuw &mdash; software engineer, NL &rarr; HU</p>
+                <p><span class="t-prompt">$</span> <span class="t-cmd">ls ./recent-builds</span></p>
+                <p class="t-out"><span class="t-green">bookkeeping-bot</span>  <span class="t-blue">plattegrond-generator</span>  <span class="t-purple">site-zsana-trilingual/</span></p>
+                <p><span class="t-prompt">$</span> <span class="t-cmd">cat result.txt</span></p>
+                <p class="t-out">&ldquo;saves us hours every week&rdquo; &mdash; e-commerce client</p>
+                <p><span class="t-prompt">$</span> <span class="t-cmd">status --your-project</span></p>
+                <p class="t-out" id="terminal-status"><span class="t-yellow">awaiting input</span><span class="t-caret">_</span></p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- â”€â”€â”€ Stack strip â”€â”€â”€ -->
+<div class="stack-strip" aria-hidden="true">
+    <div class="stack-track">
+        <span>AUTOMATION</span><i>//</i><span>CUSTOM WEB TOOLS</span><i>//</i><span>EMAIL PIPELINES</span><i>//</i><span>DOCUMENT GENERATORS</span><i>//</i><span>LOCAL AI MODELS</span><i>//</i><span>WEBSITES</span>
+    </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- â”€â”€â”€ SECTION: Services (API docs) â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section section-services">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <span class="section-index">SERVICES</span>
+            <h2 class="section-title-lg">Three ways I take<br>work off your hands.</h2>
+        </div>
+
+        <div class="endpoint-grid">
+            <article class="endpoint" data-reveal>
+                <header class="endpoint__head">
+                    <span class="method method--post">AUTOMATE</span>
+                    <code class="path">/repetitive-tasks</code>
+                </header>
+                <h3>Automations</h3>
+                <p>If you or your team do the same clicks every week, that job can run itself. I build small, reliable automations around your exact process.</p>
+                <ul class="endpoint__list">
+                    <li>Bookkeeping and admin pipelines</li>
+                    <li>Email sorting and attachments</li>
+                    <li>File and folder organization</li>
+                </ul>
+                <footer class="endpoint__foot">
+                    <span class="status status--ok">&#10003; deployed for clients</span>
+                </footer>
+            </article>
+
+            <article class="endpoint endpoint--featured" data-reveal>
+                <header class="endpoint__head">
+                    <span class="method method--build">BUILD</span>
+                    <code class="path">/custom-tools</code>
+                </header>
+                <h3>Web Tools &amp; Generators</h3>
+                <p>Calculators, generators and internal dashboards that fit how you actually work. Off-the-shelf software doesn't know your business. Yours will.</p>
+                <ul class="endpoint__list">
+                    <li>Customer-facing calculators</li>
+                    <li>Document and plan generators</li>
+                    <li>Internal dashboards</li>
+                </ul>
+                <footer class="endpoint__foot">
+                    <span class="status status--ok">&#10003; live in production</span>
+                </footer>
+            </article>
+
+            <article class="endpoint" data-reveal>
+                <header class="endpoint__head">
+                    <span class="method method--ship">SHIP</span>
+                    <code class="path">/websites</code>
+                </header>
+                <h3>Websites That Work</h3>
+                <p>Sites built to load fast, rank locally and convert visitors into contacts. Multilingual when your market demands it.</p>
+                <ul class="endpoint__list">
+                    <li>Trilingual business sites</li>
+                    <li>Landing pages with SEO baked in</li>
+                    <li>Maintenance you can call about</li>
+                </ul>
+                <footer class="endpoint__foot">
+                    <span class="status status--ok">&#10003; ranking on page one</span>
+                </footer>
+            </article>
+        </div>
+
+        <blockquote class="quote" data-reveal>
+            <p>&ldquo;Maarten built an automation for our bookkeeping that saves us hours every week. He explained everything clearly without unnecessary jargon.&rdquo;</p>
+            <cite>&mdash; Client, E-commerce &middot; Bookkeeping Automation</cite>
+        </blockquote>
+    </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- â”€â”€â”€ SECTION: Case files â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="cases" class="section section-cases">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <span class="section-index">SHIPPED WORK</span>
+            <h2 class="section-title-lg">Not concepts.<br><em>Deployed systems.</em></h2>
+        </div>
+
+        <div class="case-grid">
+            <a class="case-card case-card--wide" data-reveal href="Blog/TUINVOORJOU/automated-bookkeeping-system/index.html">
+                <div class="case-card__img">
+                    <img src="assets/img/Automated%20Bookkeeping%20image.png" alt="Automated bookkeeping system" loading="lazy"
+                         onerror="this.remove()">
+                </div>
+                <div class="case-card__body">
+                    <code class="case-id">CASE_001</code>
+                    <h3>Bookkeeping Automation</h3>
+                    <p>Pipeline that sorts, matches and books recurring documents. What used to cost hours per week now runs on its own.</p>
+                    <span class="tags"><span>pipeline</span><span>email-in</span><span>zero-click</span></span>
+                </div>
+            </a>
+
+            <a class="case-card" data-reveal href="Blog/TUINVOORJOU/plattegrond-generator/index.html">
+                <div class="case-card__img">
+                    <img src="assets/img/Plattegrond%20Generator%20Cover.png" alt="Plattegrond generator" loading="lazy">
+                </div>
+                <div class="case-card__body">
+                    <code class="case-id">CASE_002</code>
+                    <h3>Floor Plan Generator</h3>
+                    <p>Tool that turns client input into usable garden floor plans automatically.</p>
+                    <span class="tags"><span>web-tool</span><span>generator</span></span>
+                </div>
+            </a>
+
+            <a class="case-card" data-reveal href="Blog/Camperplaats-Zsana/trilingual-camperplaats-website/index.html">
+                <div class="case-card__img">
+                    <img src="assets/img/Camperplaats%20Zsana%20Cover.png" alt="Camperplaats Zsana website" loading="lazy">
+                </div>
+                <div class="case-card__body">
+                    <code class="case-id">CASE_003</code>
+                    <h3>Trilingual Campsite Site</h3>
+                    <p>Full site in Dutch, English and Hungarian with SEO and booking flow.</p>
+                    <span class="tags"><span>website</span><span>i18n</span><span>seo</span></span>
+                </div>
+            </a>
+
+            <a class="case-card" data-reveal href="Blog/TUINVOORJOU/tuincalculator/index.html">
+                <div class="case-card__img case-card__img--fallback" aria-hidden="true">&gt;_</div>
+                <div class="case-card__body">
+                    <code class="case-id">CASE_004</code>
+                    <h3>Garden Cost Calculator</h3>
+                    <p>Customer-facing calculator that qualifies leads before they call.</p>
+                    <span class="tags"><span>calculator</span><span>lead-gen</span></span>
+                </div>
+            </a>
+
+            <a class="case-card" data-reveal href="Blog/TUINVOORJOU/email-attachment-project-folder-automation/index.html">
+                <div class="case-card__img case-card__img--fallback" aria-hidden="true">&gt;_</div>
+                <div class="case-card__body">
+                    <code class="case-id">CASE_005</code>
+                    <h3>Inbox-to-Folders Pipeline</h3>
+                    <p>Email attachments filed into project folders without anyone touching them.</p>
+                    <span class="tags"><span>email</span><span>automation</span></span>
+                </div>
+            </a>
+        </div>
+
+        <p class="cases-more" data-reveal>
+            Full write-ups live in the <a href="Blog/index.html">blog</a>, including what broke along the way.
+        </p>
+    </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- â”€â”€â”€ SECTION: Process â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section section-process">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <span class="section-index">PROCESS</span>
+            <h2 class="section-title-lg">Fixed scope. Fixed price.<br>No surprise invoices.</h2>
+        </div>
+        <ol class="steps">
+            <li data-reveal>
+                <span class="step-num">STEP_01</span>
+                <h3>You describe it</h3>
+                <p>A short call or email about what eats your time. Plain language, no jargon required from you.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num">STEP_02</span>
+                <h3>I spec and quote it</h3>
+                <p>You get a one-page plan: what gets built, what it costs, when it's done. You approve before anything starts.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num">STEP_03</span>
+                <h3>I build it</h3>
+                <p>You see progress as it happens, not just at the end. Changes are easy while it's being built.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num">STEP_04</span>
+                <h3>It runs. It stays running.</h3>
+                <p>I hand over something you understand and follow up after delivery. If something breaks, I fix it.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- â”€â”€â”€ SECTION: CTA + Contact â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="contact" class="section section-contact">
+    <div class="cta-banner" data-reveal>
+        <p class="cta-kicker">// NEXT SPRINT COULD BE YOURS</p>
+        <h2>Stop doing it by hand.<br>Let the code do it.</h2>
+        <p class="cta-code">$ send-request --problem "..." --budget "let's talk"</p>
+        <a href="#contact-form-anchor" class="btn-dev">Get a fixed quote
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+    </div>
+
+    <div class="wrap contact-grid" id="contact-form-anchor">
+        <div class="contact-info" data-reveal>
+            <h3>Tell me what's slowing you down.</h3>
+            <p>Two sentences is enough to start. You'll get an honest reply within 24 hours: whether I can help, and what it would take.</p>
+            <div class="contact-info-item"><span>EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
+            <div class="contact-info-item"><span>RESPONSE</span><span>Within 24 hours</span></div>
+            <div class="contact-info-item"><span>TIMEZONE</span><span>CET &middot; Budapest / Amsterdam</span></div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <input type="hidden" name="service" value="Technical Solutions">
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-input" placeholder="hello@example.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">The problem</label>
+                <textarea name="message" class="form-textarea form-textarea--dev" placeholder="Every week my team spends two hours sorting invoices from email into folders..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn submit-btn--dev">Send Request</button>
+        </form>
+        <div id="form-success" class="hidden">
+            <h3>Request Logged</h3>
+            <p>Thanks. Expect a reply within 24 hours.</p>
+        </div>
+    </div>
+</section>
+
+<!-- â”€â”€â”€ Footer â”€â”€â”€ -->
+<footer class="main-footer main-footer--dev">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>LEEUW<span class="accent">.exe</span></h3>
+            <p>Software built by hand, like everything else here.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Routes</h4>
+            <ul>
+                <li><a href="index.html">/home</a></li>
+                <li><a href="videography.html">/videography</a></li>
+                <li><a href="taarten.html">/taarten-van-maarten</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+31 (0) 6 12345678</li>
+                <li>Budapest, Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+    </div>
+</footer>
+
+<!-- â”€â”€â”€ Scripts â”€â”€â”€ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=step4"></script>
+<script>
+    // Blinking caret in the terminal
+    (function(){
+        var caret = document.querySelector('#terminal-status .t-caret');
+        if(!caret) return;
+        setInterval(function(){ caret.classList.toggle('blink'); }, 900);
+    })();
+</script>
+
+</body>
+</html>

@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <title>Maarten van der Leeuw</title>
 
     <!-- Fonts -->
@@ -12,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css?v=step11">
+    <link rel="stylesheet" href="css/main.css?v=step17">
 
     <!-- Inline hero entrance animations (from Final LP) -->
     <style>
@@ -33,9 +35,19 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .hero-portrait {
+            opacity: 0;
+            transform: translateY(40px) scale(0.97);
+            transition: opacity 1s cubic-bezier(.22, 1, .36, 1) 0.3s, transform 1.2s cubic-bezier(.22, 1, .36, 1) 0.3s;
+        }
+        #hero-container.is-in .hero-portrait {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
         .no-animation .hero-title .inner,
-        .no-animation .hero-meta {
+        .no-animation .hero-meta,
+        .no-animation .hero-portrait {
             transform: none !important;
             opacity: 1 !important;
             transition: none !important;
@@ -84,18 +96,36 @@
 
 <!-- ─── Navigation ─── -->
 <nav class="top-nav">
-    <div class="nav-left">
+    <div class="nav-group nav-group--left">
         <div class="lang-toggle">
-            <button class="lang-btn active">EN</button>
-            <button class="lang-btn">NL</button>
-            <button class="lang-btn">HU</button>
+            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
         </div>
-    </div>
-    <div class="nav-right">
         <a href="#projects-section" class="nav-link">Work</a>
-        <a href="contact.html" class="nav-cta">Let's Talk</a>
+        <a href="#about-section" class="nav-link">About</a>
+        <a href="Blog/index.html" class="nav-link">Blog</a>
     </div>
+    <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <img src="assets/logo-badge.png" alt="Maarten van der Leeuw">
+        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="#contact-section" class="nav-link">Contact</a>
+        <a href="#contact-section" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+        </div>
+        <a href="#projects-section" class="nav-overlay__link">Work</a>
+        <a href="#about-section" class="nav-overlay__link">About</a>
+        <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
+        <a href="#contact-section" class="nav-overlay__link">Contact</a>
+        <a href="#contact-section" class="nav-cta">Let's Talk</a>
+    </div>
+</div>
 
 <!-- ─── Hero ─── -->
 <div id="hero-container">
@@ -114,7 +144,13 @@
         <span class="line"><span class="inner">VAN DER <em>LEEUW</em></span></span>
     </h1>
 
-
+    <img
+        class="hero-portrait"
+        src="assets/img/Maarten%20Photos/background-removed-DSC_0943-standard.png"
+        alt="Maarten van der Leeuw portrait"
+        loading="eager"
+        decoding="async"
+    >
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -127,7 +163,6 @@
         <div class="gateway-bg"></div>
         <div class="gateway-overlay"></div>
         <div class="gateway-content">
-            <span class="gateway-number">01 /</span>
             <h2 class="gateway-title">Videography</h2>
             <p class="gateway-desc">I shoot drone footage, corporate videos, and events. Every project is framed and edited to tell the story clearly and professionally.</p>
             <span class="gateway-arrow">
@@ -143,7 +178,6 @@
         <div class="gateway-bg"></div>
         <div class="gateway-overlay"></div>
         <div class="gateway-content">
-            <span class="gateway-number">02 /</span>
             <h2 class="gateway-title">Taarten van Maarten</h2>
             <p class="gateway-desc">I bake traditional Dutch pies including appeltaart, peperkoek, and kruimeltaart. Everything is made fresh from scratch. Local delivery across Hungary.</p>
             <span class="gateway-arrow">
@@ -159,7 +193,6 @@
         <div class="gateway-bg"></div>
         <div class="gateway-overlay"></div>
         <div class="gateway-content">
-            <span class="gateway-number">03 /</span>
             <h2 class="gateway-title">Technical Solutions</h2>
             <p class="gateway-desc">I build custom software, automations, and web tools. I focus on practical solutions that deliver real results for my clients.</p>
             <span class="gateway-arrow">
@@ -234,8 +267,7 @@
         </div>
 
         <div class="process-visual">
-            <span class="process-visual-label">Placeholder</span>
-            <span class="process-visual-big-num">04</span>
+            <img src="assets/img/Maarten%20Photos/Idea%20to%20done.jpg" alt="Maarten discussing a project at a table" loading="lazy" decoding="async">
         </div>
     </div>
 </section>
@@ -465,7 +497,7 @@
 <!-- ─── Scripts ─── -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=step3"></script>
+<script src="js/main.js?v=step4"></script>
 <script src="js/circular-gallery.js?v=step6"></script>
 
 </body>

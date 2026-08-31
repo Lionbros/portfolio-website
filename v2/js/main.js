@@ -43,6 +43,7 @@ function initRevealObserver() {
 // ─── Process Timeline (scroll-linked fill) ───
 function initTimeline() {
     const section = document.getElementById('process-section');
+    if (!section) return;
     const fill = section.querySelector('.timeline-track-fill');
     if (!fill) return;
 
@@ -324,6 +325,29 @@ function initLangToggle() {
     });
 }
 
+// ─── Mobile Nav ───
+function initNavToggle() {
+    const burger = document.querySelector('.nav-burger');
+    if (!burger) return;
+
+    const setOpen = (open) => {
+        document.documentElement.classList.toggle('nav-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    burger.addEventListener('click', () => {
+        setOpen(!document.documentElement.classList.contains('nav-open'));
+    });
+
+    document.querySelectorAll('.nav-overlay a, .nav-overlay .lang-btn').forEach((el) => {
+        el.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+    });
+}
+
 // ─── Smooth anchor scrolling ───
 function initAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -338,6 +362,39 @@ function initAnchors() {
     });
 }
 
+// ─── Hero Portrait Scroll Fade ───
+function initHeroPortraitFade() {
+    const portrait = document.querySelector('.hero-portrait');
+    const hero = document.getElementById('hero-container');
+    if (!portrait || !hero) return;
+
+    function startFade() {
+        gsap.set(portrait, { clearProps: 'opacity,transform' });
+        gsap.to(portrait, {
+            opacity: 0,
+            y: -60,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: hero,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 0.3,
+            },
+        });
+    }
+
+    if (hero.classList.contains('is-in')) {
+        startFade();
+    } else {
+        hero.addEventListener('transitionend', function handler(e) {
+            if (e.target === hero || e.target.classList?.contains('hero-portrait')) {
+                hero.removeEventListener('transitionend', handler);
+                startFade();
+            }
+        });
+    }
+}
+
 // ─── Init Everything ───
 document.addEventListener('DOMContentLoaded', () => {
     initSectionReveals();
@@ -349,7 +406,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initBackToTop();
     initLangToggle();
+    initNavToggle();
     initAnchors();
+    initHeroPortraitFade();
     ScrollTrigger.refresh();
     document.fonts.ready.then(() => ScrollTrigger.refresh());
 });

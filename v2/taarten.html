@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#FAF3E7">
+    <meta name="description" content="Taarten van Maarten: traditional Dutch pies baked fresh in Hungary. Appeltaart, peperkoek, kersentaart and more. Order yours today.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <title>Taarten van Maarten — Maarten van der Leeuw</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css?v=step15">
+    <link rel="stylesheet" href="css/taarten.css?v=1">
+
+    <!-- Hero entrance -->
+    <style>
+        .hero-title .line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+        .hero-title .inner {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1.1s cubic-bezier(.22, 1, .36, 1);
+        }
+        .hero.is-in .hero-title .inner { transform: translateY(0); }
+        .hero-sub, .hero-actions {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+        .hero.is-in .hero-sub, .hero.is-in .hero-actions { opacity: 1; transform: translateY(0); }
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+            setTimeout(function(){ document.getElementById('hero').classList.add('is-in'); }, 100);
+        });
+    </script>
+</head>
+<!-- impeccable-disable overused-font: Space Grotesk + Fraunces are deliberate brand fonts -->
+<!-- impeccable-disable cream-palette: warm bakery palette is the client brief -->
+<body class="page-taarten">
+
+<!-- ─── Overlays ─── -->
+<div class="noise-overlay"></div>
+
+<!-- ─── Navigation ─── -->
+<nav class="top-nav">
+    <div class="nav-group nav-group--left">
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-link">Work</a>
+        <a href="index.html#about-section" class="nav-link">About</a>
+        <a href="Blog/index.html" class="nav-link">Blog</a>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <img src="assets/logo-badge.png" alt="Maarten van der Leeuw">
+        <span class="nav-logo__word">TAARTEN<br>VAN MAARTEN</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#order" class="nav-cta">Order a Taart</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <a href="#menu" class="nav-overlay__link">Menu</a>
+        <a href="index.html#about-section" class="nav-overlay__link">About</a>
+        <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
+        <a href="#order" class="nav-cta">Order a Taart</a>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── HERO ──────────────────────────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<header class="hero" id="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="line"><span class="inner">A taste of</span></span>
+                <span class="line"><span class="inner"><em>the Netherlands,</em></span></span>
+                <span class="line"><span class="inner">from my oven.</span></span>
+            </h1>
+            <p class="hero-sub">
+                Traditional Dutch pies and bakes, made fresh to order with real butter and no shortcuts.
+                Appeltaart for your table, worstenbroodjes for the party, peperkoek with your coffee.
+                Baked locally in Hungary.
+            </p>
+            <div class="hero-actions">
+                <a href="#order" class="btn-bakery">Order a taart
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#menu" class="btn-bakery btn-bakery--ghost">See the menu</a>
+            </div>
+            <p class="hero-kicker"><span class="flag-chip" aria-hidden="true"></span>HOLLANDS GEBAK &mdash; GEBAKKEN IN HONGARIJE</p>
+        </div>
+
+        <div class="hero-photo" data-reveal>
+            <!-- PHOTO SLOT: replace with a photo of your appeltaart on a table -->
+            <div class="photo-slot">
+                <span class="photo-slot__tag">PHOTO</span>
+                <span class="photo-slot__hint">Appeltaart on the table, daylight</span>
+            </div>
+            <div class="stamp" aria-hidden="true">
+                <span>100%</span>VERS
+            </div>
+        </div>
+    </div>
+    </header>
+<div class="flag-ribbon flag-ribbon--hero" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: Menu ─────────────────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="menu" class="section section-menu">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <span class="section-index">HET MENU</span>
+            <h2 class="section-title-lg">Baked this week,<br><em>baked to order.</em></h2>
+            <p class="section-sub">Everything is made from scratch after you order. Nothing sits on a shelf. Prices depend on size and season &mdash; ask for a quote when you order.</p>
+        </div>
+
+        <div class="menu-grid">
+            <article class="menu-card menu-card--wide" data-reveal>
+                <div class="menu-card__photo">
+                    <img src="assets/img/Worstenbroodjes%20Cover.jpg" alt="Dutch worstenbroodjes" loading="lazy">
+                </div>
+                <div class="menu-card__body">
+                    <h3>Worstenbroodjes</h3>
+                    <p class="menu-note nl">Brabantse worstenbroodjes</p>
+                    <p>Soft bread roll around a well-seasoned sausage. The classic snack from the south of the Netherlands, baked here exactly as it should be.</p>
+                    <span class="menu-tag">Party favorite</span>
+                </div>
+            </article>
+
+            <article class="menu-card" data-reveal>
+                <div class="menu-card__photo">
+                    <!-- PHOTO SLOT -->
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint">Appeltaart photo</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Appeltaart</h3>
+                    <p class="menu-note nl">Dutch apple pie</p>
+                    <p>Deep crust, cinnamon apples, a crumbly top. Served with coffee the way it is at every Dutch kitchen table.</p>
+                </div>
+            </article>
+
+            <article class="menu-card" data-reveal>
+                <div class="menu-card__photo">
+                    <!-- PHOTO SLOT -->
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint">Kersentaart photo</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Kersentaart</h3>
+                    <p class="menu-note nl">Cherry pie</p>
+                    <p>Sweet cherries under a lattice top. Best slightly warm, ideally shared.</p>
+                </div>
+            </article>
+
+            <article class="menu-card" data-reveal>
+                <div class="menu-card__photo">
+                    <!-- PHOTO SLOT -->
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint">Peperkoek photo</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Peperkoek</h3>
+                    <p class="menu-note nl">Dutch spice cake</p>
+                    <p>Dense, dark and spiced. Old-fashioned cake that goes perfectly with black coffee.</p>
+                </div>
+            </article>
+
+            <article class="menu-card" data-reveal>
+                <div class="menu-card__photo">
+                    <!-- PHOTO SLOT -->
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint">Cheesecake photo</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Karamellen Cheesecake</h3>
+                    <p class="menu-note nl">Caramel cheesecake</p>
+                    <p>Creamy cheesecake with a thick caramel layer. The most requested bake so far.</p>
+                </div>
+            </article>
+
+            <article class="menu-card menu-card--custom" data-reveal>
+                <div class="menu-card__body">
+                    <h3>Iets anders?</h3>
+                    <p class="menu-note nl">Something else?</p>
+                    <p>Butter cookies, chocolate chip cookies, fresh bread doughs, or an idea of your own. If it can be baked, ask me.</p>
+                    <a href="#order" class="menu-card__link">Discuss your wish
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<div class="flag-ribbon" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: How Ordering Works ───────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-order-steps">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <span class="section-index">ZO WERKT HET</span>
+            <h2 class="section-title-lg">From message to oven<br><em>in three steps.</em></h2>
+        </div>
+        <ol class="steps">
+            <li data-reveal>
+                <span class="step-num step-num--red">01</span>
+                <h3>You send a message</h3>
+                <p>Tell me which taart, how many people, and the date. I reply within a day with a price.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num step-num--blue">02</span>
+                <h3>I start baking</h3>
+                <p>Your order goes into the oven fresh, close to pickup or delivery day. Never frozen, never day-old.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num step-num--red">03</span>
+                <h3>You pick up or I deliver</h3>
+                <p>Pickup by arrangement, or delivery across Hungary for a small fee depending on distance.</p>
+            </li>
+        </ol>
+
+        <div class="baker-strip" data-reveal>
+            <div class="baker-strip__text">
+                <h3>Baked by an actual Dutchie</h3>
+                <p>I grew up on these recipes. Moving to Hungary did not change my taste in pie, so now I bake them here for neighbors, friends and anyone who orders. That is Taarten van Maarten.</p>
+            </div>
+            <div class="baker-strip__photo">
+                <!-- PHOTO SLOT: replace with a photo of you baking -->
+                <div class="photo-slot photo-slot--small">
+                    <span class="photo-slot__hint">Photo: baking at home</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: CTA + Order Form ─────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="order" class="section section-order">
+    <div class="cta-banner" data-reveal>
+        <div class="flag-ribbon flag-ribbon--top" aria-hidden="true"></div>
+        <p class="cta-kicker">BESTEL NU</p>
+        <h2>The oven is warm.<br>Your taart is next.</h2>
+        <p class="cta-sub">Orders open this week. Weekend slots fill first.</p>
+        <a href="#contact-form-anchor" class="btn-bakery btn-bakery--dark">Place your order
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="flag-ribbon flag-ribbon--bottom" aria-hidden="true"></div>
+    </div>
+
+    <div class="wrap contact-grid" id="contact-form-anchor">
+        <div class="contact-info" data-reveal>
+            <h3>Tell me what you're craving.</h3>
+            <p>Name the taart, the date and where you are. You'll get a quote back, usually within a day.</p>
+            <div class="contact-info-item"><span>EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
+            <div class="contact-info-item"><span>PHONE</span><span>+31 (0) 6 12345678</span></div>
+            <div class="contact-info-item"><span>DELIVERY</span><span>Across Hungary, by arrangement</span></div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <input type="hidden" name="service" value="Taarten van Maarten">
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-input" placeholder="hello@example.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Your order</label>
+                <textarea name="message" class="form-textarea form-textarea--bakery" placeholder="Appeltaart for 8 people, Saturday 14 June, delivery to Budapest..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn submit-btn--bakery">Send Order Request</button>
+        </form>
+        <div id="form-success" class="hidden">
+            <h3>Order Received</h3>
+            <p>Thanks. You'll hear back within a day with a quote.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer class="main-footer main-footer--bakery">
+    <div class="flag-ribbon" aria-hidden="true"></div>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>TAAART.</h3>
+            <p>Dutch pies, baked fresh in Hungary.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Pages</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="videography.html">Videography</a></li>
+                <li><a href="solutions.html">Technical Solutions</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+31 (0) 6 12345678</li>
+                <li>Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Taarten van Maarten. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+    </div>
+</footer>
+
+<!-- ─── Scripts ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=step4"></script>
+
+</body>
+</html>
