@@ -1,0 +1,147 @@
+file,now_kb,width,height,target_w,webp_kb,saving_pct,action
+assets/img/Landing-Page/Camperplaats Zsana Cover.png,5477,3840,1911,960,40,99,resize+webp
+assets/img/Landing-Page/Camperplaats Zsana Logo.png,4384,2000,1745,960,112,97,resize+webp
+assets/logo-badge.png,3140,1928,2068,256,10,100,resize+webp
+assets/img/Landing-Page/Suzhou Center Cover.png,2863,1920,1080,960,27,99,resize+webp
+assets/img/Videography-Page/Camperplaats Zsana VIDEO Cover.png,2509,1920,1080,1600,69,97,resize+webp
+assets/img/Videography-Page/work/suzhou-center.jpg,2215,1710,1080,1280,145,93,resize+webp
+assets/img/software-solutions/3D-Work.png,2164,2079,1169,1280,89,96,resize+webp
+assets/img/Videography-Page/work/ssis.jpg,2047,1782,1002,1280,156,92,resize+webp
+assets/img/Videography-Page/work/mammamia.jpg,1954,1920,1080,1280,141,93,resize+webp
+assets/img/Taarten-Page/taarten-hero-3.png,1818,1024,1024,960,102,94,resize+webp
+assets/img/Landing-Page/Personal-Projects.jpg,1576,3102,2662,960,73,95,resize+webp
+assets/img/Taarten-Page/taarten-hero-2.png,1480,1024,1024,960,77,95,resize+webp
+assets/img/software-solutions/Trilingual Campsite Evacuation Plan.png,1460,1522,1042,1280,60,96,resize+webp
+assets/img/Maarten-Photos/Idea to done.jpg,1437,3130,3622,1600,78,95,resize+webp
+assets/img/Taarten-Page/taarten-hero-1.png,1374,1024,1024,960,71,95,resize+webp
+assets/img/Landing-Page/Plattegrond Generator Cover.png,1358,3838,1906,960,17,99,resize+webp
+assets/img/Maarten-Photos/portrait-hero.png,1001,802,1254,802,30,97,webp-only
+assets/img/Taarten-Page/maarten-met-taart.png,971,941,1176,941,45,95,webp-only
+assets/img/software-solutions/Webtools-iphone.png,876,636,1294,636,63,93,webp-only
+assets/img/Maarten-Photos/Taarten.jpg,841,1365,768,1365,111,87,webp-only
+assets/img/Videography-Page/work/times-square.jpg,812,1280,720,1280,111,86,webp-only
+assets/img/Videography-Page/Images/Introduction.jpg,782,1920,1272,1600,287,63,resize+webp
+assets/img/Maarten-Photos/Videography.jpg,734,1024,678,1024,81,89,webp-only
+assets/img/Taarten-Page/menu/Final Menu Pics/web/Limburgse-kruimelvlaai-final.jpg,731,1195,896,800,49,93,resize+webp
+assets/img/Maarten-Photos/Technical.jpg,686,1257,832,1257,42,94,webp-only
+assets/img/Taarten-Page/menu/Final Menu Pics/web/Appeltaart-final.jpg,629,1195,896,800,50,92,resize+webp
+assets/img/software-solutions/Webtools-macbook.png,623,2472,1420,1280,19,97,resize+webp
+assets/img/Taarten-Page/menu/Final Menu Pics/web/Krentenbollen-final.jpg,573,1195,896,800,36,94,resize+webp
+assets/img/Taarten-Page/menu/Final Menu Pics/web/Brabantse-worstenbroodjes-final.jpg,548,1195,896,800,36,94,resize+webp
+assets/img/Taarten-Page/menu/Final Menu Pics/web/Chocolate-Chip-Cookies-bowl-final.jpg,514,1195,896,800,37,93,resize+webp
+assets/img/Maarten-Photos/About.jpg,469,1324,2000,1324,274,42,webp-only
+assets/img/Taarten-Page/menu/Final Menu Pics/web/Kaneelbroodjes-single-final.jpg,444,1195,896,800,28,94,resize+webp
+assets/img/Landing-Page/Software-Projects.jpeg,371,1746,1344,960,52,86,resize+webp
+assets/img/software-solutions/plattegrond-map.jpg,337,1725,1080,1280,73,78,resize+webp
+assets/img/Videography-Page/stills/promotion-1280.jpg,244,1280,720,1280,210,14,webp-only
+assets/img/Videography-Page/scrub-frames/frame-001.jpg,241,1920,1080,1280,94,61,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-003.jpg,237,1920,1080,1280,94,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-005.jpg,237,1920,1080,1280,94,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-007.jpg,235,1920,1080,1280,93,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-002.jpg,233,1920,1080,1280,93,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-004.jpg,232,1920,1080,1280,92,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-008.jpg,232,1920,1080,1280,92,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-006.jpg,229,1920,1080,1280,91,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-016.jpg,228,1920,1080,1280,90,61,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-009.jpg,223,1920,1080,1280,90,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-018.jpg,223,1920,1080,1280,88,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-010.jpg,221,1920,1080,1280,89,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-011.jpg,219,1920,1080,1280,89,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-020.jpg,219,1920,1080,1280,88,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-012.jpg,219,1920,1080,1280,89,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-017.jpg,218,1920,1080,1280,87,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-013.jpg,217,1920,1080,1280,88,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-022.jpg,216,1920,1080,1280,87,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-014.jpg,216,1920,1080,1280,88,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-015.jpg,216,1920,1080,1280,88,59,replace-with-video
+assets/img/Videography-Page/why/revisions.jpg,216,1280,831,800,98,55,resize+webp
+assets/img/Videography-Page/scrub-frames/frame-019.jpg,215,1920,1080,1280,87,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-023.jpg,213,1920,1080,1280,87,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-021.jpg,211,1920,1080,1280,86,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-031.jpg,205,1920,1080,1280,82,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-024.jpg,204,1920,1080,1280,83,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-033.jpg,202,1920,1080,1280,82,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-025.jpg,201,1920,1080,1280,83,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-026.jpg,200,1920,1080,1280,83,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-035.jpg,199,1920,1080,1280,82,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-027.jpg,198,1920,1080,1280,82,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-037.jpg,197,1920,1080,1280,81,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-032.jpg,197,1920,1080,1280,81,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-028.jpg,196,1920,1080,1280,82,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-029.jpg,195,1920,1080,1280,82,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-030.jpg,195,1920,1080,1280,81,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-034.jpg,195,1920,1080,1280,80,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-038.jpg,194,1920,1080,1280,80,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-036.jpg,192,1920,1080,1280,79,59,replace-with-video
+assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl.webp,191,2702,1552,1280,45,76,resize+webp
+assets/img/Videography-Page/scrub-frames/frame-046.jpg,189,1920,1080,1280,76,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-048.jpg,186,1920,1080,1280,77,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-039.jpg,186,1920,1080,1280,77,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-050.jpg,184,1920,1080,1280,75,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-040.jpg,184,1920,1080,1280,75,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-047.jpg,182,1920,1080,1280,76,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-041.jpg,182,1920,1080,1280,75,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-052.jpg,181,1920,1080,1280,75,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-042.jpg,180,1920,1080,1280,74,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-045.jpg,180,1920,1080,1280,75,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-043.jpg,180,1920,1080,1280,74,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-044.jpg,179,1920,1080,1280,74,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-049.jpg,179,1920,1080,1280,74,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-053.jpg,179,1920,1080,1280,75,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-051.jpg,178,1920,1080,1280,74,59,replace-with-video
+assets/img/Videography-Page/why/review.jpg,176,1280,848,800,77,56,resize+webp
+assets/img/Videography-Page/scrub-frames/frame-061.jpg,172,1920,1080,1280,70,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-054.jpg,172,1920,1080,1280,72,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-055.jpg,170,1920,1080,1280,72,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-063.jpg,169,1920,1080,1280,69,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-056.jpg,169,1920,1080,1280,71,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-057.jpg,169,1920,1080,1280,71,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-058.jpg,168,1920,1080,1280,70,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-062.jpg,167,1920,1080,1280,68,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-065.jpg,166,1920,1080,1280,68,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-059.jpg,166,1920,1080,1280,69,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-060.jpg,166,1920,1080,1280,70,58,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-067.jpg,164,1920,1080,1280,67,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-064.jpg,164,1920,1080,1280,67,59,replace-with-video
+assets/img/Maarten-Photos/Videography2.jpg,163,2000,1324,1600,40,76,resize+webp
+assets/img/Landing-Page/TUINVOORJOU Logo.png,163,512,512,512,26,84,webp-only
+assets/img/Videography-Page/stills/aerial-1280.jpg,161,1280,720,1280,116,28,webp-only
+assets/img/Videography-Page/scrub-frames/frame-068.jpg,161,1920,1080,1280,66,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-066.jpg,161,1920,1080,1280,66,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-069.jpg,155,1920,1080,1280,64,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-070.jpg,153,1920,1080,1280,63,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-076.jpg,152,1920,1080,1280,61,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-071.jpg,152,1920,1080,1280,63,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-072.jpg,150,1920,1080,1280,62,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-073.jpg,148,1920,1080,1280,61,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-078.jpg,148,1920,1080,1280,59,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-074.jpg,147,1920,1080,1280,60,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-075.jpg,146,1920,1080,1280,60,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-077.jpg,146,1920,1080,1280,59,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-080.jpg,145,1920,1080,1280,58,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-079.jpg,143,1920,1080,1280,58,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-082.jpg,142,1920,1080,1280,57,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-081.jpg,140,1920,1080,1280,57,59,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-083.jpg,139,1920,1080,1280,56,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-084.jpg,133,1920,1080,1280,53,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-085.jpg,132,1920,1080,1280,53,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-086.jpg,131,1920,1080,1280,53,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-087.jpg,129,1920,1080,1280,51,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-091.jpg,126,1920,1080,1280,48,62,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-088.jpg,126,1920,1080,1280,50,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-089.jpg,124,1920,1080,1280,49,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-090.jpg,123,1920,1080,1280,49,60,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-092.jpg,122,1920,1080,1280,48,61,replace-with-video
+assets/img/Videography-Page/scrub-frames/frame-093.jpg,122,1920,1080,1280,47,61,replace-with-video
+assets/img/Videography-Page/hero-mobile.jpg,114,1080,1350,1080,43,62,webp-only
+assets/img/Landing-Page/Recent-Bakes.jpeg,108,1024,576,960,47,56,resize+webp
+assets/img/Videography-Page/work/camperplaats.jpg,104,1280,720,1280,44,58,webp-only
+assets/img/software-solutions/Tuincalculator.png,103,2436,1407,1280,19,82,resize+webp
+assets/img/Videography-Page/why/planning.jpg,96,1280,848,800,32,67,resize+webp
+assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl.webp,91,786,1622,786,63,31,webp-only
+assets/img/Taarten-Page/menu/menu-originals/Worstenbroodjes Cover.jpg,89,1024,576,1024,44,51,webp-only
+assets/img/Videography-Page/why/desk.jpg,86,1257,832,800,30,65,resize+webp
+assets/img/Videography-Page/why/delivery.jpg,77,1280,720,800,25,67,resize+webp
+assets/img/software-solutions/vragenlijst-top.jpg,73,1260,788,1260,21,71,webp-only
+assets/img/Videography-Page/stills/events-1280.jpg,73,1280,720,1280,45,38,webp-only
+assets/logo-badge-white-small.png,49,239,256,239,15,69,webp-only

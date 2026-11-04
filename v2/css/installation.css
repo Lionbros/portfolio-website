@@ -1,0 +1,174 @@
+/* ═════════════════════════════════════════════════════════════════
+   INSTALLATION (Starlink & TV) — page theme
+   Skeleton: night-sky dark hero over a light body. Shares main.css's
+   nav, contact form classes and footer; only the shell around them is
+   written here. Tokens below re-declare :root the way taarten.css does,
+   keeping --accent from main.css so the brand orange carries over. */
+
+body.page-install {
+    --bg: #F4F3EF;
+    --text: #000000;
+    --accent: #BC4B23;
+    --accent-light: rgba(188, 75, 35, 0.08);
+    --orange: var(--accent);
+    --orange-light: var(--accent-light);
+    --inst-sky-1: #0b0f1a;
+    --inst-sky-2: #131b2e;
+    --inst-sky-3: #1a2340;
+}
+
+/* ─── HERO: night sky ───
+   Pure CSS star field — layered 1px radial-gradient dots over a navy
+   gradient, with a faint accent glow at the horizon. No canvas, no
+   frames; when real installation photos arrive this can be swapped for
+   an <img> or background image. */
+.inst-hero {
+    position: relative;
+    z-index: 10;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--inst-sky-1);
+    background-image:
+        radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,0.8) 50%, transparent 51%),
+        radial-gradient(1px 1px at 28% 58%, rgba(255,255,255,0.6) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 46% 18%, rgba(255,255,255,0.9) 50%, transparent 51%),
+        radial-gradient(1px 1px at 58% 44%, rgba(255,255,255,0.55) 50%, transparent 51%),
+        radial-gradient(1px 1px at 72% 66%, rgba(255,255,255,0.7) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 84% 14%, rgba(255,255,255,0.85) 50%, transparent 51%),
+        radial-gradient(1px 1px at 22% 78%, rgba(255,255,255,0.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 38% 36%, rgba(255,255,255,0.4) 50%, transparent 51%),
+        radial-gradient(1px 1px at 64% 86%, rgba(255,255,255,0.45) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 92% 50%, rgba(255,255,255,0.8) 50%, transparent 51%),
+        radial-gradient(circle at 75% 115%, rgba(188,75,35,0.4), transparent 55%),
+        linear-gradient(180deg, var(--inst-sky-1) 0%, var(--inst-sky-2) 70%, var(--inst-sky-3) 100%);
+}
+.inst-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 5% 6rem;
+    width: 100%;
+}
+.inst-hero__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(244, 243, 239, 0.65);
+    margin: 0 0 1.5rem;
+}
+.inst-hero__title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: #F4F3EF;
+    margin: 0 0 1.5rem;
+    max-width: 14ch;
+}
+.inst-hero__title em {
+    color: #E07A52;
+    font-style: normal;
+}
+.inst-hero__sub {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: rgba(244, 243, 239, 0.8);
+    max-width: 52ch;
+    margin: 0 0 2.5rem;
+}
+.inst-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.inst-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 1.75rem;
+    border-radius: 100px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.inst-hero__cta--main {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: #F4F3EF;
+}
+.inst-hero__cta--main:hover { background: #a53f1d; border-color: #a53f1d; }
+.inst-hero__cta--ghost {
+    background: transparent;
+    border: 1px solid rgba(244, 243, 239, 0.4);
+    color: #F4F3EF;
+}
+.inst-hero__cta--ghost:hover { border-color: #F4F3EF; }
+
+/* ─── SERVICES: simple ruled list on the light body ─── */
+.inst-svc {
+    position: relative;
+    z-index: 10;
+    background: var(--bg);
+    color: var(--text);
+    padding: 8rem 5%;
+}
+.inst-svc__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.inst-svc__title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0 0 3rem;
+}
+.inst-svc__row {
+    padding: 2.25rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.inst-svc__row:last-child { border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+.inst-svc__name {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 0.9rem;
+}
+.inst-svc__desc {
+    margin: 0;
+    max-width: 62ch;
+    color: rgba(0, 0, 0, 0.72);
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+/* ─── CONTACT: same shell contract as .soft-contact on the software
+   page — the form classes themselves come from main.css, only the
+   section chrome and its light-background fixes live here. */
+.inst-contact {
+    position: relative;
+    z-index: 10;
+    background: var(--bg);
+    color: var(--text);
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 8rem 5%;
+}
+/* main.css hides the success panel via #form-success.hidden, but the
+   faded form needs the same treatment to release its grid cell. */
+.inst-contact .contact-form.hidden { display: none; }
+/* The shared inputs are drawn at main.css's very faint --border; too
+   faint on this light sheet, same fix the software page uses. */
+.inst-contact .contact-info-item { border-bottom-color: rgba(0, 0, 0, 0.14); }
+.inst-contact .form-input,
+.inst-contact .form-select,
+.inst-contact .form-textarea { border-bottom-color: rgba(0, 0, 0, 0.2); }
+
+@media (max-width: 900px) {
+    .inst-hero { min-height: 78vh; }
+    .inst-hero__inner { padding: 7rem 1.5rem 5rem; }
+    .inst-svc, .inst-contact { padding: 6rem 1.5rem; }
+}

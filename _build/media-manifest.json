@@ -1,0 +1,479 @@
+{
+ "assets/img/Landing-Page/Camperplaats Zsana Cover.png": {
+  "w": 960,
+  "h": 478,
+  "avif": "assets/img/Landing-Page/Camperplaats Zsana Cover-960.avif",
+  "webp": "assets/img/Landing-Page/Camperplaats Zsana Cover-960.webp",
+  "orig": 5608597,
+  "avif_b": 43208,
+  "webp_b": 55098
+ },
+ "assets/img/Landing-Page/Camperplaats Zsana Logo.png": {
+  "w": 960,
+  "h": 838,
+  "avif": "assets/img/Landing-Page/Camperplaats Zsana Logo-960.avif",
+  "webp": "assets/img/Landing-Page/Camperplaats Zsana Logo-960.webp",
+  "orig": 4489521,
+  "avif_b": 85915,
+  "webp_b": 139060
+ },
+ "assets/img/Landing-Page/Personal-Projects.jpg": {
+  "w": 960,
+  "h": 824,
+  "avif": "assets/img/Landing-Page/Personal-Projects-960.avif",
+  "webp": "assets/img/Landing-Page/Personal-Projects-960.webp",
+  "orig": 1613376,
+  "avif_b": 63817,
+  "webp_b": 96822
+ },
+ "assets/img/Landing-Page/Plattegrond Generator Cover.png": {
+  "w": 960,
+  "h": 477,
+  "avif": "assets/img/Landing-Page/Plattegrond Generator Cover-960.avif",
+  "webp": "assets/img/Landing-Page/Plattegrond Generator Cover-960.webp",
+  "orig": 1390835,
+  "avif_b": 15328,
+  "webp_b": 21194
+ },
+ "assets/img/Landing-Page/Recent-Bakes.jpeg": {
+  "w": 960,
+  "h": 540,
+  "avif": "assets/img/Landing-Page/Recent-Bakes-960.avif",
+  "webp": "assets/img/Landing-Page/Recent-Bakes-960.webp",
+  "orig": 110592,
+  "avif_b": 46951,
+  "webp_b": 64438
+ },
+ "assets/img/Landing-Page/Software-Projects.jpeg": {
+  "w": 960,
+  "h": 739,
+  "avif": "assets/img/Landing-Page/Software-Projects-960.avif",
+  "webp": "assets/img/Landing-Page/Software-Projects-960.webp",
+  "orig": 379977,
+  "avif_b": 47262,
+  "webp_b": 68798
+ },
+ "assets/img/Landing-Page/Suzhou Center Cover.png": {
+  "w": 960,
+  "h": 540,
+  "avif": "assets/img/Landing-Page/Suzhou Center Cover-960.avif",
+  "webp": "assets/img/Landing-Page/Suzhou Center Cover-960.webp",
+  "orig": 2931484,
+  "avif_b": 26263,
+  "webp_b": 36100
+ },
+ "assets/img/Landing-Page/TUINVOORJOU Logo.png": {
+  "w": 512,
+  "h": 512,
+  "avif": "assets/img/Landing-Page/TUINVOORJOU Logo-512.avif",
+  "webp": "assets/img/Landing-Page/TUINVOORJOU Logo-512.webp",
+  "orig": 166575,
+  "avif_b": 17800,
+  "webp_b": 32370
+ },
+ "assets/img/Maarten-Photos/About.jpg": {
+  "w": 1324,
+  "h": 2000,
+  "avif": "assets/img/Maarten-Photos/About-1324.avif",
+  "webp": "assets/img/Maarten-Photos/About-1324.webp",
+  "orig": 480518,
+  "avif_b": 240357,
+  "webp_b": 304560
+ },
+ "assets/img/Maarten-Photos/Idea to done.jpg": {
+  "w": 1600,
+  "h": 1852,
+  "avif": "assets/img/Maarten-Photos/Idea to done-1600.avif",
+  "webp": "assets/img/Maarten-Photos/Idea to done-1600.webp",
+  "orig": 1471356,
+  "avif_b": 74270,
+  "webp_b": 89016
+ },
+ "assets/img/Maarten-Photos/portrait-hero.png": {
+  "w": 802,
+  "h": 1254,
+  "avif": "assets/img/Maarten-Photos/portrait-hero-802.avif",
+  "webp": "assets/img/Maarten-Photos/portrait-hero-802.webp",
+  "orig": 1025108,
+  "avif_b": 28521,
+  "webp_b": 33808
+ },
+ "assets/img/Maarten-Photos/Taarten.jpg": {
+  "w": 1365,
+  "h": 768,
+  "avif": "assets/img/Maarten-Photos/Taarten-1365.avif",
+  "webp": "assets/img/Maarten-Photos/Taarten-1365.webp",
+  "orig": 861688,
+  "avif_b": 83740,
+  "webp_b": 124770
+ },
+ "assets/img/Maarten-Photos/Technical.jpg": {
+  "w": 1257,
+  "h": 832,
+  "avif": "assets/img/Maarten-Photos/Technical-1257.avif",
+  "webp": "assets/img/Maarten-Photos/Technical-1257.webp",
+  "orig": 702036,
+  "avif_b": 33674,
+  "webp_b": 45972
+ },
+ "assets/img/Maarten-Photos/Videography.jpg": {
+  "w": 1024,
+  "h": 678,
+  "avif": "assets/img/Maarten-Photos/Videography-1024.avif",
+  "webp": "assets/img/Maarten-Photos/Videography-1024.webp",
+  "orig": 752118,
+  "avif_b": 68831,
+  "webp_b": 92222
+ },
+ "assets/img/Maarten-Photos/Videography2.jpg": {
+  "w": 1600,
+  "h": 1059,
+  "avif": "assets/img/Maarten-Photos/Videography2-1600.avif",
+  "webp": "assets/img/Maarten-Photos/Videography2-1600.webp",
+  "orig": 166787,
+  "avif_b": 38651,
+  "webp_b": 44956
+ },
+ "assets/img/software-solutions/3D-Work.png": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/software-solutions/3D-Work-1280.avif",
+  "webp": "assets/img/software-solutions/3D-Work-1280.webp",
+  "orig": 2215663,
+  "avif_b": 68350,
+  "webp_b": 114118
+ },
+ "assets/img/software-solutions/plattegrond-map.jpg": {
+  "w": 1280,
+  "h": 801,
+  "avif": "assets/img/software-solutions/plattegrond-map-1280.avif",
+  "webp": "assets/img/software-solutions/plattegrond-map-1280.webp",
+  "orig": 345482,
+  "avif_b": 72844,
+  "webp_b": 95566
+ },
+ "assets/img/software-solutions/Trilingual Campsite Evacuation Plan.png": {
+  "w": 1280,
+  "h": 876,
+  "avif": "assets/img/software-solutions/Trilingual Campsite Evacuation Plan-1280.avif",
+  "webp": "assets/img/software-solutions/Trilingual Campsite Evacuation Plan-1280.webp",
+  "orig": 1495315,
+  "avif_b": 47271,
+  "webp_b": 75140
+ },
+ "assets/img/software-solutions/Tuincalculator.png": {
+  "w": 1280,
+  "h": 739,
+  "avif": "assets/img/software-solutions/Tuincalculator-1280.avif",
+  "webp": "assets/img/software-solutions/Tuincalculator-1280.webp",
+  "orig": 105585,
+  "avif_b": 15618,
+  "webp_b": 22796
+ },
+ "assets/img/software-solutions/vragenlijst-top.jpg": {
+  "w": 1260,
+  "h": 788,
+  "avif": "assets/img/software-solutions/vragenlijst-top-1260.avif",
+  "webp": "assets/img/software-solutions/vragenlijst-top-1260.webp",
+  "orig": 75055,
+  "avif_b": 18993,
+  "webp_b": 26132
+ },
+ "assets/img/software-solutions/Webtools-iphone.png": {
+  "w": 636,
+  "h": 1294,
+  "avif": "assets/img/software-solutions/Webtools-iphone-636.avif",
+  "webp": "assets/img/software-solutions/Webtools-iphone-636.webp",
+  "orig": 897128,
+  "avif_b": 54804,
+  "webp_b": 79640
+ },
+ "assets/img/software-solutions/Webtools-macbook.png": {
+  "w": 1280,
+  "h": 735,
+  "avif": "assets/img/software-solutions/Webtools-macbook-1280.avif",
+  "webp": "assets/img/software-solutions/Webtools-macbook-1280.webp",
+  "orig": 637634,
+  "avif_b": 16354,
+  "webp_b": 22664
+ },
+ "assets/img/Taarten-Page/maarten-met-taart.png": {
+  "w": 941,
+  "h": 1176,
+  "avif": "assets/img/Taarten-Page/maarten-met-taart-941.avif",
+  "webp": "assets/img/Taarten-Page/maarten-met-taart-941.webp",
+  "orig": 994804,
+  "avif_b": 41363,
+  "webp_b": 49550
+ },
+ "assets/img/Taarten-Page/menu/Final Menu Pics/web/Appeltaart-final.jpg": {
+  "w": 800,
+  "h": 600,
+  "avif": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Appeltaart-final-800.avif",
+  "webp": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Appeltaart-final-800.webp",
+  "orig": 644135,
+  "avif_b": 35644,
+  "webp_b": 55238
+ },
+ "assets/img/Taarten-Page/menu/Final Menu Pics/web/Brabantse-worstenbroodjes-final.jpg": {
+  "w": 800,
+  "h": 600,
+  "avif": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Brabantse-worstenbroodjes-final-800.avif",
+  "webp": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Brabantse-worstenbroodjes-final-800.webp",
+  "orig": 561451,
+  "avif_b": 29062,
+  "webp_b": 40546
+ },
+ "assets/img/Taarten-Page/menu/Final Menu Pics/web/Chocolate-Chip-Cookies-bowl-final.jpg": {
+  "w": 800,
+  "h": 600,
+  "avif": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Chocolate-Chip-Cookies-bowl-final-800.avif",
+  "webp": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Chocolate-Chip-Cookies-bowl-final-800.webp",
+  "orig": 526341,
+  "avif_b": 26414,
+  "webp_b": 41134
+ },
+ "assets/img/Taarten-Page/menu/Final Menu Pics/web/Kaneelbroodjes-single-final.jpg": {
+  "w": 800,
+  "h": 600,
+  "avif": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Kaneelbroodjes-single-final-800.avif",
+  "webp": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Kaneelbroodjes-single-final-800.webp",
+  "orig": 455121,
+  "avif_b": 22863,
+  "webp_b": 31748
+ },
+ "assets/img/Taarten-Page/menu/Final Menu Pics/web/Krentenbollen-final.jpg": {
+  "w": 800,
+  "h": 600,
+  "avif": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Krentenbollen-final-800.avif",
+  "webp": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Krentenbollen-final-800.webp",
+  "orig": 586288,
+  "avif_b": 30053,
+  "webp_b": 39938
+ },
+ "assets/img/Taarten-Page/menu/Final Menu Pics/web/Limburgse-kruimelvlaai-final.jpg": {
+  "w": 800,
+  "h": 600,
+  "avif": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Limburgse-kruimelvlaai-final-800.avif",
+  "webp": "assets/img/Taarten-Page/menu/Final Menu Pics/web/Limburgse-kruimelvlaai-final-800.webp",
+  "orig": 748460,
+  "avif_b": 36300,
+  "webp_b": 55452
+ },
+ "assets/img/Taarten-Page/menu/menu-originals/Worstenbroodjes Cover.jpg": {
+  "w": 1024,
+  "h": 576,
+  "avif": "assets/img/Taarten-Page/menu/menu-originals/Worstenbroodjes Cover-1024.avif",
+  "webp": "assets/img/Taarten-Page/menu/menu-originals/Worstenbroodjes Cover-1024.webp",
+  "orig": 91416,
+  "avif_b": 36792,
+  "webp_b": 49058
+ },
+ "assets/img/Taarten-Page/taarten-hero-1.png": {
+  "w": 960,
+  "h": 960,
+  "avif": "assets/img/Taarten-Page/taarten-hero-1-960.avif",
+  "webp": "assets/img/Taarten-Page/taarten-hero-1-960.webp",
+  "orig": 1406886,
+  "avif_b": 67528,
+  "webp_b": 79532
+ },
+ "assets/img/Taarten-Page/taarten-hero-2.png": {
+  "w": 960,
+  "h": 960,
+  "avif": "assets/img/Taarten-Page/taarten-hero-2-960.avif",
+  "webp": "assets/img/Taarten-Page/taarten-hero-2-960.webp",
+  "orig": 1515303,
+  "avif_b": 64511,
+  "webp_b": 84072
+ },
+ "assets/img/Taarten-Page/taarten-hero-3.png": {
+  "w": 960,
+  "h": 960,
+  "avif": "assets/img/Taarten-Page/taarten-hero-3-960.avif",
+  "webp": "assets/img/Taarten-Page/taarten-hero-3-960.webp",
+  "orig": 1862001,
+  "avif_b": 79029,
+  "webp_b": 113684
+ },
+ "assets/img/Videography-Page/Camperplaats Zsana VIDEO Cover.png": {
+  "w": 1600,
+  "h": 900,
+  "avif": "assets/img/Videography-Page/Camperplaats Zsana VIDEO Cover-1600.avif",
+  "webp": "assets/img/Videography-Page/Camperplaats Zsana VIDEO Cover-1600.webp",
+  "orig": 2568878,
+  "avif_b": 73329,
+  "webp_b": 77730
+ },
+ "assets/img/Videography-Page/hero-mobile.jpg": {
+  "w": 1080,
+  "h": 1350,
+  "avif": "assets/img/Videography-Page/hero-mobile-1080.avif",
+  "webp": "assets/img/Videography-Page/hero-mobile-1080.webp",
+  "orig": 117121,
+  "avif_b": 44064,
+  "webp_b": 49282
+ },
+ "assets/img/Videography-Page/Images/Introduction.jpg": {
+  "w": 1600,
+  "h": 1060,
+  "avif": "assets/img/Videography-Page/Images/Introduction-1600.avif",
+  "webp": "assets/img/Videography-Page/Images/Introduction-1600.webp",
+  "orig": 800594,
+  "avif_b": 210820,
+  "webp_b": 318944
+ },
+ "assets/img/Videography-Page/stills/aerial-1280.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/stills/aerial-1280-1280.avif",
+  "webp": "assets/img/Videography-Page/stills/aerial-1280-1280.webp",
+  "orig": 165055,
+  "avif_b": 93415,
+  "webp_b": 127088
+ },
+ "assets/img/Videography-Page/stills/events-1280.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/stills/events-1280-1280.avif",
+  "webp": "assets/img/Videography-Page/stills/events-1280-1280.webp",
+  "orig": 74813,
+  "avif_b": 41755,
+  "webp_b": 50360
+ },
+ "assets/img/Videography-Page/stills/promotion-1280.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/stills/promotion-1280-1280.avif",
+  "webp": "assets/img/Videography-Page/stills/promotion-1280-1280.webp",
+  "orig": 249905,
+  "avif_b": 141702,
+  "webp_b": 231164
+ },
+ "assets/img/Videography-Page/why/delivery.jpg": {
+  "w": 800,
+  "h": 450,
+  "avif": "assets/img/Videography-Page/why/delivery-800.avif",
+  "webp": "assets/img/Videography-Page/why/delivery-800.webp",
+  "orig": 78709,
+  "avif_b": 23373,
+  "webp_b": 28404
+ },
+ "assets/img/Videography-Page/why/desk.jpg": {
+  "w": 800,
+  "h": 530,
+  "avif": "assets/img/Videography-Page/why/desk-800.avif",
+  "webp": "assets/img/Videography-Page/why/desk-800.webp",
+  "orig": 88432,
+  "avif_b": 25402,
+  "webp_b": 33898
+ },
+ "assets/img/Videography-Page/why/planning.jpg": {
+  "w": 800,
+  "h": 530,
+  "avif": "assets/img/Videography-Page/why/planning-800.avif",
+  "webp": "assets/img/Videography-Page/why/planning-800.webp",
+  "orig": 98780,
+  "avif_b": 25628,
+  "webp_b": 35468
+ },
+ "assets/img/Videography-Page/why/review.jpg": {
+  "w": 800,
+  "h": 530,
+  "avif": "assets/img/Videography-Page/why/review-800.avif",
+  "webp": "assets/img/Videography-Page/why/review-800.webp",
+  "orig": 180356,
+  "avif_b": 58776,
+  "webp_b": 85652
+ },
+ "assets/img/Videography-Page/why/revisions.jpg": {
+  "w": 800,
+  "h": 519,
+  "avif": "assets/img/Videography-Page/why/revisions-800.avif",
+  "webp": "assets/img/Videography-Page/why/revisions-800.webp",
+  "orig": 221257,
+  "avif_b": 66404,
+  "webp_b": 107624
+ },
+ "assets/img/Videography-Page/work/camperplaats.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/work/camperplaats-1280.avif",
+  "webp": "assets/img/Videography-Page/work/camperplaats-1280.webp",
+  "orig": 106697,
+  "avif_b": 48576,
+  "webp_b": 49516
+ },
+ "assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl.webp": {
+  "w": 786,
+  "h": 1622,
+  "avif": "assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl-786.avif",
+  "webp": "assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl-786.webp",
+  "orig": 92962,
+  "avif_b": 51543,
+  "webp_b": 70626
+ },
+ "assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl.webp": {
+  "w": 1280,
+  "h": 735,
+  "avif": "assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl-1280.avif",
+  "webp": "assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl-1280.webp",
+  "orig": 195264,
+  "avif_b": 42897,
+  "webp_b": 51178
+ },
+ "assets/img/Videography-Page/work/mammamia.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/work/mammamia-1280.avif",
+  "webp": "assets/img/Videography-Page/work/mammamia-1280.webp",
+  "orig": 2001066,
+  "avif_b": 107004,
+  "webp_b": 155260
+ },
+ "assets/img/Videography-Page/work/ssis.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/work/ssis-1280.avif",
+  "webp": "assets/img/Videography-Page/work/ssis-1280.webp",
+  "orig": 2095920,
+  "avif_b": 114342,
+  "webp_b": 170306
+ },
+ "assets/img/Videography-Page/work/suzhou-center.jpg": {
+  "w": 1280,
+  "h": 808,
+  "avif": "assets/img/Videography-Page/work/suzhou-center-1280.avif",
+  "webp": "assets/img/Videography-Page/work/suzhou-center-1280.webp",
+  "orig": 2267783,
+  "avif_b": 105614,
+  "webp_b": 159980
+ },
+ "assets/img/Videography-Page/work/times-square.jpg": {
+  "w": 1280,
+  "h": 720,
+  "avif": "assets/img/Videography-Page/work/times-square-1280.avif",
+  "webp": "assets/img/Videography-Page/work/times-square-1280.webp",
+  "orig": 831637,
+  "avif_b": 89561,
+  "webp_b": 121986
+ },
+ "assets/logo-badge-white-small.png": {
+  "w": 239,
+  "h": 256,
+  "avif": "assets/logo-badge-white-small-239.avif",
+  "webp": "assets/logo-badge-white-small-239.webp",
+  "orig": 50358,
+  "avif_b": 6346,
+  "webp_b": 16328
+ },
+ "assets/logo-badge.png": {
+  "w": 256,
+  "h": 275,
+  "avif": "assets/logo-badge-256.avif",
+  "webp": "assets/logo-badge-256.webp",
+  "orig": 3215098,
+  "avif_b": 8052,
+  "webp_b": 10710
+ }
+}

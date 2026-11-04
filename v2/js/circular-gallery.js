@@ -23,31 +23,33 @@
   var CATEGORIES = [
     {
       title: "TUINVOORJOU",
+      i18nKey: "gallery.cat.tuinvoorjou",
       subtitle: "Garden planning platform",
       badge: "Client",
-      cover: "assets/img/TUINVOORJOU%20Logo.png",
+      cover: "assets/img/Landing-Page/TUINVOORJOU%20Logo-512.webp",
       logo: true,
       projects: [
         {
           title: "Plattegrond Generator",
           desc: "An interactive garden plan generator. Visitors lay out their garden and generate a printable plattegrond in minutes.",
           type: "image",
-          media: ["assets/img/Plattegrond%20Generator%20Cover.png"]
+          media: ["assets/img/Landing-Page/Plattegrond%20Generator%20Cover-960.webp"]
         }
       ]
     },
     {
       title: "Camperplaats Zsana",
+      i18nKey: "gallery.cat.zsana",
       subtitle: "Landing page & hero video",
       badge: "Client",
-      cover: "assets/img/Camperplaats%20Zsana%20Logo.png",
+      cover: "assets/img/Landing-Page/Camperplaats%20Zsana%20Logo-960.webp",
       logo: true,
       projects: [
         {
           title: "Website",
           desc: "A clean, mobile-first landing page for Camperplaats Zsana \u2014 booking information, site highlights, and everything a visitor needs before arriving.",
           type: "image",
-          media: ["assets/img/Camperplaats%20Zsana%20Cover.png"]
+          media: ["assets/img/Landing-Page/Camperplaats%20Zsana%20Cover-960.webp"]
         },
         {
           title: "Hero Video",
@@ -59,15 +61,16 @@
     },
     {
       title: "Recent Bakes",
+      i18nKey: "gallery.cat.bakes",
       subtitle: "Fresh from the oven",
       badge: "Taarten van Maarten",
-      cover: "assets/img/Worstenbroodjes%20Cover.jpg",
+      cover: "assets/img/Landing-Page/Recent-Bakes-960.webp",
       projects: [
         {
           title: "Worstenbroodjes",
           desc: "Traditional Dutch worstenbroodjes \u2014 soft, golden dough rolled around seasoned minced meat. Baked fresh and best eaten warm.",
           type: "image",
-          media: ["assets/img/Worstenbroodjes%20Cover.jpg"]
+          media: ["assets/img/Taarten-Page/menu/menu-originals/Worstenbroodjes%20Cover-1024.webp"]
         },
         {
           title: "Appeltaart",
@@ -79,9 +82,10 @@
     },
     {
       title: "Video Projects",
+      i18nKey: "gallery.cat.video",
       subtitle: "Film & cinematography",
       badge: "Film",
-      cover: "assets/img/Suzhou%20Center%20Cover.png",
+      cover: "assets/img/Maarten-Photos/Videography2-1600.webp",
       projects: [
         {
           title: "Suzhou Center",
@@ -99,41 +103,43 @@
     },
     {
       title: "Software Projects",
+      i18nKey: "gallery.cat.software",
       subtitle: "Web development & tools",
       badge: "Software",
-      cover: "assets/img/Plattegrond%20Generator%20Cover.png",
+      cover: "assets/img/Landing-Page/Software-Projects-960.webp",
       projects: [
         {
           title: "Plattegrond Generator",
           desc: "An interactive garden plan generator. Visitors lay out their garden and generate a printable plattegrond in minutes.",
           type: "image",
-          media: ["assets/img/Plattegrond%20Generator%20Cover.png"]
+          media: ["assets/img/Landing-Page/Plattegrond%20Generator%20Cover-960.webp"]
         },
         {
           title: "Camperplaats Zsana",
           desc: "A clean, mobile-first landing page \u2014 booking information, site highlights, and everything a visitor needs before arriving.",
           type: "image",
-          media: ["assets/img/Camperplaats%20Zsana%20Cover.png"]
+          media: ["assets/img/Landing-Page/Camperplaats%20Zsana%20Cover-960.webp"]
         }
       ]
     },
     {
       title: "Personal Projects",
+      i18nKey: "gallery.cat.personal",
       subtitle: "A mix of everything",
       badge: "Personal",
-      cover: "assets/img/Worstenbroodjes%20Cover.jpg",
+      cover: "assets/img/Landing-Page/Personal-Projects-960.webp",
       projects: [
         {
           title: "Baking",
           desc: "Traditional Dutch recipes passed down through generations. Worstembroodjes, appeltaart, and more \u2014 made with love in Hungary.",
           type: "image",
-          media: ["assets/img/Worstenbroodjes%20Cover.jpg", "https://images.unsplash.com/photo-1548324215-9133768e4094?auto=format&fit=crop&q=80&w=1080"]
+          media: ["assets/img/Taarten-Page/menu/menu-originals/Worstenbroodjes%20Cover-1024.webp", "https://images.unsplash.com/photo-1548324215-9133768e4094?auto=format&fit=crop&q=80&w=1080"]
         },
         {
           title: "Travel & Photography",
           desc: "Moments captured around the world \u2014 from the canals of Suzhou to the puszta of Hungary.",
           type: "image",
-          media: ["assets/img/Suzhou%20Center%20Cover.png", "assets/img/Camperplaats%20Zsana%20Cover.png"]
+          media: ["assets/img/Landing-Page/Suzhou%20Center%20Cover-960.webp", "assets/img/Landing-Page/Camperplaats%20Zsana%20Cover-960.webp"]
         }
       ]
     }
@@ -415,10 +421,48 @@
     }, { passive: true });
   }
 
+  /* ─── i18n: translate card labels in place (no carousel rebuild) ─── */
+  function galleryT(key, fallback) {
+    var lang = "en";
+    try {
+      lang = localStorage.getItem("mvdl-lang") || document.documentElement.getAttribute("lang") || "en";
+    } catch (e) {}
+    if (window.I18N && window.I18N[lang] && window.I18N[lang][key]) return window.I18N[lang][key];
+    return fallback;
+  }
+
+  function applyGalleryLang() {
+    CATEGORIES.forEach(function (cat) {
+      if (!cat._baseTitle) cat._baseTitle = cat.title;
+      if (cat.i18nKey) cat.title = galleryT(cat.i18nKey, cat._baseTitle);
+    });
+  }
+
+  function refreshGalleryLabels() {
+    var cards = document.querySelectorAll("#circular-gallery .arc-card");
+    if (!cards.length) return;
+    cards.forEach(function (card) {
+      var idx = parseInt(card.getAttribute("data-category"), 10);
+      var cat = CATEGORIES[idx];
+      if (!cat) return;
+      var label = card.querySelector(".arc-card__label");
+      if (label) label.textContent = cat.title;
+      card.setAttribute("aria-label", cat.title);
+      var img = card.querySelector("img");
+      if (img) img.setAttribute("alt", cat.title);
+    });
+  }
+
+  document.addEventListener("mvdl:lang", function () {
+    applyGalleryLang();
+    refreshGalleryLabels();
+  });
+
   /* ─── Boot ─── */
   function init() {
     var container = document.getElementById("circular-gallery");
     if (!container) return;
+    applyGalleryLang();
     createCarousel(container, openPage);
   }
 

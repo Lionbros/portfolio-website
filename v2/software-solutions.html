@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <title>Software Solutions — Maarten van der Leeuw</title>
+
+    <!-- Fonts -->
+    <!-- impeccable-disable overused-font -- first-party brand typeface, documented in impeccable/DESIGN.md and impeccable/PRODUCT.md -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css?v=step18">
+    <link rel="stylesheet" href="css/software-solutions.css?v=58">
+</head>
+<body>
+
+<!-- ─── Overlays ─── -->
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
+
+<!-- ─── Navigation (copied from homepage) ─── -->
+<nav class="top-nav">
+    <div class="nav-group nav-group--left">
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="Blog/index.html" class="nav-link">Blog</a>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <picture><source type="image/avif" srcset="assets/logo-badge-256.avif"><source type="image/webp" srcset="assets/logo-badge-256.webp"><img src="assets/logo-badge.png" alt="Maarten van der Leeuw" width="256" height="275" decoding="async"></picture>
+        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="index.html#contact-section" class="nav-link" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#contact-section" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" data-i18n-aria="nav.menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-overlay__link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-overlay__link" data-i18n="nav.about">About</a>
+        <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
+        <a href="index.html#contact-section" class="nav-overlay__link" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#contact-section" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
+    </div>
+</div>
+
+<!-- ─── HERO: drawing board ─── -->
+<main>
+<section class="soft-hero" id="soft-hero">
+    <canvas class="soft-hero__particles" id="soft-particles" aria-hidden="true"></canvas>
+    <div class="soft-hero__grid" aria-hidden="true"><i class="h"></i><i class="h"></i><i class="h"></i><i class="v"></i><i class="v"></i><i class="v"></i></div>
+
+    <div class="soft-hero__inner">
+        <figure class="soft-hero__fx">
+            <canvas id="soft-fx" width="480" height="560" role="img" data-i18n-aria="soft.fx.alt" aria-label="Dotted animation: a laptop showing a website, automations and a booking screen"></canvas>
+            <p class="visually-hidden" data-i18n="soft.fx.desc">Animation showing what I build: websites, automations and web tools.</p>
+            <noscript><p data-i18n="soft.fx.noscript">I build websites, automations and web tools.</p></noscript>
+        </figure>
+        <div class="soft-hero__copy">
+        <span class="soft-hero__title-mask">
+            <h1 class="soft-hero__title" data-i18n="soft.hero.title">High-end custom websites, web tools, automations and more.</h1>
+        </span>
+        <p class="soft-hero__sub" data-i18n="soft.hero.sub">I build websites, web tools and automations that make running your business easier. Build a new site, upgrade an old one, or take the repetitive work off your hands. Tell me what you need and I'll come back with a clear plan and the price before I start.</p>
+        <div class="soft-hero__actions">
+            <a href="#services" class="soft-hero__cta soft-hero__cta--primary">
+                <span data-i18n="soft.hero.cta1">My services</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+            <a href="Blog/index.html" class="soft-hero__cta soft-hero__cta--ghost">
+                <span data-i18n="soft.hero.cta2">See my work</span>
+            </a>
+        </div>
+        </div>
+    </div>
+
+    <a href="#soft-intro" class="soft-hero__scroll">
+        <span data-i18n="soft.hero.scroll">Scroll</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+</section>
+
+<!-- ─── INTRO: before / after demo ─── -->
+<section class="soft-intro section" id="soft-intro">
+    <div class="soft-intro__grid">
+        <div data-reveal>
+            <div class="soft-intro__copy">
+                <div class="soft-copy is-active" data-slide="0">
+                    <h2 class="soft-intro__title" data-i18n="soft.intro.title">Websites that bring customers.</h2>
+                    <p class="soft-intro__sub" data-i18n="soft.intro.sub">Most of my work is websites for small businesses: fast, easy to find, and easy to contact or book through. Around them I build handy tools and automations that save you the boring clicks.</p>
+                </div>
+                <div class="soft-copy" data-slide="1" aria-hidden="true">
+                    <h2 class="soft-intro__title" data-i18n="soft.tools.title">Tools built for the way you work.</h2>
+                    <p class="soft-intro__sub" data-i18n="soft.tools.sub">Beyond websites, I build custom web tools and automations shaped around your business: think of a floor plan generator or an online questionnaire. They attract new customers and make life easier for you and your customers.</p>
+                </div>
+            </div>
+            <ul class="soft-intro__checks">
+                <li data-reveal><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="soft.intro.c1">You know the price before I start</span></li>
+                <li data-reveal><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="soft.intro.c2">Reply within 24 hours</span></li>
+                <li data-reveal><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="soft.intro.c3">Explained in plain language</span></li>
+                <li data-reveal><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="soft.intro.c4">One person from first call to finished product</span></li>
+            </ul>
+            <div class="soft-intro__dots">
+                <button type="button" class="soft-dot is-active" data-goto="0" data-i18n-aria="soft.dot.site" aria-label="Show the websites project" aria-current="true"><span class="soft-dot__fill"></span></button>
+                <button type="button" class="soft-dot" data-goto="1" data-i18n-aria="soft.dot.tools" aria-label="Show the web tools project"><span class="soft-dot__fill"></span></button>
+            </div>
+        </div>
+        <div class="soft-case" data-reveal>
+            <div class="soft-case__slide is-active" data-slide="0">
+                <div class="soft-case__laptop">
+                    <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl-1280.webp"><img loading="lazy" src="assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl.webp" alt="The Camperplaats Zsana website on a laptop" data-i18n-alt="soft.case.shotAlt" width="1280" height="735" decoding="async"></picture>
+                </div>
+                <div class="soft-case__phone">
+                    <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl-786.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl-786.webp"><img loading="lazy" src="assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl.webp" alt="The Camperplaats Zsana website on a phone" data-i18n-alt="soft.case.phoneAlt" width="786" height="1622" decoding="async"></picture>
+                </div>
+            </div>
+            <div class="soft-case__slide" data-slide="1" aria-hidden="true">
+                <div class="soft-case__laptop">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/Webtools-macbook-1280.avif"><source type="image/webp" srcset="assets/img/software-solutions/Webtools-macbook-1280.webp"><img loading="lazy" src="assets/img/software-solutions/Webtools-macbook.png" alt="The Tuinvoorjou questionnaire on a laptop" data-i18n-alt="soft.tools.shotAlt" width="1280" height="735" decoding="async"></picture>
+                </div>
+                <div class="soft-case__phone">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/Webtools-iphone-636.avif"><source type="image/webp" srcset="assets/img/software-solutions/Webtools-iphone-636.webp"><img loading="lazy" src="assets/img/software-solutions/Webtools-iphone.png" alt="The Tuinvoorjou floor plan generator on a phone" data-i18n-alt="soft.tools.phoneAlt" width="636" height="1294" decoding="async"></picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── SERVICES: dark chapter, numbered ledger ─── -->
+<section class="soft-svc" id="services">
+    <div class="soft-svc__inner">
+
+        <header class="soft-svc__head">
+            <h2 class="soft-svc__title">
+                <span class="soft-svc__title-mask"><span class="soft-svc__title-inner" data-i18n="soft.svc.title">Services</span></span>
+            </h2>
+        </header>
+
+        <ol class="soft-svc__list">
+
+            <!-- Websites -->
+            <li class="soft-svc__row">
+                <div class="soft-svc__body">
+                    <h3 class="soft-svc__name" data-i18n="soft.svc.n1.title">Websites</h3>
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n1.desc">Every business works differently, so I start with yours. I take the time to understand you and your business, and to build a clear picture of who visits your site, what they come for and what they should do next. Then we go through it together, so we both get a solid idea of what you are looking for. I come back with a clear plan, the price and a timeline, so you know exactly what you get before I start.</p>
+                    <div class="soft-svc__more-wrap" id="svc-more-1">
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n1.desc2">What's important to know is that I personally take full control of the project: the frontend and backend of the site, the SEO, branding, design, user experience and everything else a website comes with, working closely with you and your vision. Once the site is live, I make sure it stays up-to-date and running. This way you can take one burden off your shoulders and focus on your business and your customers. I take full care of your website.</p>
+                    </div>
+                    <button type="button" class="soft-svc__more" data-i18n="soft.svc.more" aria-expanded="false" aria-controls="svc-more-1">Read more</button>
+                </div>
+                <figure class="soft-svc__fig" aria-hidden="true">
+                    <svg viewBox="0 0 200 140" preserveAspectRatio="xMaxYMid meet" fill="none" stroke="currentColor" stroke-width="0.8">
+                        <g class="soft-svc__fig-draw">
+                            <rect x="6" y="8" width="150" height="88" pathLength="1"/>
+                            <line x1="6" y1="30" x2="156" y2="30" pathLength="1"/>
+                            <circle cx="18" cy="19" r="2.5" pathLength="1"/>
+                            <circle cx="27" cy="19" r="2.5" pathLength="1"/>
+                            <circle cx="36" cy="19" r="2.5" pathLength="1"/>
+                            <rect x="50" y="13" width="98" height="12" pathLength="1"/>
+                            <rect x="18" y="42" width="52" height="38" pathLength="1"/>
+                            <line x1="80" y1="48" x2="146" y2="48" pathLength="1"/>
+                            <line x1="80" y1="60" x2="132" y2="60" pathLength="1"/>
+                            <line x1="80" y1="72" x2="140" y2="72" pathLength="1"/>
+                            <line x1="18" y1="88" x2="66" y2="88" pathLength="1"/>
+                            <rect x="118" y="62" width="62" height="72" pathLength="1"/>
+                            <line x1="118" y1="76" x2="180" y2="76" pathLength="1"/>
+                            <line x1="126" y1="86" x2="172" y2="86" pathLength="1"/>
+                            <line x1="126" y1="98" x2="160" y2="98" pathLength="1"/>
+                            <line x1="126" y1="110" x2="172" y2="110" pathLength="1"/>
+                            <line x1="126" y1="122" x2="150" y2="122" pathLength="1"/>
+                        </g>
+                        <rect class="soft-svc__fig-accent" x="27" y="51" width="30" height="18" stroke="none" fill="currentColor"/>
+                    </svg>
+                </figure>
+            </li>
+
+            <!-- Web tools -->
+            <li class="soft-svc__row">
+                <div class="soft-svc__body">
+                    <h3 class="soft-svc__name" data-i18n="soft.svc.n2.title">Web tools</h3>
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n2.desc">What's important for any business is to stand out, so whether you are looking to get more leads, simplify a difficult process or just want to improve your customers' experience: I will help you build it. Web tools are extremely diverse, they could be anything: from a floor plan generator or an online questionnaire to a booking page or a calculator, I take the time to understand what you're after and how it could benefit you and your customers.</p>
+                    <div class="soft-svc__more-wrap" id="svc-more-2">
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n2.desc2">Once we have a clear vision of the tool you are looking to build, I take the full project on me. I will build the frontend, the backend and perform updates, working collaboratively with you so the project stays within your reach. I will also tell you when something wouldn't work, because a form with twenty fields is harder to fill in than one with five, and every field I leave out is work you do not have to do later. Once it is live I make sure it keeps working, leaving you with one less thing to worry about.</p>
+                    </div>
+                    <button type="button" class="soft-svc__more" data-i18n="soft.svc.more" aria-expanded="false" aria-controls="svc-more-2">Read more</button>
+                </div>
+                <figure class="soft-svc__fig" aria-hidden="true">
+                    <svg viewBox="0 0 200 140" preserveAspectRatio="xMaxYMid meet" fill="none" stroke="currentColor" stroke-width="0.8">
+                        <g class="soft-svc__fig-draw">
+                            <rect x="6" y="10" width="104" height="104" pathLength="1"/>
+                            <line x1="6" y1="45" x2="110" y2="45" pathLength="1"/>
+                            <line x1="58" y1="10" x2="58" y2="114" pathLength="1"/>
+                            <line x1="6" y1="80" x2="110" y2="80" pathLength="1"/>
+                            <line x1="124" y1="24" x2="194" y2="24" pathLength="1"/>
+                            <circle cx="160" cy="24" r="7" pathLength="1"/>
+                            <line x1="124" y1="58" x2="194" y2="58" pathLength="1"/>
+                            <line x1="124" y1="76" x2="184" y2="76" pathLength="1"/>
+                            <line x1="124" y1="94" x2="176" y2="94" pathLength="1"/>
+                            <rect x="124" y="108" width="70" height="18" pathLength="1"/>
+                        </g>
+                        <rect class="soft-svc__fig-accent" x="62" y="49" width="38" height="24" stroke="none" fill="currentColor"/>
+                    </svg>
+                </figure>
+            </li>
+
+            <!-- Automation -->
+            <li class="soft-svc__row">
+                <div class="soft-svc__body">
+                    <h3 class="soft-svc__name" data-i18n="soft.svc.n3.title">Automation</h3>
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n3.desc">Automation is where I take the repetitive work off your hands. Whether that's annoying invoices, bookings, reports or accounting: I take the time to map out exactly how those steps go now and where the work passes from one program to the next. Then we go through it together so we can finally eliminate that one task you do not want to do.</p>
+                    <div class="soft-svc__more-wrap" id="svc-more-3">
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n3.desc2">I personally set up the whole chain, and I tell you beforehand what I would automate and what I would leave to you, because some things are simply better with a person behind them. I keep the setup simple, so you understand it and can fix small things yourself. Once it runs I make sure it keeps running. This way the manual work that takes you hours is done in mere minutes.</p>
+                    </div>
+                    <button type="button" class="soft-svc__more" data-i18n="soft.svc.more" aria-expanded="false" aria-controls="svc-more-3">Read more</button>
+                </div>
+                <figure class="soft-svc__fig" aria-hidden="true">
+                    <svg viewBox="0 0 200 140" preserveAspectRatio="xMaxYMid meet" fill="none" stroke="currentColor" stroke-width="0.8">
+                        <g class="soft-svc__fig-draw">
+                            <rect x="12" y="6" width="52" height="32" pathLength="1"/>
+                            <rect x="74" y="6" width="52" height="32" pathLength="1"/>
+                            <rect x="136" y="6" width="52" height="32" pathLength="1"/>
+                            <path d="M64 22 H74" pathLength="1"/>
+                            <path d="M67 16 L74 22 L67 28" pathLength="1"/>
+                            <path d="M126 22 H136" pathLength="1"/>
+                            <path d="M129 16 L136 22 L129 28" pathLength="1"/>
+                            <path d="M162 38 V130 H38 V38" pathLength="1"/>
+                            <path d="M31 46 L38 38 L45 46" pathLength="1"/>
+                        </g>
+                        <g class="soft-svc__fig-dot"><circle cx="162" cy="38" r="3"/></g>
+                    </svg>
+                </figure>
+            </li>
+
+            <!-- Other projects -->
+            <li class="soft-svc__row">
+                <div class="soft-svc__body">
+                    <h3 class="soft-svc__name" data-i18n="soft.svc.n4.title">Other projects</h3>
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n4.desc">Some projects simply do not fit in the three categories above. I also make 3D designs, internal tools, custom dashboards and software that does not exist yet. Describe what you need and I will tell you straight away whether I am able to build it.</p>
+                    <div class="soft-svc__more-wrap" id="svc-more-4">
+                    <p class="soft-svc__desc" data-i18n="soft.svc.n4.desc2">You do not need to know what it is called or which technology fits it. Start with the problem: what is it that you or your customers cannot do right now? I will look at it, tell you what is possible, what it will cost and how long it will take.</p>
+                    </div>
+                    <button type="button" class="soft-svc__more" data-i18n="soft.svc.more" aria-expanded="false" aria-controls="svc-more-4">Read more</button>
+                    <a href="index.html#contact-section" class="soft-svc__btn soft-svc__rowbtn">
+                        <span data-i18n="soft.svc.n4.cta">Describe your project</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <figure class="soft-svc__fig soft-svc__fig--city" aria-hidden="true">
+                    <svg viewBox="24 15 152 99" preserveAspectRatio="xMaxYMid meet" fill="none" stroke="currentColor" stroke-width="0.55">
+                        <g class="soft-svc__fig-draw">
+                            <path d="M54 86 L78 74 L78 44 L54 56 Z" fill="#0a0a0a" pathLength="1"/>
+                            <path d="M54 86 L32 75 L32 45 L54 56 Z" fill="#0a0a0a" pathLength="1"/>
+                            <path d="M54 56 L78 44 L56 33 L32 45 Z" fill="#0a0a0a" pathLength="1"/>
+                            <line x1="56" y1="73" x2="76" y2="63" pathLength="1"/>
+                            <line x1="56" y1="63" x2="76" y2="53" pathLength="1"/>
+                            <line x1="52" y1="73" x2="34" y2="64" pathLength="1"/>
+                            <line x1="52" y1="63" x2="34" y2="54" pathLength="1"/>
+                            <path d="M146 88 L170 76 L170 48 L146 60 Z" fill="#0a0a0a" pathLength="1"/>
+                            <path d="M146 88 L124 77 L124 49 L146 60 Z" fill="#0a0a0a" pathLength="1"/>
+                            <path d="M146 60 L170 48 L148 37 L124 49 Z" fill="#0a0a0a" pathLength="1"/>
+                            <line x1="148" y1="75" x2="168" y2="65" pathLength="1"/>
+                            <line x1="148" y1="65" x2="168" y2="55" pathLength="1"/>
+                            <line x1="144" y1="75" x2="126" y2="66" pathLength="1"/>
+                            <line x1="144" y1="65" x2="126" y2="56" pathLength="1"/>
+                            <path d="M100 108 L128 94 L128 36 L100 50 Z" fill="#0a0a0a" pathLength="1"/>
+                            <path d="M100 108 L74 95 L74 37 L100 50 Z" fill="#0a0a0a" pathLength="1"/>
+                            <path d="M100 50 L128 36 L102 23 L74 37 Z" fill="#0a0a0a" pathLength="1"/>
+                            <line x1="104" y1="90" x2="124" y2="80" pathLength="1"/>
+                            <line x1="104" y1="76" x2="124" y2="66" pathLength="1"/>
+                            <line x1="104" y1="62" x2="124" y2="52" pathLength="1"/>
+                            <line x1="96" y1="90" x2="78" y2="81" pathLength="1"/>
+                            <line x1="96" y1="76" x2="78" y2="67" pathLength="1"/>
+                        </g>
+                        <path class="soft-svc__fig-accent" d="M96 66 L78 57 L78 47 L96 56 Z" stroke="none" fill="currentColor"/>
+                    </svg>
+                </figure>
+            </li>
+
+        </ol>
+
+    </div>
+</section>
+
+<!-- ─── SELECTED WORK: the proof sheet ─── -->
+<section class="soft-work" id="work">
+    <div class="soft-work__inner">
+
+        <header class="soft-work__head">
+            <h2 class="soft-work__title" data-i18n="soft.work.title">Selected work</h2>
+            <p class="soft-work__lede" data-i18n="soft.work.lede">A few of the things I have built, each one tagged with the kind of work it is. Some of them fit the categories above, some of them do not.</p>
+        </header>
+
+        <ul class="soft-work__grid">
+
+            <li class="soft-work__card">
+                <figure class="soft-work__shot">
+                    <picture><source type="image/avif" srcset="assets/img/Landing-Page/Camperplaats%20Zsana%20Cover-960.avif"><source type="image/webp" srcset="assets/img/Landing-Page/Camperplaats%20Zsana%20Cover-960.webp"><img loading="lazy" src="assets/img/Landing-Page/Camperplaats%20Zsana%20Cover.png" alt="The Camperplaats Zsana website, from the top of the landing page" data-i18n-alt="soft.work.p1.alt" width="960" height="478" decoding="async"></picture>
+                </figure>
+                <span class="soft-work__tag" data-i18n="soft.work.tag.site">Website</span>
+                <h3 class="soft-work__name" data-i18n="soft.work.p1.name">Camperplaats Zsana</h3>
+                <p class="soft-work__desc" data-i18n="soft.work.p1.desc">A clean, mobile-first landing page for a campsite on the Hungarian puszta, with the booking information and everything a visitor needs before arriving.</p>
+            </li>
+
+            <li class="soft-work__card">
+                <figure class="soft-work__shot">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/plattegrond-map-1280.avif"><source type="image/webp" srcset="assets/img/software-solutions/plattegrond-map-1280.webp"><img loading="lazy" src="assets/img/software-solutions/plattegrond-map.jpg" alt="A garden measured on a satellite map, shown on a printable Tuinvoorjou plan" data-i18n-alt="soft.work.p2.alt" width="1280" height="801" decoding="async"></picture>
+                </figure>
+                <span class="soft-work__tag" data-i18n="soft.work.tag.tool">Web tool</span>
+                <h3 class="soft-work__name" data-i18n="soft.work.p2.name">Blueprint generator</h3>
+                <p class="soft-work__desc" data-i18n="soft.work.p2.desc">A tool where visitors measure their own garden on a satellite map and get a printable plan, in minutes, without an appointment.</p>
+            </li>
+
+            <li class="soft-work__card">
+                <figure class="soft-work__shot">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/vragenlijst-top-1260.avif"><source type="image/webp" srcset="assets/img/software-solutions/vragenlijst-top-1260.webp"><img loading="lazy" src="assets/img/software-solutions/vragenlijst-top.jpg" alt="The Tuinvoorjou questionnaire, with the step-by-step progress bar and the garden details form" data-i18n-alt="soft.work.p3.alt" width="1260" height="788" decoding="async"></picture>
+                </figure>
+                <span class="soft-work__tag" data-i18n="soft.work.tag.tool">Web tool</span>
+                <h3 class="soft-work__name" data-i18n="soft.work.p3.name">Online questionnaire</h3>
+                <p class="soft-work__desc" data-i18n="soft.work.p3.desc">A step-by-step questionnaire that gathers everything a garden project needs, so the designer starts with the facts instead of a blank page.</p>
+            </li>
+
+            <li class="soft-work__card">
+                <figure class="soft-work__shot">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/Tuincalculator-1280.avif"><source type="image/webp" srcset="assets/img/software-solutions/Tuincalculator-1280.webp"><img loading="lazy" src="assets/img/software-solutions/Tuincalculator.png" alt="The Tuinvoorjou garden calculator, offering a quick budget scan or a full detailed estimate" data-i18n-alt="soft.work.p4.alt" width="1280" height="739" decoding="async"></picture>
+                </figure>
+                <span class="soft-work__tag" data-i18n="soft.work.tag.auto">Automation</span>
+                <h3 class="soft-work__name" data-i18n="soft.work.p4.name">Garden calculator</h3>
+                <p class="soft-work__desc" data-i18n="soft.work.p4.desc">A calculator that emails visitors their budget estimation, notifies the owner of each submission and logs it to FluentCRM, so leads collect themselves.</p>
+            </li>
+
+            <li class="soft-work__card">
+                <figure class="soft-work__shot">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/3D-Work-1280.avif"><source type="image/webp" srcset="assets/img/software-solutions/3D-Work-1280.webp"><img loading="lazy" src="assets/img/software-solutions/3D-Work.png" alt="A 3D render of a detached house with a fenced garden, trees and a terrace" data-i18n-alt="soft.work.p5.alt" width="1280" height="720" decoding="async"></picture>
+                </figure>
+                <span class="soft-work__tag" data-i18n="soft.work.tag.other">Other</span>
+                <h3 class="soft-work__name" data-i18n="soft.work.p5.name">3D design</h3>
+                <p class="soft-work__desc" data-i18n="soft.work.p5.desc">I turn your idea into a life-size 3D model, from a quick model to a polished render, so you can see it before any costly commitments.</p>
+            </li>
+
+            <li class="soft-work__card">
+                <figure class="soft-work__shot soft-work__shot--center">
+                    <picture><source type="image/avif" srcset="assets/img/software-solutions/Trilingual%20Campsite%20Evacuation%20Plan-1280.avif"><source type="image/webp" srcset="assets/img/software-solutions/Trilingual%20Campsite%20Evacuation%20Plan-1280.webp"><img loading="lazy" src="assets/img/software-solutions/Trilingual%20Campsite%20Evacuation%20Plan.png" alt="A trilingual evacuation plan for Camperplaats Zsana, with a site map, legend and emergency instructions" data-i18n-alt="soft.work.p6.alt" width="1280" height="876" decoding="async"></picture>
+                </figure>
+                <span class="soft-work__tag" data-i18n="soft.work.tag.other">Other</span>
+                <h3 class="soft-work__name" data-i18n="soft.work.p6.name">Something else</h3>
+                <p class="soft-work__desc" data-i18n="soft.work.p6.desc">A project that doesn't fit the other three boxes. Tell me what you need and I'll say whether I can build it. Project in image: Evacuation plan</p>
+            </li>
+
+        </ul>
+
+        <div class="soft-work__cta">
+            <div class="soft-work__cta-copy">
+                <h3 class="soft-work__cta-q" data-i18n="soft.work.cta.q">Got something like this in mind?</h3>
+                <p class="soft-work__cta-sub" data-i18n="soft.work.cta.sub">Whatever you are planning, the work above is proof I can build it. Tell me what you need and I will tell you if it is a fit.</p>
+            </div>
+            <a class="soft-work__cta-btn" href="#contact">
+                <span data-i18n="soft.work.cta.btn">Tell me about your project</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ─── MAINTENANCE: the service sheet ─── -->
+<section class="soft-mnt" id="maintenance">
+    <div class="soft-mnt__inner">
+
+        <header class="soft-mnt__head">
+            <h2 class="soft-mnt__title" data-i18n="soft.mnt.title">Maintenance</h2>
+            <p class="soft-mnt__lede" data-i18n="soft.mnt.lede">A site or tool is not a thing you build once and leave alone. After it goes live it still needs looking after, which is why I offer maintenance for all my projects.</p>
+        </header>
+
+        <div class="soft-mnt__sheet">
+
+            <div class="soft-mnt__main">
+                <h3 class="soft-mnt__label" data-i18n="soft.mnt.in.label">Covered</h3>
+                <ul class="soft-mnt__list">
+                    <li class="soft-mnt__row">
+                        <div class="soft-mnt__body">
+                            <h4 class="soft-mnt__name" data-i18n="soft.mnt.n1.title">Uptime monitoring</h4>
+                            <p class="soft-mnt__desc" data-i18n="soft.mnt.n1.desc">I check that your site is up and fast. If something breaks I hear about it and start on it before you have to ask.</p>
+                        </div>
+                    </li>
+                    <li class="soft-mnt__row">
+                        <div class="soft-mnt__body">
+                            <h4 class="soft-mnt__name" data-i18n="soft.mnt.n2.title">Backups</h4>
+                            <p class="soft-mnt__desc" data-i18n="soft.mnt.n2.desc">A full copy of the site and its data, stored off-site. If something is deleted or goes wrong, we go back to the last good version instead of starting over.</p>
+                        </div>
+                    </li>
+                    <li class="soft-mnt__row">
+                        <div class="soft-mnt__body">
+                            <h4 class="soft-mnt__name" data-i18n="soft.mnt.n3.title">Updates and security</h4>
+                            <p class="soft-mnt__desc" data-i18n="soft.mnt.n3.desc">The CMS, the plugins and the server get their updates, and I check the security side: logins, certificates, spam and the rest.</p>
+                        </div>
+                    </li>
+                    <li class="soft-mnt__row">
+                        <div class="soft-mnt__body">
+                            <h4 class="soft-mnt__name" data-i18n="soft.mnt.n4.title">Small changes and fixes</h4>
+                            <p class="soft-mnt__desc" data-i18n="soft.mnt.n4.desc">A broken link, a typo, a small addition. I fix the little things without turning them into a project with a quote.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <aside class="soft-mnt__aside">
+                <h3 class="soft-mnt__label" data-i18n="soft.mnt.out.label">Outside the plan</h3>
+                <ul class="soft-mnt__outlist">
+                    <li class="soft-mnt__out" data-i18n="soft.mnt.out.1">New features and redesigns</li>
+                    <li class="soft-mnt__out" data-i18n="soft.mnt.out.2">Content, photos and translations</li>
+                    <li class="soft-mnt__out" data-i18n="soft.mnt.out.3">Third-party subscriptions and licences</li>
+                </ul>
+                <p class="soft-mnt__foot" data-i18n="soft.mnt.out.foot">Anything else is worth a conversation. If it fits, I will tell you.</p>
+            </aside>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ─── GUARANTEES: the pledge sheet ─── -->
+<section class="soft-gua" id="guarantees">
+    <div class="soft-gua__inner">
+
+        <header class="soft-gua__head">
+            <h2 class="soft-gua__title" data-i18n="soft.gua.title">Guarantees</h2>
+        </header>
+
+        <ul class="soft-gua__list">
+            <li class="soft-gua__item">
+                <h3 class="soft-gua__name">
+                    <span data-i18n="soft.gua.n1.title">Work of the highest quality</span>
+                </h3>
+                <p class="soft-gua__desc" data-i18n="soft.gua.n1.desc">Every project gets the same standard of care. My tools load fast, work on mobile and still work a year from now. If it is not right, it does not go live.</p>
+            </li>
+            <li class="soft-gua__item">
+                <h3 class="soft-gua__name">
+                    <span data-i18n="soft.gua.n2.title">Complete transparency</span>
+                </h3>
+                <p class="soft-gua__desc" data-i18n="soft.gua.n2.desc">You see the plan, the price and the progress while I build. If something changes, or if I am not sure about something, you hear it from me. You do not find out afterwards. If you find a problem in something I built, that is on me. I fix it and there is no fixing fee.</p>
+            </li>
+            <li class="soft-gua__item">
+                <h3 class="soft-gua__name">
+                    <span data-i18n="soft.gua.n3.title">One person all the way through</span>
+                </h3>
+                <p class="soft-gua__desc" data-i18n="soft.gua.n3.desc">You talk to me the whole way, from the first call to the handover. I plan it, I build it and I hand it over. There is nobody else in between, potentially saving you weeks of time.</p>
+            </li>
+            <li class="soft-gua__item">
+                <h3 class="soft-gua__name">
+                    <span data-i18n="soft.gua.n4.title">Revision until it's right</span>
+                </h3>
+                <p class="soft-gua__desc" data-i18n="soft.gua.n4.desc">Look at the first version and tell me what is wrong. I keep working on it until it is right. I see that back-and-forth as part of the job, not an extra charge.</p>
+            </li>
+        </ul>
+
+    </div>
+</section>
+
+<!-- ─── FAQ: the question sheet ─── -->
+<section class="soft-faq" id="faq">
+    <div class="soft-faq__inner">
+
+        <header class="soft-faq__head">
+            <h2 class="soft-faq__title" data-i18n="soft.faq.title">Questions</h2>
+            <p class="soft-faq__lede" data-i18n="soft.faq.lede">Everything you need to know before we start.</p>
+        </header>
+
+        <div class="soft-faq__list">
+
+            <details class="soft-faq__item">
+                <summary data-i18n="soft.faq.q1">How much does a project cost?</summary>
+                <p data-i18n="soft.faq.a1">All my projects start with a fixed price. Depending on the project, I discuss it with you and come back with a clear and fair quote. I don't leave any surprises for last either: you will know the price before I start, and that will be the only price. What the project costs depends on what you need. A small web tool will cost far less than a full website, but all my prices are fair and discussed in advance.</p>
+            </details>
+
+            <details class="soft-faq__item">
+                <summary data-i18n="soft.faq.q2">How long does it take?</summary>
+                <p data-i18n="soft.faq.a2">Most small web tools and automations take one to two weeks. A full website takes longer, because I take the time to understand your business first. Just like the price, you get the timeline before I start, so you know exactly what happens and when. Nothing begins until you are happy with both.</p>
+            </details>
+
+            <details class="soft-faq__item">
+                <summary data-i18n="soft.faq.q3">Do I need technical knowledge?</summary>
+                <p data-i18n="soft.faq.a3">No, not at all. You don't need to understand code, hosting or servers; that side is mine. You get something you can actually use, and I walk you through it, so any small changes you can do yourself. And if you ever get stuck, you just ask me.</p>
+            </details>
+
+            <details class="soft-faq__item">
+                <summary data-i18n="soft.faq.q4">What if something breaks?</summary>
+                <p data-i18n="soft.faq.a4">Tell me and I fix it. Everything I build is tested before it goes live, and small fixes are part of the maintenance plan instead of a new project with a new quote. If it is something I got wrong, that is on me, and there is no fixing fee.</p>
+            </details>
+
+            <details class="soft-faq__item">
+                <summary data-i18n="soft.faq.q5">Do you travel?</summary>
+                <p data-i18n="soft.faq.a5">Yes, though most of what I build is done online, so where you are hardly matters. I am based in Kiskunhalas, Hungary, and I travel for kick-off meetings and handovers when the project needs it. Wherever you are, we can make it work.</p>
+            </details>
+
+            <details class="soft-faq__item">
+                <summary data-i18n="soft.faq.q6">What does maintenance cover?</summary>
+                <p data-i18n="soft.faq.a6">Uptime monitoring, backups, updates and security, plus small changes and fixes. New features, redesigns and content sit outside the plan and are quoted separately, so there is never a hidden cost. It is optional and never required, but a site without updates slowly goes stale.</p>
+            </details>
+
+        </div>
+
+        <div class="soft-faq__foot">
+            <div class="soft-faq__foot-copy">
+                <h3 class="soft-faq__foot-q" data-i18n="soft.faq.stillQ">Still have questions?</h3>
+                <p class="soft-faq__foot-sub" data-i18n="soft.faq.stillSub">Email me directly, I reply within 24 hours.</p>
+            </div>
+            <a class="soft-faq__cta" href="#contact">
+                <span data-i18n="soft.faq.contactBtn">Contact me</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ─── CONTACT: the order sheet ─── -->
+<section class="soft-contact" id="contact">
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h2 class="section-title" data-i18n-html="contact.title">Let's build something <em>together.</em></h2>
+            <div class="contact-info-item"><span data-i18n="contact.email">EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
+            <div class="contact-info-item"><span data-i18n="contact.phone">PHONE</span><span>+36 20 977 4547</span></div>
+            <div class="contact-info-item"><span data-i18n="contact.location">LOCATION</span><span data-i18n="contact.locationVal">Kiskunhalas, Hungary</span></div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <input type="hidden" name="service" value="Software Solutions">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+            <div class="form-group">
+                <label class="form-label" for="field-name" data-i18n="form.name">Name</label>
+                <input type="text" name="name" id="field-name" class="form-input" placeholder="Your name" data-i18n-placeholder="form.namePh" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field-email" data-i18n="form.email">Email</label>
+                <input type="email" name="email" id="field-email" class="form-input" placeholder="hello@example.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" id="serviceLabel" data-i18n="form.service">What do you need?</label>
+                <div class="soft-dd">
+                    <select name="project_type" id="service-select" tabindex="-1" aria-hidden="true">
+                        <option value="Not sure yet" data-i18n="form.serviceNone">Not sure yet</option>
+                        <option value="Website" data-i18n="form.opt.website">Website</option>
+                        <option value="Web tool" data-i18n="form.opt.tool">Web tool</option>
+                        <option value="Automation" data-i18n="form.opt.automation">Automation</option>
+                        <option value="Other" data-i18n="form.opt.other">Other</option>
+                    </select>
+                    <button type="button" class="soft-dd-toggle" id="serviceDdToggle" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="serviceLabel serviceDdLabel">
+                        <span id="serviceDdLabel">Not sure yet</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <ul class="soft-dd-list" id="serviceDdList" role="listbox" aria-labelledby="serviceLabel" hidden>
+                        <li role="option" data-value="Not sure yet" aria-selected="true" data-i18n="form.serviceNone">Not sure yet</li>
+                        <li role="option" data-value="Website" aria-selected="false" data-i18n="form.opt.website">Website</li>
+                        <li role="option" data-value="Web tool" aria-selected="false" data-i18n="form.opt.tool">Web tool</li>
+                        <li role="option" data-value="Automation" aria-selected="false" data-i18n="form.opt.automation">Automation</li>
+                        <li role="option" data-value="Other" aria-selected="false" data-i18n="form.opt.other">Other</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field-message" data-i18n="form.brief">Brief</label>
+                <textarea name="message" id="field-message" class="form-textarea" placeholder="Tell me what you need..." data-i18n-placeholder="form.briefPh" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="form.submit">Send Message</button>
+        </form>
+
+        <div id="form-success" class="hidden">
+            <div class="success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3 data-i18n="form.successTitle">Message Sent</h3>
+            <p data-i18n="form.successText">Thanks for reaching out. I will respond within 24 hours.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- ─── Footer (copied from homepage) ─── -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>LEEUW.</h3>
+            <p data-i18n="footer.tagline">Dutch quality based in Hungary</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.nav">Navigation</h4>
+            <ul>
+                <li><a href="index.html" data-i18n="footer.site.home">Homepage</a></li>
+                <li><a href="videography.html" data-i18n="footer.site.video">Videography</a></li>
+                <li><a href="taarten.html" data-i18n="footer.site.taarten">Taarten van Maarten</a></li>
+                <li><a href="software-solutions.html" data-i18n="footer.site.tech">Software Solutions</a></li>
+                <li><a href="Blog/index.html" data-i18n="footer.site.blog">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.contactTitle">Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+36 20 977 4547</li>
+                <li data-i18n="footer.address">Kiskunhalas, 6400 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright" data-i18n-html="footer.rights">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top" data-cursor-hover>
+            <span data-i18n="footer.top">Back to Top</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+    </div>
+</footer>
+
+<!-- ─── Scripts ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/i18n.js?v=4"></script>
+    <script src="js/i18n-software.js?v=40"></script>
+    <script src="js/main.js?v=step5"></script>
+    <script src="js/software-solutions.js?v=18"></script>
+<script src="js/soft-hero-fx.js?v=13"></script>
+
+</body>
+</html>

@@ -1,353 +1,1581 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0b0d">
-    <meta name="description" content="Promotional films, drone footage and event coverage by Maarten van der Leeuw. Filmed, edited and delivered web-ready. Based in Hungary.">
-
+    <title>Videography — Maarten van der Leeuw</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-    <title>Videography â€” Maarten van der Leeuw</title>
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css?v=step15">
-    <link rel="stylesheet" href="css/videography.css?v=1">
-
-    <!-- Hero entrance -->
-    <style>
-        .hero-title .line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
-        .hero-title .inner {
-            display: block;
-            transform: translateY(110%);
-            transition: transform 1.2s cubic-bezier(.22, 1, .36, 1);
-        }
-        .hero.is-in .hero-title .inner { transform: translateY(0); }
-        .hero-sub, .hero-actions, .hero-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
-        }
-        .hero.is-in .hero-sub, .hero.is-in .hero-actions, .hero.is-in .hero-scroll { opacity: 1; transform: translateY(0); }
-    </style>
-    <script>
-        window.addEventListener('load', function(){
-            setTimeout(function(){ document.getElementById('hero').classList.add('is-in'); }, 100);
-        });
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="js/i18n.js?v=4"></script>
+    <script src="js/i18n-video.js?v=7"></script>
+    <link rel="stylesheet" href="css/videography.css?v=10">
 </head>
-<!-- impeccable-disable overused-font: Space Grotesk + JetBrains Mono are the site-wide brand fonts -->
-<body class="page-videography">
+<body class="slh-root" style="margin:0">
 
-<!-- â”€â”€â”€ Overlays â”€â”€â”€ -->
-<div class="noise-overlay"></div>
-
-<!-- â”€â”€â”€ Navigation â”€â”€â”€ -->
-<nav class="top-nav">
+<!-- ═══════════ NAV: universal site navbar (copy of the landing page) ═══════════ -->
+<nav class="top-nav" id="topNav">
     <div class="nav-group nav-group--left">
         <div class="lang-toggle">
-            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
         </div>
-        <a href="index.html#projects-section" class="nav-link">Work</a>
-        <a href="index.html#about-section" class="nav-link">About</a>
+        <a href="index.html#projects-section" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-link" data-i18n="nav.about">About</a>
         <a href="Blog/index.html" class="nav-link">Blog</a>
     </div>
     <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
-        <img src="assets/logo-badge.png" alt="Maarten van der Leeuw">
+        <picture><source type="image/avif" srcset="assets/logo-badge-white-small-239.avif"><source type="image/webp" srcset="assets/logo-badge-white-small-239.webp"><img src="assets/logo-badge-white-small.png" alt="Maarten van der Leeuw" width="239" height="256" decoding="async"></picture>
         <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
     </a>
     <div class="nav-group nav-group--right">
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#contact" class="nav-cta">Book a Shoot</a>
+        <a href="index.html#contact-section" class="nav-link" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#contact-section" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
     </div>
-    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-burger" aria-label="Menu" data-i18n-aria="nav.menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-overlay">
     <div class="nav-overlay__inner">
-        <a href="index.html#projects-section" class="nav-overlay__link">Work</a>
-        <a href="index.html#about-section" class="nav-overlay__link">About</a>
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-overlay__link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-overlay__link" data-i18n="nav.about">About</a>
         <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
-        <a href="#contact" class="nav-overlay__link">Contact</a>
-        <a href="#contact" class="nav-cta">Book a Shoot</a>
+        <a href="index.html#contact-section" class="nav-overlay__link" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#contact-section" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
     </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<!-- â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<header class="hero" id="hero">
-    <div class="hero-media" aria-hidden="true">
-        <!-- VIDEO SLOT: when your hero reel is ready, replace the div below with:
-             <video autoplay muted loop playsinline src="assets/video/hero-reel.mp4"></video>
-             (keep .hero-media-shade after it for text legibility) -->
-        <div class="hero-media-frame"></div>
-        <div class="hero-media-shade"></div>
+<!-- ═══════════════════════════════════════════════════════════
+     HERO: a 350vh scroll-scrubbed flight on desktop. On touch it
+     collapses to a static image hero with a dark content panel.
+     Zero dependencies.
+     ═══════════════════════════════════════════════════════════ -->
+<div class="slh-track" id="slhTrack">
+    <div class="slh-stage" id="slhStage">
+
+        <img class="slh-frame" id="slhFrame" draggable="false" alt="" fetchpriority="high"
+             data-src="assets/img/Videography-Page/scrub-frames/frame-001.webp">
+
+        <div class="slh-shade-top" aria-hidden="true"></div>
+        <div class="slh-vignette" aria-hidden="true"></div>
+
+        <picture class="slh-mobile-media" aria-hidden="true">
+            <source media="(hover: none) and (pointer: coarse)" type="image/avif" srcset="assets/img/Videography-Page/hero-mobile-1080.avif">
+            <source media="(hover: none) and (pointer: coarse)" type="image/webp" srcset="assets/img/Videography-Page/hero-mobile-1080.webp">
+            <img alt="" width="1080" height="1350" fetchpriority="high">
+        </picture>
+
+        <div class="slh-mobile-panel">
+            <div class="slh-title" id="slhTitle">
+                <h1 data-i18n="vid.hero.title">Drone and video shoots that capture your story.</h1>
+            </div>
+            <div class="slh-mobile-actions">
+                <a class="slh-mobile-btn slh-mobile-btn--solid" href="#selected-work"><span data-i18n="vid.hero.work">See my work</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <a class="slh-mobile-btn slh-mobile-btn--ghost" href="#packages"><span data-i18n="vid.hero.packages">Jump to Packages</span></a>
+            </div>
+        </div>
+
+        <p class="slh-caption" id="slhCaption"><span data-i18n="vid.hero.ready">Ready for your</span><span class="slh-words" id="slhWords"><span class="is-on">Videos</span><span aria-hidden="true">Advertisements</span><span aria-hidden="true">Highlights</span><span aria-hidden="true">Aerials</span><span aria-hidden="true">Events</span></span>.<span class="slh-measure" id="slhMeasure" aria-hidden="true"><span>Videos</span><span>Advertisements</span><span>Highlights</span><span>Aerials</span><span>Events</span></span></p>
+
+        <div class="slh-cue" id="slhCue" aria-hidden="true">
+            <span data-i18n="vid.hero.scroll">SCROLL</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+
+    </div>
+</div>
+
+<!-- ═══════════ CAPABILITIES ═══════════ -->
+<!-- ═══════════ INTRO ═══════════ -->
+<section class="intro" id="intro">
+    <div class="intro-grid" data-reveal>
+        <div class="intro-text">
+            <h2 data-i18n="vid.intro.title">Video for businesses, events and everyone in between.</h2>
+            <p data-i18n="vid.intro.sub">Drone footage, promotional films and event coverage. Filmed on location across Hungary and Europe, delivered ready to post.</p>
+            <ul class="intro-checks">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span data-i18n="vid.intro.c1">4K drone and ground footage</span></li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span data-i18n="vid.intro.c2">Same-week delivery</span></li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span data-i18n="vid.intro.c3">Fixed prices from &euro;150</span></li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span data-i18n="vid.intro.c4">Licensed and insured flights</span></li>
+            </ul>
+            <div class="intro-cta-row">
+                <a class="intro-cta" href="index.html#about-section"><span data-i18n="vid.intro.more">More about me</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <a class="intro-cta intro-cta--ghost" href="#packages"><span data-i18n="vid.intro.packages">Jump to packages</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+            </div>
+        </div>
+        <div class="intro-media">
+            <picture><source type="image/avif" srcset="assets/img/Videography-Page/Images/Introduction-1600.avif"><source type="image/webp" srcset="assets/img/Videography-Page/Images/Introduction-1600.webp"><img loading="lazy" src="assets/img/Videography-Page/Images/Introduction.jpg" alt="Maarten launching his drone on location" data-i18n-alt="vid.intro.imgAlt" width="1600" height="1060" decoding="async"></picture>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ SPLIT ROWS: sticky stacking cards ═══════════ -->
+<section class="split" id="split-rows">
+    <nav class="split-progress" aria-label="Services progress" data-i18n-aria="vid.split.navAria">
+        <div class="split-progress-track" aria-hidden="true"><div class="split-progress-fill" id="splitProgressFill"></div></div>
+        <div class="split-progress-steps">
+            <a href="#service-drone" data-sp="0" class="is-on"><span>01</span>Drone</a>
+            <a href="#service-promo" data-sp="1"><span>02</span>Promo</a>
+            <a href="#service-events" data-sp="2"><span>03</span>Events</a>
+        </div>
+    </nav>
+    <div class="split-row" id="service-drone" data-reveal>
+        <div class="split-media">
+            <video muted loop playsinline preload="metadata" poster="assets/img/Videography-Page/stills/aerial-1280-1280.webp">
+                <source src="assets/img/Videography-Page/snippets/aerial-snippet.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="split-text">
+            <h3 data-i18n="vid.split.drone.title">Drone footage.</h3>
+            <p data-i18n="vid.split.drone.desc">I film high quality, professional drone footage for property listings, venues, events, land and much more. I provide you with the best quality videos you can immediately use across all your platforms, so your listing gets noticed first.</p>
+            <ul class="cols-3">
+                <li data-i18n="vid.split.drone.l1">Real estate and property listings</li>
+                <li data-i18n="vid.split.drone.l2">Land and site overviews</li>
+                <li data-i18n="vid.split.drone.l3">Tourism spots and venues</li>
+                <li data-i18n="vid.split.drone.l4">Events and weddings from the sky</li>
+                <li data-i18n="vid.split.drone.l5">Construction progress</li>
+            </ul>
+            <a class="split-link" href="#quote" data-pkg="Drone footage"><span data-i18n="vid.split.quote">Get a quote</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+        </div>
     </div>
 
-    <div class="hero-content">
-        <h1 class="hero-title">
-            <span class="line"><span class="inner">Your story, shot</span></span>
-            <span class="line"><span class="inner">from <em>above.</em></span></span>
-        </h1>
-        <p class="hero-sub">
-            Promotional films, aerial footage and event coverage for businesses in Hungary and across Europe.
-            Filmed on location, edited in-house, delivered ready for web and social.
-        </p>
-        <div class="hero-actions">
-            <a href="#contact" class="btn-pill">Book a shoot</a>
+    <div class="split-row" id="service-promo" data-reveal>
+        <div class="split-media">
+            <video muted loop playsinline preload="metadata" poster="assets/img/Videography-Page/stills/promotion-1280-1280.webp">
+                <source src="assets/img/Videography-Page/snippets/promotion-snippet.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="split-text">
+            <h3 data-i18n="vid.split.promo.title">Promotional films.</h3>
+            <p data-i18n="vid.split.promo.desc">I help your business grow with professional promotional films you can use as advertisement, on social media and on your website. I will thoroughly discuss your vision beforehand and take my time to understand what you are looking for. I will then film on location and edit the content into an engaging and convincing advertisement that fits your needs, so visitors get your business in under a minute.</p>
+            <ul>
+                <li data-i18n="vid.split.promo.l1">In-depth planning</li>
+                <li data-i18n="vid.split.promo.l2">Filmed on location</li>
+                <li data-i18n="vid.split.promo.l3">Produced to suit your business goals</li>
+            </ul>
+            <a class="split-link" href="#quote" data-pkg="Promotional film"><span data-i18n="vid.split.quote">Get a quote</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
     </div>
 
-    <a href="#work" class="hero-scroll">
-        <span>SELECTED WORK</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    </a>
-</header>
-
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<!-- â”€â”€â”€ SECTION: Selected Work â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<section id="work" class="section section-work">
-    <div class="wrap">
-        <div class="section-head" data-reveal>
-            <span class="section-index">SELECTED WORK</span>
-            <h2 class="section-title-lg">Filmed, edited and shipped.<br><em>See for yourself.</em></h2>
+    <div class="split-row" id="service-events" data-reveal>
+        <div class="split-media">
+            <video muted loop playsinline preload="metadata" poster="assets/img/Videography-Page/stills/events-1280-1280.webp">
+                <source src="assets/img/Videography-Page/snippets/events-snippet.mp4" type="video/mp4">
+            </video>
         </div>
-
-        <!-- Featured: real client video -->
-        <figure class="featured-film" data-reveal>
-            <!-- impeccable-disable-next-line cramped-padding: full-bleed video frame, media not text -->
-            <div class="film-frame">
-                <video controls preload="metadata"
-                       poster="assets/img/Camperplaats%20Zsana%20VIDEO%20Cover.png">
-                    <source src="https://camperplaatszsana.nl/Media/Landing%20Page/videos/Camperplaats%20Zsana%20Landing%20Page%20Video%201080p.mp4" type="video/mp4">
-                    Your browser does not support embedded video.
-                </video>
-            </div>
-            <figcaption class="film-caption">
-                <div>
-                    <h3>Camperplaats Zsana &mdash; Landing Page Cover Film</h3>
-                    <p>The opening film for a campsite in the Hungarian Puszta. Shot, edited and compressed so it loads fast on any connection.</p>
-                </div>
-                <ul class="film-meta">
-                    <li>CLIENT</li><li>Camperplaats Zsana</li>
-                    <li>ROLE</li><li>Filming &middot; Editing &middot; Web delivery</li>
-                </ul>
-            </figcaption>
-        </figure>
-
-        <!-- Promo films grid: real YouTube projects -->
-        <div class="film-grid">
-            <a class="film-card" data-reveal href="https://youtu.be/WarpgMd6R7o" target="_blank" rel="noopener">
-                <div class="film-card__thumb">
-                    <img src="https://i.ytimg.com/vi/WarpgMd6R7o/hqdefault.jpg" alt="Suzhou Center promotional video" loading="lazy">
-                    <span class="film-card__play">&#9654;</span>
-                </div>
-                <h3>Suzhou Center</h3>
-                <p>Promotional film for a commercial center.</p>
-            </a>
-            <a class="film-card" data-reveal href="https://youtu.be/EF8yH3z3GQI" target="_blank" rel="noopener">
-                <div class="film-card__thumb">
-                    <img src="https://i.ytimg.com/vi/EF8yH3z3GQI/hqdefault.jpg" alt="Restaurant promotional video" loading="lazy">
-                    <span class="film-card__play">&#9654;</span>
-                </div>
-                <h3>Restaurant Promo</h3>
-                <p>Short promo built around food and atmosphere.</p>
-            </a>
-            <a class="film-card" data-reveal href="https://youtu.be/3B59ceKTzG0" target="_blank" rel="noopener">
-                <div class="film-card__thumb">
-                    <img src="https://i.ytimg.com/vi/3B59ceKTzG0/hqdefault.jpg" alt="School promotional video" loading="lazy">
-                    <span class="film-card__play">&#9654;</span>
-                </div>
-                <h3>School Promo</h3>
-                <p>Campus film produced for an international school.</p>
-            </a>
-            <a class="film-card" data-reveal href="https://youtu.be/-Fd7oiIfkPs" target="_blank" rel="noopener">
-                <div class="film-card__thumb">
-                    <img src="https://i.ytimg.com/vi/-Fd7oiIfkPs/hqdefault.jpg" alt="Suzhou Times Square video" loading="lazy">
-                    <span class="film-card__play">&#9654;</span>
-                </div>
-                <h3>Times Square</h3>
-                <p>City feature shot and cut for social playback.</p>
-            </a>
+        <div class="split-text">
+            <h3 data-i18n="vid.split.events.title">Event coverage.</h3>
+            <p data-i18n="vid.split.events.desc">Whether it's a wedding, corporate event, performance or anything else, I will provide you with the best possible coverage of your event. We will discuss what you're after and I will direct, film and edit the whole piece according to your needs. You get a finished video you can share right away on any platform.</p>
+            <ul class="cols-3">
+                <li data-i18n="vid.split.events.l1">Weddings</li>
+                <li data-i18n="vid.split.events.l2">Corporate events</li>
+                <li data-i18n="vid.split.events.l3">Team building activities</li>
+                <li data-i18n="vid.split.events.l4">Car shows and openings</li>
+                <li data-i18n="vid.split.events.l5">Full &amp; half-day coverage</li>
+                <li data-i18n="vid.split.events.l6">Same-week delivery</li>
+            </ul>
+            <a class="split-link" href="#quote" data-pkg="Event coverage"><span data-i18n="vid.split.quote">Get a quote</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
+    </div>
+</section>
 
-        <!-- Drone reel slots -->
-        <div class="reel-row">
-            <div class="video-slot video-slot--reel" data-reveal>
-                <span class="video-slot__tag">DRONE REEL &mdash; 2026</span>
-                <span class="video-slot__hint">Slot reserved: drop your aerial showreel here</span>
+<!-- ═══════════ WHY ME: accordion + swapping preview ═══════════ -->
+<section class="gain" id="what-you-get">
+    <div class="gain-inner" data-reveal>
+        <h2 data-i18n="vid.why.title">Why choose me.</h2>
+        <div class="why-layout">
+            <div class="why-list">
+                <div class="why-item is-open">
+                    <button class="why-trigger" type="button" aria-expanded="true" data-img="assets/img/Videography-Page/why/planning-800.webp">
+                        <span data-i18n="vid.why.t1">Fixed price before filming</span>
+                    </button>
+                    <div class="why-panel">
+                        <div class="why-panel-inner">
+                            <p data-i18n="vid.why.d1">Tell me what you have in mind and you get a fixed price before I film anything. I work on a project basis, so there is no hourly rate. The agreed price is the final price.</p>
+                            <picture><source type="image/avif" srcset="assets/img/Videography-Page/why/planning-800.avif"><source type="image/webp" srcset="assets/img/Videography-Page/why/planning-800.webp"><img loading="lazy" class="why-thumb" src="assets/img/Videography-Page/why/planning.jpg" alt="Maarten planning a shoot at his laptop" data-i18n-alt="vid.why.alt1" width="800" height="530" decoding="async"></picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <button class="why-trigger" type="button" aria-expanded="false" data-img="assets/img/Videography-Page/why/delivery-800.webp">
+                        <span data-i18n="vid.why.t2">Delivery within days, not months</span>
+                    </button>
+                    <div class="why-panel">
+                        <div class="why-panel-inner">
+                            <p data-i18n="vid.why.d2">It's just me, so your project gets my full priority. That keeps delivery to one or two weeks at most. Your video is done while people still care, so it gets the most engagement.</p>
+                            <picture><source type="image/avif" srcset="assets/img/Videography-Page/why/delivery-800.avif"><source type="image/webp" srcset="assets/img/Videography-Page/why/delivery-800.webp"><img loading="lazy" class="why-thumb" src="assets/img/Videography-Page/why/delivery.jpg" alt="Color-graded aerial view of the Suzhou skyline" data-i18n-alt="vid.why.alt2" width="800" height="450" decoding="async"></picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <button class="why-trigger" type="button" aria-expanded="false" data-img="assets/img/Videography-Page/why/desk-800.webp">
+                        <span data-i18n="vid.why.t3">Files ready to post</span>
+                    </button>
+                    <div class="why-panel">
+                        <div class="why-panel-inner">
+                            <p data-i18n="vid.why.d3">You get finished files, graded and compressed for web and social, so you can upload them straight away. I can also share the raw footage with you, on request.</p>
+                            <picture><source type="image/avif" srcset="assets/img/Videography-Page/why/desk-800.avif"><source type="image/webp" srcset="assets/img/Videography-Page/why/desk-800.webp"><img loading="lazy" class="why-thumb" src="assets/img/Videography-Page/why/desk.jpg" alt="Maarten editing video at his desk" data-i18n-alt="vid.why.alt3" width="800" height="530" decoding="async"></picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <button class="why-trigger" type="button" aria-expanded="false" data-img="assets/img/Videography-Page/why/review-800.webp">
+                        <span data-i18n="vid.why.t4">One person from first call to final file</span>
+                    </button>
+                    <div class="why-panel">
+                        <div class="why-panel-inner">
+                            <p data-i18n="vid.why.d4">I work alone, so you only ever talk to me. I plan the shoot with you, film it, edit it and get it ready to use. There is no team holding up production, just me from the first call to the final delivery.</p>
+                            <picture><source type="image/avif" srcset="assets/img/Videography-Page/why/review-800.avif"><source type="image/webp" srcset="assets/img/Videography-Page/why/review-800.webp"><img loading="lazy" class="why-thumb" src="assets/img/Videography-Page/why/review.jpg" alt="Maarten watching his drone in flight" data-i18n-alt="vid.why.alt4" width="800" height="530" decoding="async"></picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <button class="why-trigger" type="button" aria-expanded="false" data-img="assets/img/Videography-Page/why/revisions-800.webp">
+                        <span data-i18n="vid.why.t5">Revisions until it's right</span>
+                    </button>
+                    <div class="why-panel">
+                        <div class="why-panel-inner">
+                            <p data-i18n="vid.why.d5">Watch the first cut, then tell me what to change. I'll keep working on it until it's right, so you get the video you're looking for.</p>
+                            <picture><source type="image/avif" srcset="assets/img/Videography-Page/why/revisions-800.avif"><source type="image/webp" srcset="assets/img/Videography-Page/why/revisions-800.webp"><img loading="lazy" class="why-thumb" src="assets/img/Videography-Page/why/revisions.jpg" alt="Aerial view of the school campus from the SSIS film" data-i18n-alt="vid.why.alt5" width="800" height="519" decoding="async"></picture>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="video-slot video-slot--reel" data-reveal>
-                <span class="video-slot__tag">BEHIND THE SCENES</span>
-                <span class="video-slot__hint">Slot reserved: drop a shoot-day clip here</span>
+            <div class="why-media" aria-hidden="true">
+                <img id="whyImage" src="assets/img/Videography-Page/why/planning-800.webp" alt="">
             </div>
         </div>
     </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<!-- â”€â”€â”€ SECTION: What You Get â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<section class="section section-services">
-    <div class="wrap">
-        <div class="section-head" data-reveal>
-            <span class="section-index">SERVICES</span>
-            <h2 class="section-title-lg">Pick what you need.<br><em>I handle the rest.</em></h2>
-        </div>
-
-        <div class="service-grid">
-            <article class="service-card" data-reveal>
-                <span class="service-num">A</span>
-                <h3>Drone &amp; Aerial</h3>
-                <p>Aerial shots of property, land, venues and events. Licensed flying, steady footage, angles your competitors don't have.</p>
-                <ul>
-                    <li>4K aerial footage</li>
-                    <li>Real-estate flyovers</li>
-                    <li>Tourism and venue reveals</li>
-                </ul>
-            </article>
-            <article class="service-card service-card--accent" data-reveal>
-                <span class="service-num">B</span>
-                <h3>Promotional Film</h3>
-                <p>A short film that shows what you do and why it matters. Planned around your story, not a template.</p>
-                <ul>
-                    <li>Concept and shot plan</li>
-                    <li>Filming on location</li>
-                    <li>Edit, color and sound</li>
-                </ul>
-            </article>
-            <article class="service-card" data-reveal>
-                <span class="service-num">C</span>
-                <h3>Event Coverage</h3>
-                <p>Your event captured as it happens, delivered fast enough to post while people still care.</p>
-                <ul>
-                    <li>Multi-angle coverage</li>
-                    <li>Same-week delivery</li>
-                    <li>Cut for web and social</li>
-                </ul>
-            </article>
-        </div>
-
-        <blockquote class="quote" data-reveal>
-            <p>&ldquo;The drone footage was excellent. Maarten captured angles we did not know were possible and was professional throughout the entire project.&rdquo;</p>
-            <cite>&mdash; Client, Real Estate &middot; Property Aerial Tour</cite>
-        </blockquote>
-    </div>
-</section>
-
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<!-- â”€â”€â”€ SECTION: How It Runs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<section class="section section-steps">
-    <div class="wrap">
-        <div class="section-head" data-reveal>
-            <span class="section-index">PROCESS</span>
-            <h2 class="section-title-lg">Three steps. <em>No surprises.</em></h2>
-        </div>
-        <ol class="steps">
-            <li data-reveal>
-                <span class="step-num">01</span>
-                <h3>We plan the shoot</h3>
-                <p>You tell me what the video is for. I come back with a shot list, a date and a fixed price.</p>
+<!-- ═══════════ HOW I WORK: timeline ═══════════ -->
+<section class="steps" id="how-i-work">
+    <div class="steps-inner" data-reveal>
+        <h2 data-i18n="vid.steps.title">My process.</h2>
+        <ol class="stp-list">
+            <li class="stp-row">
+                <div class="stp-top">
+                    <span class="stp-roll">
+                        <span class="stp-roll-inner">
+                            <span class="stp-line" data-i18n="vid.steps.s1">Say hello.</span>
+                            <span class="stp-line stp-line--alt" aria-hidden="true" data-i18n="vid.steps.s1">Say hello.</span>
+                        </span>
+                    </span>
+                    <span class="stp-num" aria-hidden="true" data-i18n="vid.steps.n1">01 / Contact</span>
+                </div>
+                <p class="stp-desc" data-i18n="vid.steps.d1">A few lines about your project is all it takes. I reply within 24-48 hours with ideas and a clear next step.</p>
             </li>
-            <li data-reveal>
-                <span class="step-num">02</span>
-                <h3>I film it</h3>
-                <p>One day on location, usually less. Drone, camera and sound all handled by me.</p>
+            <li class="stp-row">
+                <div class="stp-top">
+                    <span class="stp-roll">
+                        <span class="stp-roll-inner">
+                            <span class="stp-line" data-i18n="vid.steps.s2">Make a plan.</span>
+                            <span class="stp-line stp-line--alt" aria-hidden="true" data-i18n="vid.steps.s2">Make a plan.</span>
+                        </span>
+                    </span>
+                    <span class="stp-num" aria-hidden="true" data-i18n="vid.steps.n2">02 / Plan</span>
+                </div>
+                <p class="stp-desc" data-i18n="vid.steps.d2">We agree on a shot list and one fixed price up front. You know exactly what you get.</p>
             </li>
-            <li data-reveal>
-                <span class="step-num">03</span>
-                <h3>You get the files</h3>
-                <p>Edited, color-graded and compressed for web and social. Revisions included until it's right.</p>
+            <li class="stp-row">
+                <div class="stp-top">
+                    <span class="stp-roll">
+                        <span class="stp-roll-inner">
+                            <span class="stp-line" data-i18n="vid.steps.s3">Sit back.</span>
+                            <span class="stp-line stp-line--alt" aria-hidden="true" data-i18n="vid.steps.s3">Sit back.</span>
+                        </span>
+                    </span>
+                    <span class="stp-num" aria-hidden="true" data-i18n="vid.steps.n3">03 / Shoot</span>
+                </div>
+                <p class="stp-desc" data-i18n="vid.steps.d3">I take care of everything on location, drone and camera included. You just carry on with your day.</p>
+            </li>
+            <li class="stp-row">
+                <div class="stp-top">
+                    <span class="stp-roll">
+                        <span class="stp-roll-inner">
+                            <span class="stp-line" data-i18n="vid.steps.s4">Enjoy the film.</span>
+                            <span class="stp-line stp-line--alt" aria-hidden="true" data-i18n="vid.steps.s4">Enjoy the film.</span>
+                        </span>
+                    </span>
+                    <span class="stp-num" aria-hidden="true" data-i18n="vid.steps.n4">04 / Delivery</span>
+                </div>
+                <p class="stp-desc" data-i18n="vid.steps.d4">You receive a polished video, ready to share anywhere. I keep refining it until you love it.</p>
             </li>
         </ol>
     </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<!-- â”€â”€â”€ SECTION: CTA + Contact â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<section id="contact" class="section section-contact">
-    <div class="cta-banner" data-reveal>
-        <p class="cta-kicker">NOW BOOKING</p>
-        <h2>Your story deserves more than<br>a phone video.</h2>
-        <a href="#contact-form" class="btn-pill">Get a quote within 24 hours</a>
-    </div>
-
-    <div class="wrap contact-grid">
-        <div class="contact-info" data-reveal>
-            <h3>Tell me what you're filming.</h3>
-            <p>Send a few lines about your project and I'll reply with a plan and a price. No obligation.</p>
-            <div class="contact-info-item"><span>EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
-            <div class="contact-info-item"><span>PHONE</span><span>+31 (0) 6 12345678</span></div>
-            <div class="contact-info-item"><span>BASED IN</span><span>Budapest, Hungary &middot; travels across Europe</span></div>
-        </div>
-
-        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-reveal>
-            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
-            <input type="hidden" name="service" value="Videography / Drone">
-            <div class="form-group">
-                <label class="form-label">Name</label>
-                <input type="text" name="name" class="form-input" placeholder="Your name" required>
+<!-- ═══════════ SELECTED WORK: thumbnail carousel ═══════════ -->
+<section class="work" id="selected-work">
+    <div class="work-inner" data-reveal>
+        <h2 data-i18n="vid.work.title">Selected work.</h2>
+        <p class="work-sub" data-i18n="vid.work.sub">Drag, use the arrow keys or tap a thumbnail. A film loads only when you press play.</p>
+        <div class="wk" id="wkCarousel">
+            <div class="wk-stage" id="wkStage" tabindex="0" aria-label="Selected work carousel. Use the left and right arrow keys to browse the films." data-i18n-aria="vid.work.stageAria">
+                <div class="wk-track" id="wkTrack">
+                    <div class="wk-slide" data-video="assets/img/Videography-Page/Videos/Mammamia.mp4">
+                        <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/mammamia-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/mammamia-1280.webp"><img src="assets/img/Videography-Page/work/mammamia.jpg" alt="Mammamia restaurant lit up at night, seen from the water" data-i18n-alt="vid.work.mamma.alt" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture>
+                        <div class="wk-cap" aria-hidden="true">
+                            <h3 data-i18n="vid.work.mamma.title">Mammamia. Restaurant film.</h3>
+                            <p data-i18n="vid.work.mamma.sub">Promo &middot; 2:20. Food, staff and atmosphere.</p>
+                        </div>
+                        <button class="wk-play" type="button" aria-label="Play the Mammamia restaurant film" data-i18n-aria="vid.work.mamma.play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                    </div>
+                    <div class="wk-slide" data-video="assets/img/Videography-Page/Videos/SSIS.mp4">
+                        <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/ssis-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/ssis-1280.webp"><img src="assets/img/Videography-Page/work/ssis.jpg" alt="Suzhou Singapore International School campus from the air" data-i18n-alt="vid.work.ssis.alt" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture>
+                        <div class="wk-cap" aria-hidden="true">
+                            <h3 data-i18n="vid.work.ssis.title">SSIS. School campus film.</h3>
+                            <p data-i18n="vid.work.ssis.sub">Campus film &middot; 2:16. Buildings, fields and scale.</p>
+                        </div>
+                        <button class="wk-play" type="button" aria-label="Play the SSIS school campus film" data-i18n-aria="vid.work.ssis.play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                    </div>
+                    <div class="wk-slide" data-video="assets/img/Videography-Page/Videos/Suzhou%20Center.mp4">
+                        <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/suzhou-center-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/suzhou-center-1280.webp"><img src="assets/img/Videography-Page/work/suzhou-center.jpg" alt="Suzhou Center complex with twin towers and the lake behind it" data-i18n-alt="vid.work.suzhou.alt" draggable="false" width="1280" height="808" loading="lazy" decoding="async"></picture>
+                        <div class="wk-cap" aria-hidden="true">
+                            <h3 data-i18n="vid.work.suzhou.title">Suzhou Center. Commercial promo.</h3>
+                            <p data-i18n="vid.work.suzhou.sub">Promo &middot; 1:54. Roofs, towers and crowds.</p>
+                        </div>
+                        <button class="wk-play" type="button" aria-label="Play the Suzhou Center promo" data-i18n-aria="vid.work.suzhou.play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                    </div>
+                    <div class="wk-slide" data-video="assets/img/Videography-Page/Videos/Suzhou%20Times%20Square.mp4">
+                        <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/times-square-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/times-square-1280.webp"><img src="assets/img/Videography-Page/work/times-square.jpg" alt="Suzhou Times Square glowing at night" data-i18n-alt="vid.work.tsquare.alt" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture>
+                        <div class="wk-cap" aria-hidden="true">
+                            <h3 data-i18n="vid.work.tsquare.title">Times Square. City aerials.</h3>
+                            <p data-i18n="vid.work.tsquare.sub">Aerial &middot; 1:38. Lights, water and streets.</p>
+                        </div>
+                        <button class="wk-play" type="button" aria-label="Play the Times Square aerials film" data-i18n-aria="vid.work.tsquare.play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                    </div>
+                </div>
+                <button class="wk-prev" id="wkPrev" type="button" aria-label="Previous film" data-i18n-aria="vid.work.prev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <button class="wk-next" id="wkNext" type="button" aria-label="Next film" data-i18n-aria="vid.work.next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                <div class="wk-count" aria-hidden="true"><span id="wkCur">1</span> / 4</div>
             </div>
-            <div class="form-group">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-input" placeholder="hello@example.com" required>
+            <div class="wk-thumbs" id="wkThumbs">
+                <div class="wk-thumbs-row">
+                    <button class="wk-thumb is-on" type="button" data-i="0" aria-label="Show the Mammamia film" data-i18n-aria="vid.work.mamma.show" aria-current="true"><picture><source type="image/avif" srcset="assets/img/Videography-Page/work/mammamia-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/mammamia-1280.webp"><img src="assets/img/Videography-Page/work/mammamia.jpg" alt="" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture></button>
+                    <button class="wk-thumb" type="button" data-i="1" aria-label="Show the SSIS film" data-i18n-aria="vid.work.ssis.show" aria-current="false"><picture><source type="image/avif" srcset="assets/img/Videography-Page/work/ssis-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/ssis-1280.webp"><img src="assets/img/Videography-Page/work/ssis.jpg" alt="" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture></button>
+                    <button class="wk-thumb" type="button" data-i="2" aria-label="Show the Suzhou Center film" data-i18n-aria="vid.work.suzhou.show" aria-current="false"><picture><source type="image/avif" srcset="assets/img/Videography-Page/work/suzhou-center-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/suzhou-center-1280.webp"><img src="assets/img/Videography-Page/work/suzhou-center.jpg" alt="" draggable="false" width="1280" height="808" loading="lazy" decoding="async"></picture></button>
+                    <button class="wk-thumb" type="button" data-i="3" aria-label="Show the Times Square film" data-i18n-aria="vid.work.tsquare.show" aria-current="false"><picture><source type="image/avif" srcset="assets/img/Videography-Page/work/times-square-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/times-square-1280.webp"><img src="assets/img/Videography-Page/work/times-square.jpg" alt="" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture></button>
+                </div>
             </div>
-            <div class="form-group">
-                <label class="form-label">What do you need filmed?</label>
-                <textarea name="message" class="form-textarea" placeholder="A one-day event in June, drone shots of our hotel, a promo film for..." required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Request</button>
-        </form>
-        <div id="form-success" class="hidden">
-            <h3>Request Sent</h3>
-            <p>Thanks. I will reply within 24 hours.</p>
         </div>
     </div>
 </section>
 
-<!-- â”€â”€â”€ Footer â”€â”€â”€ -->
+<!-- ═══════════ CASE STUDY: Camperplaats Zsana ═══════════ -->
+<section class="case" id="case-study">
+    <div class="case-inner">
+        <h2 data-reveal data-i18n="vid.case.title">Case study: A film that books guests.</h2>
+        <div class="case-media wk-single" data-reveal>
+            <div class="wk-slide" data-video="https://camperplaatszsana.nl/Media/Landing%20Page/videos/Camperplaats%20Zsana%20Landing%20Page%20Video%201080p.mp4">
+                <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/camperplaats-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/camperplaats-1280.webp"><img src="assets/img/Videography-Page/work/camperplaats.jpg" alt="Camperplaats Zsana from the air" data-i18n-alt="vid.case.posterAlt" draggable="false" width="1280" height="720" loading="lazy" decoding="async"></picture>
+                <button class="wk-play" type="button" aria-label="Play the Camperplaats Zsana film" data-i18n-aria="vid.case.play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+        </div>
+        <div class="case-grid">
+            <div class="case-text" data-reveal>
+                <h3 data-i18n="vid.case.heading">Camperplaats Zsana. Landing page film.</h3>
+                <p class="case-lede" data-i18n="vid.case.lede">I was tasked with providing a video for a brand new camper stop in Hungary. The video was for the brand new website I built and needed to tell a story. With this project it was important to convince site visitors to book a stay at the campsite within a very short amount of time. I did this by creating a fast-paced, one minute video that reflects the atmosphere of the campsite and leaves visitors with a good first impression, eventually improving the chances of a booking.</p>
+            </div>
+            <div class="case-side" data-reveal>
+                <dl class="case-facts">
+                    <div><dt data-i18n="vid.case.fClient">Client</dt><dd>Camperplaats Zsana</dd></div>
+                    <div><dt data-i18n="vid.case.fLocation">Location</dt><dd data-i18n="vid.case.fLocationVal">Zsana, Hungary</dd></div>
+                    <div><dt data-i18n="vid.case.fFilm">Film</dt><dd data-i18n="vid.case.fFilmVal">Drone and ground shots: 1:05</dd></div>
+                    <div><dt data-i18n="vid.case.fShoot">Shoot</dt><dd data-i18n="vid.case.fShootVal">Half day</dd></div>
+                    <div><dt data-i18n="vid.case.fDelivery">Delivery</dt><dd data-i18n="vid.case.fDeliveryVal">Finished film in 3 days</dd></div>
+                    <div><dt data-i18n="vid.case.fWeb">Web versions</dt><dd data-i18n="vid.case.fWebVal">9 MB mobile, 30 MB desktop</dd></div>
+                </dl>
+                <div class="case-cta-row">
+                    <a class="case-link" href="https://camperplaatszsana.nl" target="_blank" rel="noopener"><span data-i18n="vid.case.live">See it live</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                    <a class="case-link case-link--ghost" href="#quote"><span data-i18n="vid.case.want">Want one like this?</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <ol class="case-steps">
+            <li data-reveal>
+                <span aria-hidden="true">01</span>
+                <h4 data-i18n="vid.case.s1t">Brief</h4>
+                <p data-i18n="vid.case.s1d">Camperplaats Zsana needed an opening film for their new website. I created a one minute video showing the grounds, the pool, the facilities, and the feeling of staying there.</p>
+            </li>
+            <li data-reveal>
+                <span aria-hidden="true">02</span>
+                <h4 data-i18n="vid.case.s2t">Approach</h4>
+                <p data-i18n="vid.case.s2d">I planned a cinematic mix of drone and ground footage, focusing on wide aerials for the scale of the place, and close shots for the atmosphere.</p>
+            </li>
+            <li data-reveal>
+                <span aria-hidden="true">03</span>
+                <h4 data-i18n="vid.case.s3t">Shoot</h4>
+                <p data-i18n="vid.case.s3d">Shooting took half a day, and was done during golden hour. I arranged for the campsite to be filled with guests and campers, to show viewers what it is like to stay there.</p>
+            </li>
+            <li data-reveal>
+                <span aria-hidden="true">04</span>
+                <h4 data-i18n="vid.case.s4t">Edit</h4>
+                <p data-i18n="vid.case.s4d">I cut and color graded the film in three days, then compressed it into two web versions so the site stays fast on any device.</p>
+            </li>
+        </ol>
+        <div class="case-context">
+            <div class="case-context-text" data-reveal>
+                <h3 data-i18n="vid.case.ctxTitle">On the Camperplaats Zsana website</h3>
+                <p data-i18n="vid.case.ctxDesc">The film sits at the top of the landing page, setting the tone and showing the true atmosphere of the place. It automatically plays on every visit and is optimized for browser loading speeds. I've gotten very positive responses to the film, with guests telling the owners it reminds them of their holiday and the peace and quietness of the campsite.</p>
+            </div>
+            <div class="case-devices" data-reveal>
+                <div class="case-laptop">
+                    <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl-1280.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl-1280.webp"><img loading="lazy" src="assets/img/Videography-Page/work/Macbook-Air-camperplaatszsana.nl.webp" alt="The Camperplaats Zsana landing page on a laptop" data-i18n-alt="vid.case.laptopAlt" width="1280" height="735" decoding="async"></picture>
+                </div>
+                <div class="case-phone">
+                    <picture><source type="image/avif" srcset="assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl-786.avif"><source type="image/webp" srcset="assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl-786.webp"><img loading="lazy" src="assets/img/Videography-Page/work/Galaxy-S22+-camperplaatszsana.nl.webp" alt="The Camperplaats Zsana landing page on a phone" data-i18n-alt="vid.case.phoneAlt" width="786" height="1622" decoding="async"></picture>
+                </div>
+            </div>
+        </div>
+        <ul class="case-stats">
+            <li data-reveal><strong data-i18n="vid.case.stat1">Half day</strong><span data-i18n="vid.case.stat1sub">on location</span></li>
+            <li data-reveal><strong data-i18n="vid.case.stat2">3 days</strong><span data-i18n="vid.case.stat2sub">to finished film</span></li>
+            <li data-reveal><strong>3.28k</strong><span data-i18n="vid.case.stat3sub">site search impressions</span></li>
+            <li data-reveal><strong>800+</strong><span data-i18n="vid.case.stat4sub">clicks to the site</span></li>
+        </ul>
+        <div class="case-outro" data-reveal>
+            <div>
+                <h3 data-i18n="vid.case.outroTitle">Have a project like this?</h3>
+                <p data-i18n="vid.case.outroSub">Let's create something great together.</p>
+            </div>
+            <div class="case-outro-btns">
+                <a class="case-link" href="#packages"><span data-i18n="vid.case.seePkgs">See packages</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <a class="case-link case-link--ghost" href="#quote"><span data-i18n="vid.case.getQuote">Get a quote</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ PACKAGES: fixed prices ═══════════ -->
+<section class="pkg" id="packages">
+    <div class="pkg-head" data-reveal>
+        <h2 data-i18n="vid.pkg.title">Find the perfect package.</h2>
+        <p data-i18n="vid.pkg.sub">Pick your package, then pick your time. The price is fixed before filming.</p>
+        <div class="pkg-pills" role="tablist" aria-label="Shoot length" data-i18n-aria="vid.pkg.pillsAria">
+            <button class="pkg-pill is-on" type="button" role="tab" aria-selected="true" data-pill="half" data-i18n="vid.pill.half">Half day</button>
+            <button class="pkg-pill" type="button" role="tab" aria-selected="false" data-pill="full" data-i18n="vid.pill.full">Full day</button>
+            <button class="pkg-pill" type="button" role="tab" aria-selected="false" data-pill="custom" data-i18n="vid.pill.custom">Custom</button>
+        </div>
+    </div>
+
+    <div class="pkg-grid">
+        <article class="pkg-card" data-reveal data-name="Drone footage" data-half-eur="&euro;150" data-half-huf="60,000 Ft" data-full-eur="&euro;300" data-full-huf="120,000 Ft">
+            <h3 data-i18n="vid.pkg.drone">Drone</h3>
+            <p class="pkg-card-price"><span class="pkg-eur">&euro;150</span><span class="pkg-huf">60,000 Ft</span></p>
+            <p class="pkg-card-sub" data-i18n="vid.pkg.droneSub">Short aerial shoot for one property, venue or spot.</p>
+            <ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.droneF1">Ideal for listings and venues</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.droneF2">Graded 4K clips and stills</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.droneF3">Files ready to post</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.droneF4">Licensed and insured flights</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.droneF5">Delivery within a week</span></li>
+            </ul>
+            <button class="pkg-select" type="button" data-pkg="Drone footage — &euro;150 (Half day)"><span data-i18n="vid.pkg.select">Select</span></button>
+        </article>
+
+        <article class="pkg-card" data-reveal data-name="Event coverage" data-half-eur="&euro;350" data-half-huf="140,000 Ft" data-full-eur="&euro;700" data-full-huf="280,000 Ft">
+            <h3 data-i18n="vid.pkg.event">Event</h3>
+            <p class="pkg-card-price"><span class="pkg-eur">&euro;350</span><span class="pkg-huf">140,000 Ft</span></p>
+            <p class="pkg-card-sub" data-i18n="vid.pkg.eventSub">Your event filmed as it happens, delivered fast.</p>
+            <ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.eventF1">Flexible coverage, big or small</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.eventF2">Drone and ground footage</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.eventF3">Same-week delivery</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.eventF4">Cut for web and social</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.eventF5">Files ready to post</span></li>
+            </ul>
+            <button class="pkg-select" type="button" data-pkg="Event coverage — &euro;350 (Half day)"><span data-i18n="vid.pkg.select">Select</span></button>
+        </article>
+
+        <article class="pkg-card is-popular" data-reveal data-name="Promotional film" data-half-eur="&euro;500" data-half-huf="200,000 Ft" data-full-eur="&euro;900" data-full-huf="360,000 Ft">
+            <p class="pkg-badge" data-i18n="vid.pkg.popular">Most Popular</p>
+            <h3 data-i18n="vid.pkg.promo">Promotion</h3>
+            <p class="pkg-card-price"><span class="pkg-eur">&euro;500</span><span class="pkg-huf">200,000 Ft</span></p>
+            <p class="pkg-card-sub" data-i18n="vid.pkg.promoSub">A short film about your business, from idea to finished edit.</p>
+            <ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.promoF1">Concept and shot plan</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.promoF2">Filmed on location</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.promoF3">Full edit, color and sound</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.promoF4">Revisions until it's right</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.promoF5">Delivery in about two weeks</span></li>
+            </ul>
+            <button class="pkg-select" type="button" data-pkg="Promotional film — &euro;500 (Half day)"><span data-i18n="vid.pkg.select">Select</span></button>
+        </article>
+
+        <article class="pkg-card is-light" data-reveal data-name="Custom project">
+            <h3 data-i18n="vid.pkg.custom">Custom</h3>
+            <p class="pkg-card-price"><span class="pkg-eur">Custom</span><span class="pkg-huf" data-i18n="vid.pkg.tailored">tailored quote</span></p>
+            <p class="pkg-card-sub" data-i18n="vid.pkg.customSub">Something bigger or unusual. Tell me what you need.</p>
+            <ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.customF1">Fixed quote within 24 hours</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.customF2">No obligation</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.customF3">Tailored shot plan</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.customF4">Drone and camera included</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span data-i18n="vid.pkg.customF5">Revisions until it's right</span></li>
+            </ul>
+            <button class="pkg-select" type="button" data-pkg="Custom project — Custom"><span data-i18n="vid.pkg.select">Select</span></button>
+        </article>
+    </div>
+
+    <p class="pkg-note" data-reveal data-i18n="vid.pkg.note">Half day is 4 hours on location. Full day is 8 hours.</p>
+    <p class="pkg-travel" data-reveal data-i18n="vid.pkg.travel">Travel outside 50 km of Kiskunhalas is billed at cost.</p>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="faq" id="faq">
+    <div class="faq-inner" data-reveal>
+        <h2 data-i18n="vid.faq.title">Frequently asked questions.</h2>
+        <p class="faq-sub" data-i18n="vid.faq.sub">Everything you need to know before booking.</p>
+        <details>
+            <summary data-i18n="vid.faq.q1">What services do you offer?</summary>
+            <p data-i18n="vid.faq.a1">I offer drone footage, promotional films and event coverage. I work by myself, so you only ever talk to me. My aim is to provide you with the best possible service and make your vision come to life. If you have other services in mind that aren't listed above, contact me, and I might be able to help you.</p>
+        </details>
+        <details>
+            <summary data-i18n="vid.faq.q2">How much does it cost, and how do I pay?</summary>
+            <p data-i18n="vid.faq.a2">Packages start at &euro;150 and go up to &euro;900 for a full-day promotional shoot. You always get a fixed price before I film anything, so the quote is the final price. There is no hourly rate and no surprises afterwards. To confirm the booking I ask 50% upfront, and the remaining 50% when the finished video is delivered. Cash and bank transfer both work.</p>
+        </details>
+        <details>
+            <summary data-i18n="vid.faq.q3">How long is a half day or a full day?</summary>
+            <p data-i18n="vid.faq.a3">A half day is 4 hours on location, which is enough for most shoots. A full day is 8 hours, for bigger projects with more setups or locations.</p>
+        </details>
+        <details>
+            <summary data-i18n="vid.faq.q4">What happens after I contact you?</summary>
+            <p data-i18n="vid.faq.a4">Pick a package and hit Select, or just email me with your idea. Either way, tell me where, when and what you want shown. I reply within 24 hours with a plan and a fixed price, and we agree on a shot list together. Then I film everything on location and edit it into a finished video. I keep refining it until you love it.</p>
+        </details>
+        <details>
+            <summary data-i18n="vid.faq.q5">Do you travel?</summary>
+            <p data-i18n="vid.faq.a5">Yes, I travel. Trips within 50 km of Kiskunhalas are included in the price. Anything beyond that I bill at cost, so you never pay more than the actual travel. Most of my shoots are in Hungary, but I take projects across Europe too.</p>
+        </details>
+        <details>
+            <summary data-i18n="vid.faq.q6">What if I want changes?</summary>
+            <p data-i18n="vid.faq.a6">Tell me what to change and I'll change it. You watch the first cut, give me your notes, and I keep working on it until it's right. I believe that back-and-forth is part of the job and not an extra.</p>
+        </details>
+        <details>
+            <summary data-i18n="vid.faq.q7">Are you licensed and insured?</summary>
+            <p data-i18n="vid.faq.a7">Yes. I'm a licensed drone pilot and every flight is insured, so the shoot is legal and covered from takeoff to landing.</p>
+        </details>
+        <div class="faq-contact">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <h3 data-i18n="vid.faq.stillQ">Still have questions?</h3>
+            <p data-i18n="vid.faq.stillSub">Email me directly, I reply within 24 hours.</p>
+            <a class="case-link" href="#quote"><span data-i18n="vid.faq.contactBtn">Contact me</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ QUOTE FORM ═══════════ -->
+<section class="quote" id="quote">
+    <div class="quote-grid">
+        <div class="quote-info" data-reveal>
+            <div class="quote-intro">
+                <h2 data-i18n-html="vid.quote.title">Let's plan your <em>shoot.</em></h2>
+                <p data-i18n="vid.quote.sub">A few lines is enough. I reply within 24 hours with a plan and a fixed price.</p>
+            </div>
+            <div class="quote-contacts">
+                <div class="quote-contact"><span data-i18n="vid.quote.email">Email</span><span>hello@maartenvanderleeuw.com</span></div>
+                <div class="quote-contact"><span data-i18n="vid.quote.phone">Phone</span><span>+36 20 977 4547</span></div>
+                <div class="quote-contact"><span data-i18n="vid.quote.based">Based in</span><span data-i18n="vid.quote.basedVal">Kiskunhalas, Hungary</span></div>
+            </div>
+        </div>
+        <form class="quote-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST" novalidate data-reveal>
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <input type="hidden" name="package" id="quotePackage" value="">
+            <input type="hidden" name="service" value="Videography">
+            <div class="quote-field">
+                <label for="quoteName" data-i18n="vid.quote.name">Name</label>
+                <input id="quoteName" name="name" type="text" placeholder="Your name" data-i18n-placeholder="vid.quote.namePh" required autocomplete="name">
+            </div>
+            <div class="quote-field">
+                <label for="quoteEmail" data-i18n="vid.quote.email">Email</label>
+                <input id="quoteEmail" name="email" type="email" placeholder="hello@example.com" required autocomplete="email">
+            </div>
+            <div class="quote-field">
+                <label id="quotePkgLabel" data-i18n="vid.quote.pkg">Package</label>
+                <div class="quote-dd">
+                    <select id="quotePkgSelect" tabindex="-1" aria-hidden="true">
+                        <option value="" data-i18n="vid.form.nopkg">No package selected</option>
+                        <option value="Drone footage" data-i18n="vid.pkg.droneName">Drone footage</option>
+                        <option value="Promotional film" data-i18n="vid.pkg.promoName">Promotional film</option>
+                        <option value="Event coverage" data-i18n="vid.pkg.eventName">Event coverage</option>
+                        <option value="Custom project" data-i18n="vid.pkg.customName">Custom project</option>
+                    </select>
+                    <button type="button" class="quote-dd-toggle" id="quoteDdToggle" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="quotePkgLabel quoteDdLabel">
+                        <span id="quoteDdLabel">No package selected</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <ul class="quote-dd-list" id="quoteDdList" role="listbox" aria-labelledby="quotePkgLabel" hidden>
+                        <li role="option" data-value="" aria-selected="true" data-i18n="vid.form.nopkg">No package selected</li>
+                        <li role="option" data-value="Drone footage" aria-selected="false" data-i18n="vid.pkg.droneName">Drone footage</li>
+                        <li role="option" data-value="Promotional film" aria-selected="false" data-i18n="vid.pkg.promoName">Promotional film</li>
+                        <li role="option" data-value="Event coverage" aria-selected="false" data-i18n="vid.pkg.eventName">Event coverage</li>
+                        <li role="option" data-value="Custom project" aria-selected="false" data-i18n="vid.pkg.customName">Custom project</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="quote-field">
+                <label for="quoteMsg" data-i18n="vid.quote.msg">What do you need filmed?</label>
+                <textarea id="quoteMsg" name="message" placeholder="A one-day event in June, drone shots of our hotel, a promo film for..." data-i18n-placeholder="vid.quote.msgPh" required></textarea>
+            </div>
+            <p class="quote-error" id="quoteError" hidden data-i18n="vid.quote.error">Something went wrong. Please try again, or email me directly above.</p>
+            <button class="quote-submit" type="submit" id="quoteSubmit" data-i18n="vid.form.submit">Send request</button>
+        </form>
+        <div class="quote-success" id="quoteSuccess" hidden>
+            <div class="quote-success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3 data-i18n="vid.quote.successTitle">Request sent.</h3>
+            <p data-i18n="vid.quote.successText">Thanks. I will reply within 24 hours.</p>
+        </div>
+    </div>
+</section>
+
 <footer class="main-footer">
     <div class="footer-content">
         <div class="footer-brand">
             <h3>LEEUW.</h3>
-            <p>Software. Film. Baking. All from scratch.</p>
+            <p data-i18n="footer.tagline">Dutch quality based in Hungary</p>
         </div>
         <div class="footer-col">
-            <h4>Disciplines</h4>
+            <h4 data-i18n="footer.nav">Navigation</h4>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="taarten.html">Taarten van Maarten</a></li>
-                <li><a href="solutions.html">Technical Solutions</a></li>
+                <li><a href="index.html" data-i18n="vid.footer.home">Homepage</a></li>
+                <li><a href="videography.html" data-i18n="vid.footer.video">Videography</a></li>
+                <li><a href="taarten.html" data-i18n="vid.footer.taarten">Taarten van Maarten</a></li>
+                <li><a href="software-solutions.html" data-i18n="vid.footer.tech">Software Solutions</a></li>
+                <li><a href="Blog/index.html" data-i18n="vid.footer.blog">Blog</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h4>Contact</h4>
+            <h4 data-i18n="footer.contactTitle">Contact</h4>
             <ul>
                 <li>hello@maartenvanderleeuw.com</li>
-                <li>+31 (0) 6 12345678</li>
-                <li>Budapest, Hungary</li>
+                <li>+36 20 977 4547</li>
+                <li data-i18n="footer.address">Kiskunhalas, 6400 Hungary</li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
-        <button class="back-to-top" id="back-to-top">
+        <div class="footer-copyright" data-i18n-html="footer.rights">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top" aria-label="Back to top" data-i18n-aria="footer.top">
+            <span data-i18n="footer.top">Back to Top</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
         </button>
     </div>
 </footer>
 
-<!-- â”€â”€â”€ Scripts â”€â”€â”€ -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=step4"></script>
+<script>
+(function () {
+    'use strict';
+
+    /* Frame-sequence scrub: the 0:15–0:21 flight as 93 stills
+       (15fps). Swapping a cached image per scroll step is instant
+       on any machine — no video decoder, no seek latency, works
+       perfectly over file:// too. */
+    var FRAME_COUNT = 47;
+    /* touch gets a static image hero instead of the frame scrub */
+    var TOUCH = !!(window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches);
+    function frameURL(i) {
+        var s = '00' + (i + 1);
+        return 'assets/img/Videography-Page/scrub-frames/frame-' + s.slice(-3) + '.webp';
+    }
+
+    var track = document.getElementById('slhTrack');
+    var stage = document.getElementById('slhStage');
+    var frame = document.getElementById('slhFrame');
+    var title = document.getElementById('slhTitle');
+    var caption = document.getElementById('slhCaption');
+    var cue = document.getElementById('slhCue');
+    var wordsEl = document.getElementById('slhWords');
+    var measureEl = document.getElementById('slhMeasure');
+    var wordSpans = wordsEl ? wordsEl.querySelectorAll('span') : [];
+    var wordWidths = [];
+    var wordIdx = 0;
+    var wordTimer = null;
+    /* measure each word's natural width (hidden measurer shares the
+       caption font) and pin the cell to the active word */
+    function measureWords() {
+        if (!measureEl || !wordsEl) return;
+        wordWidths = [];
+        var kids = measureEl.children;
+        for (var m = 0; m < kids.length; m++) {
+            wordWidths.push(kids[m].getBoundingClientRect().width);
+        }
+        if (wordWidths[wordIdx]) wordsEl.style.width = wordWidths[wordIdx] + 'px';
+    }
+    function rotateWord() {
+        if (!wordSpans.length || document.hidden) return;
+        var prev = wordSpans[wordIdx];
+        wordIdx = (wordIdx + 1) % wordSpans.length;
+        var next = wordSpans[wordIdx];
+        if (wordWidths[wordIdx]) wordsEl.style.width = wordWidths[wordIdx] + 'px';
+        prev.classList.remove('is-on');
+        prev.classList.add('is-out');
+        prev.setAttribute('aria-hidden', 'true');
+        next.classList.add('is-pre');
+        void next.offsetWidth;
+        setTimeout(function () {
+            prev.classList.remove('is-out');
+            next.classList.remove('is-pre');
+            next.classList.add('is-on');
+            next.removeAttribute('aria-hidden');
+        }, 300);
+    }
+
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ticking = false;
+    var ready = [];
+    for (var r = 0; r < FRAME_COUNT; r++) ready.push(false);
+    var currentIdx = -1;
+
+    function markReady(k) {
+        ready[k] = true;
+    }
+    function loadOne(k, retried) {
+        var im = new Image();
+        im.onload = function () { markReady(k); };
+        im.onerror = function () {
+            if (!retried) setTimeout(function () { loadOne(k, true); }, 2000);
+        };
+        im.src = frameURL(k);
+    }
+    /* two-pass preload for slow networks: every 6th frame first so
+       the whole flight is coarsely covered quickly, then the gaps.
+       show() always picks the nearest ready frame, so scrubbing
+       moves immediately and sharpens as more arrives. */
+    function preload() {
+        var i;
+        for (i = 0; i < FRAME_COUNT; i += 6) loadOne(i, false);
+        for (i = 0; i < FRAME_COUNT; i++) {
+            if (i % 6 !== 0) loadOne(i, false);
+        }
+    }
+    function nearestReady(i) {
+        if (ready[i]) return i;
+        for (var d = 1; d < FRAME_COUNT; d++) {
+            if (i - d >= 0 && ready[i - d]) return i - d;
+            if (i + d < FRAME_COUNT && ready[i + d]) return i + d;
+        }
+        return -1;
+    }
+    function show(i) {
+        var k = nearestReady(i);
+        if (k < 0 || k === currentIdx) return;
+        currentIdx = k;
+        frame.src = frameURL(k);
+    }
+
+    function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+    function smooth(a, b, x) {
+        var t = clamp((x - a) / (b - a), 0, 1);
+        return t * t * (3 - 2 * t);
+    }
+
+    function progress() {
+        var total = track.offsetHeight - window.innerHeight;
+        if (total <= 0) return 0;
+        return clamp(-track.getBoundingClientRect().top / total, 0, 1);
+    }
+
+    function apply(p) {
+        /* scrub the frames */
+        if (!reduced) show(Math.round(p * (FRAME_COUNT - 1)));
+
+        /* phase 1 title: holds, then scales/fades as the doors part.
+           Opacity + transform only — a per-frame blur here forces the
+           browser to re-rasterize giant text every tick (the stutter). */
+        var tOut = smooth(0.12, 0.5, p);
+        title.style.opacity = String(1 - tOut);
+        title.style.transform = 'scale(' + (1 + tOut * 0.18).toFixed(3) + ') translateY(' + (-tOut * 40).toFixed(1) + 'px)';
+        title.style.visibility = tOut >= 1 ? 'hidden' : 'visible';
+
+        /* scroll cue: gone almost immediately */
+        cue.style.opacity = String(1 - smooth(0, 0.1, p));
+
+        /* phase 2 caption: rises over the revealed city (no blur — see above) */
+        var cIn = smooth(0.55, 0.8, p);
+        caption.style.opacity = String(cIn);
+        caption.style.transform = 'translateY(' + ((1 - cIn) * 30).toFixed(1) + 'px)';
+        caption.style.visibility = cIn <= 0 ? 'hidden' : 'visible';
+        /* start the word carousel once the caption has landed */
+        if (cIn >= 0.999 && !wordTimer && !reduced) {
+            wordTimer = setInterval(rotateWord, 1750);
+        }
+    }
+
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+            ticking = false;
+            apply(progress());
+        });
+    }
+
+    /* split-row videos: with sticky stacking cards, a covered video
+       still intersects the viewport, so play only the topmost card
+       at the viewport midpoint — never all at once, never behind */
+    (function splitPlayback() {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var rows = Array.prototype.slice.call(document.querySelectorAll('.split-row'));
+        if (!rows.length) return;
+        var vids = rows.map(function (r) { return r.querySelector('video'); });
+        var ticking2 = false;
+        function update() {
+            var mid = window.innerHeight * 0.5;
+            var active = -1;
+            for (var i = 0; i < rows.length; i++) {
+                var rect = rows[i].getBoundingClientRect();
+                if (rect.top <= mid && rect.bottom >= mid) active = i;
+            }
+            vids.forEach(function (v, i) {
+                if (!v) return;
+                if (i === active) v.play().catch(function () {});
+                else v.pause();
+            });
+        }
+        function onScroll2() {
+            if (ticking2) return;
+            ticking2 = true;
+            requestAnimationFrame(function () { ticking2 = false; update(); });
+        }
+        window.addEventListener('scroll', onScroll2, { passive: true });
+        window.addEventListener('resize', onScroll2);
+        update();
+    })();
+
+    /* split progress rail: fill bar + 01/02/03 highlight follow the
+       card at the viewport midpoint (same rule as video playback) */
+    (function splitProgress() {
+        var section = document.getElementById('split-rows');
+        var fill = document.getElementById('splitProgressFill');
+        var rows = Array.prototype.slice.call(document.querySelectorAll('.split-row'));
+        var steps = Array.prototype.slice.call(document.querySelectorAll('.split-progress-steps a'));
+        if (!section || !fill || !rows.length || !steps.length) return;
+        var current = -1;
+        function update() {
+            var rect = section.getBoundingClientRect();
+            var total = rect.height - window.innerHeight;
+            var done = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
+            fill.style.width = (done * 100).toFixed(1) + '%';
+            var mid = window.innerHeight * 0.5;
+            var active = 0;
+            for (var i = 0; i < rows.length; i++) {
+                var r = rows[i].getBoundingClientRect();
+                if (r.top <= mid && r.bottom >= mid) active = i;
+            }
+            if (active !== current) {
+                current = active;
+                steps.forEach(function (s, k) { s.classList.toggle('is-on', k === active); });
+            }
+        }
+        var ticking3 = false;
+        function onScroll3() {
+            if (ticking3) return;
+            ticking3 = true;
+            requestAnimationFrame(function () { ticking3 = false; update(); });
+        }
+        window.addEventListener('scroll', onScroll3, { passive: true });
+        window.addEventListener('resize', onScroll3);
+        update();
+
+        /* step clicks: native anchors can't go BACK to a card, because a
+           stuck card sits at the viewport top (covered by later cards)
+           so the browser thinks the target is already in view and stays
+           put. Scroll to each row's in-flow slot instead. NOTE: never
+           use offsetTop on the rows here — a stuck sticky row reports
+           its stuck position, not its flow slot. Walk down from the
+           (static, always truthful) section top using live heights. */
+        function rowSlotTop(i) {
+            var secTop = section.getBoundingClientRect().top + window.scrollY;
+            var secCS = getComputedStyle(section);
+            var padTop = parseFloat(secCS.paddingTop) || 0;
+            var gap = parseFloat(secCS.rowGap || secCS.gap) || 0;
+            var nav = section.querySelector('.split-progress');
+            var railBlock = nav ? nav.offsetHeight + (parseFloat(getComputedStyle(nav).marginBottom) || 0) : 0;
+            var y = secTop + padTop + railBlock;
+            for (var k = 0; k < i; k++) y += rows[k].offsetHeight + gap;
+            return y;
+        }
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        steps.forEach(function (s) {
+            s.addEventListener('click', function (e) {
+                var i = parseInt(s.getAttribute('data-sp'), 10);
+                if (isNaN(i) || !rows[i]) return;
+                e.preventDefault();
+                window.scrollTo({ top: Math.max(0, rowSlotTop(i) - 12), behavior: reducedMotion ? 'auto' : 'smooth' });
+                try { history.replaceState(null, '', '#' + rows[i].id); } catch (err) {}
+            });
+        });
+    })();
+
+    /* why-me accordion: single open item drives the preview image */
+    (function whyAccordion() {
+        var items = Array.prototype.slice.call(document.querySelectorAll('.why-item'));
+        var mediaImg = document.getElementById('whyImage');
+        if (!items.length || !mediaImg) return;
+        var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        items.forEach(function (it) {
+            var src = it.querySelector('.why-trigger').getAttribute('data-img');
+            if (src) { var pre = new Image(); pre.src = src; }
+        });
+        function open(item) {
+            items.forEach(function (it) {
+                var on = it === item;
+                it.classList.toggle('is-open', on);
+                it.querySelector('.why-trigger').setAttribute('aria-expanded', on ? 'true' : 'false');
+            });
+            var next = item.querySelector('.why-trigger').getAttribute('data-img');
+            if (!next || mediaImg.getAttribute('src') === next) return;
+            if (reduced) { mediaImg.setAttribute('src', next); return; }
+            mediaImg.classList.add('is-fading');
+            window.setTimeout(function () {
+                mediaImg.setAttribute('src', next);
+                mediaImg.classList.remove('is-fading');
+            }, 180);
+        }
+        items.forEach(function (it) {
+            it.querySelector('.why-trigger').addEventListener('click', function () { open(it); });
+        });
+    })();
+
+    /* selected work carousel: draggable stage, arrows, arrow keys,
+       thumbnail strip. Our original player lives here too: a film
+       file loads only when its play button is pressed, and it is
+       wired to every .wk-slide on the page — the carousel slides
+       and the standalone case-study player (.wk-single). Only one
+       film plays at a time; leaving a slide stops and unloads it. */
+    (function workCarousel() {
+        var root = document.getElementById('wkCarousel');
+        if (!root) return;
+        var stage = document.getElementById('wkStage');
+        var track = document.getElementById('wkTrack');
+        var slides = Array.prototype.slice.call(track.querySelectorAll('.wk-slide'));
+        var prev = document.getElementById('wkPrev');
+        var next = document.getElementById('wkNext');
+        var cur = document.getElementById('wkCur');
+        var thumbsBox = document.getElementById('wkThumbs');
+        var thumbs = Array.prototype.slice.call(thumbsBox.querySelectorAll('.wk-thumb'));
+        var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var index = 0;
+
+        function stopVideos() {
+            Array.prototype.slice.call(document.querySelectorAll('.wk-slide video')).forEach(function (v) {
+                try { v.pause(); } catch (err) {}
+                if (v._idle) { clearTimeout(v._idle); v._idle = null; }
+                var s = v.closest('.wk-slide');
+                if (s) { s.classList.remove('is-playing'); s.classList.remove('is-idle'); }
+                v.removeAttribute('src');
+                v.load();
+                v.remove();
+            });
+        }
+
+        function centerThumb(i) {
+            var t = thumbs[i];
+            if (!t) return;
+            var target = t.offsetLeft + t.offsetWidth / 2 - thumbsBox.clientWidth / 2;
+            thumbsBox.scrollTo({ left: target, behavior: reduced ? 'auto' : 'smooth' });
+        }
+
+        function offset() { return -index * (stage.clientWidth || 1); }
+
+        function go(i) {
+            var n = Math.max(0, Math.min(slides.length - 1, i));
+            if (n !== index) stopVideos();
+            index = n;
+            track.style.transform = 'translateX(' + offset() + 'px)';
+            cur.textContent = String(index + 1);
+            prev.disabled = index === 0;
+            next.disabled = index === slides.length - 1;
+            thumbs.forEach(function (t, k) {
+                var on = k === index;
+                t.classList.toggle('is-on', on);
+                t.setAttribute('aria-current', on ? 'true' : 'false');
+            });
+            centerThumb(index);
+        }
+
+        prev.addEventListener('click', function () { go(index - 1); });
+        next.addEventListener('click', function () { go(index + 1); });
+        thumbs.forEach(function (t) {
+            t.addEventListener('click', function () {
+                go(parseInt(t.getAttribute('data-i'), 10) || 0);
+            });
+        });
+
+        /* arrow keys, Home and End while the stage has focus
+           (never hijack the player controls) */
+        stage.addEventListener('keydown', function (e) {
+            if (e.target.closest && e.target.closest('.wk-controls')) return;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
+            else if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
+            else if (e.key === 'Home') { e.preventDefault(); go(0); }
+            else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
+        });
+
+        /* drag the stage: past 30% of its width moves a slide */
+        var dragging = false, startX = 0, baseX = 0, dX = 0;
+        stage.addEventListener('pointerdown', function (e) {
+            if (e.target.closest('button, video, a, .wk-controls')) return;
+            dragging = true;
+            startX = e.clientX;
+            dX = 0;
+            baseX = offset();
+            track.style.transition = 'none';
+            try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+        });
+        stage.addEventListener('pointermove', function (e) {
+            if (!dragging) return;
+            dX = e.clientX - startX;
+            track.style.transform = 'translateX(' + (baseX + dX) + 'px)';
+        });
+        function endDrag() {
+            if (!dragging) return;
+            dragging = false;
+            track.style.transition = '';
+            var w = stage.clientWidth || 1;
+            var n = index;
+            if (Math.abs(dX) > w * 0.3) n = dX > 0 ? index - 1 : index + 1;
+            dX = 0;
+            go(n);
+        }
+        stage.addEventListener('pointerup', endDrag);
+        stage.addEventListener('pointercancel', endDrag);
+
+        /* control icons (stroke set matches the carousel arrows) */
+        var ICON_PLAY_SM = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+        var ICON_PAUSE = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
+        var ICON_VOL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7M18.2 6a8.8 8.8 0 010 12"/></svg>';
+        var ICON_MUTE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
+        var ICON_FULL = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v3M16 3h3a2 2 0 012 2v3M8 21H5a2 2 0 01-2-2v-3M16 21h3a2 2 0 002-2v-3"/></svg>';
+
+        function fmt(t) {
+            if (!isFinite(t) || t < 0) t = 0;
+            return Math.floor(t / 60) + ':' + ('0' + Math.floor(t % 60)).slice(-2);
+        }
+        function safePlay(v) {
+            try { var p = v.play(); if (p && p.catch) p.catch(function () {}); } catch (err) {}
+        }
+
+        /* wake a playing slide: show the controls, hide them after 2.5s idle */
+        function wake(slide) {
+            var cur = slide.querySelector('video');
+            if (!cur || cur.paused || cur.ended) return;
+            slide.classList.remove('is-idle');
+            if (cur._idle) clearTimeout(cur._idle);
+            cur._idle = setTimeout(function () { slide.classList.add('is-idle'); }, 2500);
+        }
+        slides.concat(Array.prototype.slice.call(document.querySelectorAll('.wk-single .wk-slide'))).forEach(function (slide) {
+            slide.addEventListener('mousemove', function () { wake(slide); });
+            slide.addEventListener('touchstart', function () { wake(slide); }, { passive: true });
+        });
+
+        /* play: build the video tag plus custom controls on demand, autoplay it */
+        Array.prototype.slice.call(document.querySelectorAll('.wk-slide .wk-play')).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var slide = btn.closest('.wk-slide');
+                if (!slide || slide.classList.contains('is-playing')) return;
+                stopVideos();
+
+                var img = slide.querySelector('img');
+                var v = document.createElement('video');
+                v.setAttribute('playsinline', '');
+                v.setAttribute('preload', 'metadata');
+                if (img) v.setAttribute('poster', img.getAttribute('src'));
+                var s = document.createElement('source');
+                s.setAttribute('src', slide.getAttribute('data-video'));
+                s.setAttribute('type', 'video/mp4');
+                v.appendChild(s);
+
+                var ui = document.createElement('div');
+                ui.className = 'wk-controls';
+                ui.innerHTML =
+                    '<div class="wk-c-bar" role="slider" tabindex="0" aria-label="' + tr('vid.player.seek') + '" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">' +
+                        '<div class="wk-c-buf"></div><div class="wk-c-fill"></div><div class="wk-c-knob"></div>' +
+                    '</div>' +
+                    '<div class="wk-c-row">' +
+                        '<button class="wk-c-btn wk-c-toggle" type="button" aria-label="' + tr('vid.player.pause') + '">' + ICON_PAUSE + '</button>' +
+                        '<span class="wk-c-time">0:00 / 0:00</span>' +
+                        '<span class="wk-c-spacer"></span>' +
+                        '<button class="wk-c-btn wk-c-mute" type="button" aria-label="' + tr('vid.player.mute') + '">' + ICON_VOL + '</button>' +
+                        '<button class="wk-c-btn wk-c-full" type="button" aria-label="' + tr('vid.player.full') + '">' + ICON_FULL + '</button>' +
+                    '</div>';
+
+                slide.appendChild(v);
+                slide.appendChild(ui);
+                slide.classList.add('is-playing');
+
+                var toggle = ui.querySelector('.wk-c-toggle');
+                var time = ui.querySelector('.wk-c-time');
+                var bar = ui.querySelector('.wk-c-bar');
+                var fill = ui.querySelector('.wk-c-fill');
+                var buf = ui.querySelector('.wk-c-buf');
+                var knob = ui.querySelector('.wk-c-knob');
+                var muteBtn = ui.querySelector('.wk-c-mute');
+                var fullBtn = ui.querySelector('.wk-c-full');
+
+                function paint() {
+                    var d = v.duration || 0, c = v.currentTime || 0;
+                    var pct = d > 0 ? (c / d) * 100 : 0;
+                    fill.style.width = pct + '%';
+                    knob.style.left = pct + '%';
+                    bar.setAttribute('aria-valuenow', String(Math.round(pct)));
+                    /* while a seek is in flight the pipeline can report a
+                       transient 0 — keep the last time instead of flashing it */
+                    if (!v.seeking) time.textContent = fmt(c) + ' / ' + fmt(d);
+                    try {
+                        if (v.buffered.length && d > 0) {
+                            buf.style.width = (v.buffered.end(v.buffered.length - 1) / d) * 100 + '%';
+                        }
+                    } catch (err) {}
+                }
+                function syncToggle() {
+                    var playing = !v.paused && !v.ended;
+                    toggle.innerHTML = playing ? ICON_PAUSE : ICON_PLAY_SM;
+                    toggle.setAttribute('aria-label', tr(playing ? 'vid.player.pause' : 'vid.player.play'));
+                    if (v._idle) { clearTimeout(v._idle); v._idle = null; }
+                    slide.classList.remove('is-idle');
+                    if (playing) wake(slide);
+                }
+                function flip() { if (v.paused || v.ended) safePlay(v); else v.pause(); }
+
+                toggle.addEventListener('click', function (e) { e.stopPropagation(); flip(); });
+                v.addEventListener('click', flip);
+                v.addEventListener('play', syncToggle);
+                v.addEventListener('pause', syncToggle);
+                v.addEventListener('ended', syncToggle);
+                v.addEventListener('timeupdate', paint);
+                v.addEventListener('progress', paint);
+                v.addEventListener('loadedmetadata', paint);
+                muteBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    v.muted = !v.muted;
+                    muteBtn.innerHTML = v.muted ? ICON_MUTE : ICON_VOL;
+                    muteBtn.setAttribute('aria-label', tr(v.muted ? 'vid.player.unmute' : 'vid.player.mute'));
+                });
+                fullBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    try {
+                        if (document.fullscreenElement) document.exitFullscreen();
+                        else if (slide.requestFullscreen) slide.requestFullscreen();
+                    } catch (err) {}
+                });
+
+                /* seek: click or drag along the bar */
+                function seekTo(clientX) {
+                    var r = bar.getBoundingClientRect();
+                    var p = Math.max(0, Math.min(1, (clientX - r.left) / (r.width || 1)));
+                    if (isFinite(v.duration)) v.currentTime = p * v.duration;
+                    paint();
+                }
+                var seeking = false;
+                bar.addEventListener('pointerdown', function (e) {
+                    e.stopPropagation();
+                    seeking = true;
+                    try { bar.setPointerCapture(e.pointerId); } catch (err) {}
+                    seekTo(e.clientX);
+                });
+                bar.addEventListener('pointermove', function (e) { if (seeking) seekTo(e.clientX); });
+                bar.addEventListener('pointerup', function () { seeking = false; });
+                bar.addEventListener('pointercancel', function () { seeking = false; });
+                bar.addEventListener('keydown', function (e) {
+                    if (!isFinite(v.duration)) return;
+                    if (e.key === 'ArrowLeft') { e.preventDefault(); e.stopPropagation(); v.currentTime = Math.max(0, v.currentTime - 5); }
+                    else if (e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); v.currentTime = Math.min(v.duration, v.currentTime + 5); }
+                    else if (e.key === 'Home') { e.preventDefault(); e.stopPropagation(); v.currentTime = 0; }
+                    else if (e.key === 'End') { e.preventDefault(); e.stopPropagation(); v.currentTime = v.duration; }
+                });
+
+                safePlay(v);
+            });
+        });
+
+        window.addEventListener('resize', function () { go(index); });
+        go(0);
+    })();
+
+    /* landing navbar: hidden during the scroll hero, slides in after.
+       The hero "plays out" when the tall track releases its pinned stage,
+       i.e. the track bottom reaches the viewport bottom. */
+    (function topNav() {
+        var track = document.getElementById('slhTrack');
+        var nav = document.getElementById('topNav');
+        if (!track || !nav) return;
+        var shown = false;
+        function update() {
+            var past = track.getBoundingClientRect().bottom <= window.innerHeight + 4;
+            if (past !== shown) {
+                shown = past;
+                document.body.classList.toggle('has-nav', shown);
+            }
+        }
+        var ticking = false;
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () { ticking = false; update(); });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        update();
+
+        /* mobile menu, same behavior as the landing page */
+        var burger = nav.querySelector('.nav-burger');
+        function setOpen(open) {
+            document.documentElement.classList.toggle('nav-open', open);
+            if (burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        if (burger) burger.addEventListener('click', function () {
+            setOpen(!document.documentElement.classList.contains('nav-open'));
+        });
+        document.querySelectorAll('.nav-overlay a, .nav-overlay .lang-btn').forEach(function (el) {
+            el.addEventListener('click', function () { setOpen(false); });
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') setOpen(false);
+        });
+
+        /* footer back-to-top, same as the landing page */
+        var toTop = document.getElementById('back-to-top');
+        if (toTop) toTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+
+    /* booking: pills, card buttons, service links and the package
+       dropdown all feed the same hidden package field on the form */
+    (function booking() {
+        var pills = Array.prototype.slice.call(document.querySelectorAll('.pkg-pill'));
+        var cards = Array.prototype.slice.call(document.querySelectorAll('.pkg-card[data-name]'));
+        var pkgField = document.getElementById('quotePackage');
+        var dropdown = document.getElementById('quotePkgSelect');
+        var ddToggle = document.getElementById('quoteDdToggle');
+        var ddList = document.getElementById('quoteDdList');
+        var ddLabel = document.getElementById('quoteDdLabel');
+        var nameInput = document.getElementById('quoteName');
+        if (!pills.length || !cards.length || !pkgField || !dropdown) return;
+        var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var labels = { half: 'Half day', full: 'Full day', custom: 'Custom' };
+        var selectedName = '';
+        var activePill = 'half';
+        function cardFor(name) {
+            for (var i = 0; i < cards.length; i++) {
+                if (cards[i].getAttribute('data-name') === name) return cards[i];
+            }
+            return null;
+        }
+        function priceFor(card, pill) {
+            if (!card || pill === 'custom' || !card.hasAttribute('data-half-eur')) return 'Custom';
+            return card.getAttribute(pill === 'half' ? 'data-half-eur' : 'data-full-eur');
+        }
+        function refreshStamp() {
+            if (!selectedName) { pkgField.value = ''; return; }
+            pkgField.value = selectedName + ' — ' + priceFor(cardFor(selectedName), activePill) + ' (' + labels[activePill] + ')';
+        }
+        function paint(card, pill) {
+            var eur = card.querySelector('.pkg-eur');
+            var huf = card.querySelector('.pkg-huf');
+            var btn = card.querySelector('.pkg-select');
+            var price = priceFor(card, pill);
+            var isCustomPrice = price === 'Custom';
+            var uiPrice = isCustomPrice ? tr('vid.pkg.customprice') : price;
+            var sub = (pill === 'custom' || isCustomPrice) ? tr('vid.pkg.tailored') : card.getAttribute(pill === 'half' ? 'data-half-huf' : 'data-full-huf');
+            function apply() {
+                if (eur) eur.textContent = uiPrice;
+                if (huf) huf.textContent = sub;
+                if (btn) btn.setAttribute('data-pkg', card.getAttribute('data-name') + ' — ' + price + ' (' + labels[pill] + ')');
+                refreshStamp();
+            }
+            if (reduced) { apply(); return; }
+            if (eur) eur.classList.add('is-fading');
+            if (huf) huf.classList.add('is-fading');
+            window.setTimeout(function () {
+                apply();
+                if (eur) eur.classList.remove('is-fading');
+                if (huf) huf.classList.remove('is-fading');
+            }, 180);
+        }
+        function choose(name) {
+            selectedName = name || '';
+            dropdown.value = selectedName;
+            syncDdUi();
+            refreshStamp();
+            document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+            if (nameInput) setTimeout(function () { nameInput.focus({ preventScroll: true }); }, 600);
+        }
+        /* custom dropdown UI: mirrors the hidden native select */
+        function ddItems() { return ddList ? Array.prototype.slice.call(ddList.querySelectorAll('[role="option"]')) : []; }
+        function syncDdUi() {
+            var label = tr('vid.form.nopkg');
+            ddItems().forEach(function (it) {
+                var on = it.getAttribute('data-value') === selectedName;
+                it.setAttribute('aria-selected', on ? 'true' : 'false');
+                if (on && selectedName) label = it.textContent;
+            });
+            if (ddLabel) ddLabel.textContent = label;
+        }
+        function setDdOpen(open) {
+            if (!ddList || !ddToggle) return;
+            ddList.hidden = !open;
+            ddToggle.classList.toggle('is-open', open);
+            ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (!open) ddItems().forEach(function (it) { it.classList.remove('is-active'); });
+        }
+        if (ddToggle && ddList) {
+            ddToggle.addEventListener('click', function () { setDdOpen(ddList.hidden); });
+            ddItems().forEach(function (it) {
+                it.addEventListener('click', function () { setDdOpen(false); choose(it.getAttribute('data-value')); });
+            });
+            document.addEventListener('click', function (e) {
+                if (!ddList.hidden && !e.target.closest('.quote-dd')) setDdOpen(false);
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !ddList.hidden) { setDdOpen(false); ddToggle.focus(); }
+            });
+            ddToggle.addEventListener('keydown', function (e) {
+                var items = ddItems();
+                var idx = 0;
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].getAttribute('data-value') === selectedName) idx = i;
+                }
+                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (ddList.hidden) { setDdOpen(true); return; }
+                    idx = (idx + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+                    items.forEach(function (it) { it.classList.remove('is-active'); });
+                    items[idx].classList.add('is-active');
+                    items[idx].scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'Enter' || e.key === ' ') {
+                    if (!ddList.hidden) {
+                        e.preventDefault();
+                        var active = ddList.querySelector('.is-active');
+                        setDdOpen(false);
+                        choose(active ? active.getAttribute('data-value') : selectedName);
+                    }
+                }
+            });
+        }
+        pills.forEach(function (p) {
+            p.addEventListener('click', function () {
+                if (p.classList.contains('is-on')) return;
+                pills.forEach(function (q) {
+                    var on = q === p;
+                    q.classList.toggle('is-on', on);
+                    q.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                activePill = p.getAttribute('data-pill');
+                cards.forEach(function (c) { paint(c, activePill); });
+            });
+        });
+        cards.forEach(function (card) {
+            var btn = card.querySelector('.pkg-select');
+            if (btn) btn.addEventListener('click', function () { choose(card.getAttribute('data-name')); });
+        });
+        document.querySelectorAll('.split-link[data-pkg]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                choose(link.getAttribute('data-pkg'));
+            });
+        });
+        dropdown.addEventListener('change', function () { choose(dropdown.value); });
+        window.__refreshBooking = function () { syncDdUi(); refreshStamp(); };
+    })();
+
+    /* quote form: same Web3Forms setup as the main site */
+    (function quoteForm() {
+        var form = document.getElementById('quoteForm');
+        if (!form) return;
+        var submit = document.getElementById('quoteSubmit');
+        var success = document.getElementById('quoteSuccess');
+        var error = document.getElementById('quoteError');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            submit.disabled = true;
+            submit.textContent = tr('vid.form.sending');
+            error.hidden = true;
+            fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                    if (data.success) {
+                        form.style.display = 'none';
+                        success.hidden = false;
+                    } else {
+                        throw new Error('rejected');
+                    }
+                })
+                .catch(function () {
+                    error.hidden = false;
+                    submit.disabled = false;
+                    submit.textContent = tr('vid.form.submit');
+                });
+        });
+    })();
+
+    /* entrance reveals for the capabilities section */
+    (function reveals() {
+        var els = document.querySelectorAll('[data-reveal]');
+        if (!('IntersectionObserver' in window)) {
+            for (var i = 0; i < els.length; i++) els[i].classList.add('is-in');
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+            });
+        }, { threshold: 0.2 });
+        for (var j = 0; j < els.length; j++) io.observe(els[j]);
+    })();
+
+    /* language: same EN/NL/HU system as the landing page (js/i18n.js
+       plus the video-page keys in js/i18n-video.js). Applied before
+       anything snapshots text, so split titles measure correctly. */
+    var currentLang = 'en';
+    function tr(key) {
+        if (window.I18N && window.I18N[currentLang] && window.I18N[currentLang][key] !== undefined) return window.I18N[currentLang][key];
+        if (window.I18N && window.I18N.en && window.I18N.en[key] !== undefined) return window.I18N.en[key];
+        return '';
+    }
+    /* title animation for every section heading: split each heading
+       into masked words that rise in sequence when their section
+       scrolls into view. Skipped under reduced motion so the plain
+       headings simply show. Left out on purpose: the hero title
+       (driven by the scroll scrub), the process roll-titles and the
+       carousel captions (already animated). Re-runnable for language
+       switches (reads current text each time). */
+    function splitTitles() {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        Array.prototype.slice.call(document.querySelectorAll('.intro-grid h2, .split-text h3, .gain-inner > h2, .steps-inner > h2, .work-inner > h2, .case-inner > h2, .case-text h3, .case-steps h4, .case-context-text h3, .case-outro h3, .pkg-head > h2, .pkg-card h3, .faq-inner > h2, .quote-info h2')).forEach(function (h) {
+            var full = h.textContent.trim().replace(/\s+/g, ' ');
+            var idx = 0;
+            /* split a string into masked words inside a parent,
+               keeping nested elements (like em highlights) intact */
+            function addWords(parent, text) {
+                text.split(/\s+/).forEach(function (w) {
+                    if (!w) return;
+                    var mask = document.createElement('span');
+                    mask.className = 'rv-word';
+                    mask.setAttribute('aria-hidden', 'true');
+                    var inner = document.createElement('span');
+                    inner.textContent = w;
+                    inner.style.transitionDelay = (idx * 0.07) + 's';
+                    idx++;
+                    mask.appendChild(inner);
+                    parent.appendChild(mask);
+                    parent.appendChild(document.createTextNode(' '));
+                });
+            }
+            Array.prototype.slice.call(h.childNodes).forEach(function (node) {
+                if (node.nodeType === 3) {
+                    var frag = document.createDocumentFragment();
+                    addWords(frag, node.textContent);
+                    h.replaceChild(frag, node);
+                } else if (node.nodeType === 1) {
+                    var t = node.textContent;
+                    node.textContent = '';
+                    addWords(node, t);
+                }
+            });
+            h.setAttribute('aria-label', full);
+        });
+    }
+    /* hero word carousel: swap the rotating words on language change */
+    function setHeroWords(lang) {
+        var dict = (window.I18N && window.I18N[lang]) || {};
+        var words = dict['vid.hero.words'];
+        if (!Array.isArray(words) || !wordSpans.length || words.length !== wordSpans.length) return;
+        if (wordTimer) { clearInterval(wordTimer); wordTimer = null; }
+        wordIdx = 0;
+        wordWidths = [];
+        for (var i = 0; i < wordSpans.length; i++) {
+            wordSpans[i].textContent = words[i];
+            wordSpans[i].classList.remove('is-on', 'is-out', 'is-pre');
+            if (i === 0) { wordSpans[i].classList.add('is-on'); wordSpans[i].removeAttribute('aria-hidden'); }
+            else wordSpans[i].setAttribute('aria-hidden', 'true');
+        }
+        var mk = measureEl ? measureEl.children : [];
+        for (var m = 0; m < mk.length && m < words.length; m++) mk[m].textContent = words[m];
+        measureWords();
+        /* keep rotating if the caption is currently on screen */
+        if (!reduced && caption && caption.style.visibility !== 'hidden' && !wordTimer) {
+            wordTimer = setInterval(rotateWord, 1750);
+        }
+    }
+    /* open player controls: relabel after a language switch */
+    function refreshPlayerLang() {
+        Array.prototype.slice.call(document.querySelectorAll('.wk-slide .wk-controls')).forEach(function (ui) {
+            var slide = ui.parentElement;
+            var v = slide ? slide.querySelector('video') : null;
+            var playing = !!v && !v.paused && !v.ended;
+            var toggle = ui.querySelector('.wk-c-toggle');
+            var muteBtn = ui.querySelector('.wk-c-mute');
+            var fullBtn = ui.querySelector('.wk-c-full');
+            var bar = ui.querySelector('.wk-c-bar');
+            if (toggle) toggle.setAttribute('aria-label', tr(playing ? 'vid.player.pause' : 'vid.player.play'));
+            if (muteBtn && v) muteBtn.setAttribute('aria-label', tr(v.muted ? 'vid.player.unmute' : 'vid.player.mute'));
+            if (fullBtn) fullBtn.setAttribute('aria-label', tr('vid.player.full'));
+            if (bar) bar.setAttribute('aria-label', tr('vid.player.seek'));
+        });
+    }
+    /* split progress chips: label lives in a bare text node, translate it */
+    function refreshProgressLang() {
+        var keys = ['vid.split.nav1', 'vid.split.nav2', 'vid.split.nav3'];
+        Array.prototype.slice.call(document.querySelectorAll('.split-progress-steps a')).forEach(function (a, i) {
+            if (!keys[i]) return;
+            var label = tr(keys[i]);
+            if (!label) return;
+            for (var n = a.lastChild; n; n = n.previousSibling) {
+                if (n.nodeType === 3 && n.nodeValue.trim()) { n.nodeValue = label; return; }
+            }
+        });
+    }
+    function applyLang(lang) {
+        currentLang = lang;
+        if (typeof window.I18N_apply === 'function') window.I18N_apply(lang);
+        else {
+            document.querySelectorAll('.lang-btn').forEach(function (b) {
+                b.classList.toggle('active', (b.getAttribute('data-lang') || '').toLowerCase() === lang);
+            });
+        }
+        refreshProgressLang();
+        setHeroWords(lang);
+        splitTitles();
+        if (typeof window.__refreshBooking === 'function') window.__refreshBooking();
+        refreshPlayerLang();
+        if (window.I18N && window.I18N[lang] && window.I18N[lang]['vid.meta.title']) document.title = window.I18N[lang]['vid.meta.title'];
+    }
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            applyLang((btn.getAttribute('data-lang') || 'en').trim().toLowerCase());
+        });
+    });
+    document.addEventListener('mvdl:lang', function (e) {
+        if (e && e.detail && e.detail.lang && e.detail.lang !== currentLang) applyLang(e.detail.lang);
+    });
+    applyLang(typeof window.I18N_getLang === 'function' ? window.I18N_getLang() : 'en');
+
+    /* size the word cell to the active word on every path */
+    measureWords();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureWords);
+
+    if (!TOUCH) frame.src = frame.getAttribute('data-src');
+
+    /* reduced motion: static first frame, both texts readable */
+    if (reduced) {
+        title.style.opacity = '1';
+        caption.style.opacity = '1';
+        caption.style.visibility = 'visible';
+        cue.style.display = 'none';
+    } else if (!TOUCH) {
+        preload();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', function () { measureWords(); onScroll(); });
+        apply(0);
+    }
+
+})();
+</script>
 
 </body>
 </html>

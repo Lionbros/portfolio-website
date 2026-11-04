@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <title>Starlink &amp; TV Installation — Maarten van der Leeuw</title>
+
+    <!-- Fonts -->
+    <!-- impeccable-disable overused-font -- first-party brand typeface, documented in impeccable/DESIGN.md and impeccable/PRODUCT.md -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css?v=step19">
+    <link rel="stylesheet" href="css/installation.css?v=1">
+</head>
+<body class="page-install">
+
+<!-- ─── Overlays ─── -->
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
+
+<!-- ─── Navigation (copied from homepage) ─── -->
+<nav class="top-nav">
+    <div class="nav-group nav-group--left">
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="Blog/index.html" class="nav-link">Blog</a>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <picture><source type="image/avif" srcset="assets/logo-badge-256.avif"><source type="image/webp" srcset="assets/logo-badge-256.webp"><img src="assets/logo-badge.png" alt="Maarten van der Leeuw" width="256" height="275" decoding="async"></picture>
+        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+        <a href="#contact" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" data-i18n-aria="nav.menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-overlay__link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-overlay__link" data-i18n="nav.about">About</a>
+        <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
+        <a href="#contact" class="nav-overlay__link" data-i18n="nav.contact">Contact</a>
+        <a href="#contact" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
+    </div>
+</div>
+
+<main>
+
+<!-- ─── HERO: night sky ─── -->
+<section class="inst-hero" id="top">
+    <div class="inst-hero__inner">
+        <p class="inst-hero__kicker" data-i18n="inst.hero.kicker">Kiskunhalas &amp; surroundings</p>
+        <h1 class="inst-hero__title" data-i18n-html="inst.hero.titleHtml">Starlink &amp; TV, installed <em>properly.</em></h1>
+        <p class="inst-hero__sub" data-i18n="inst.hero.sub">Satellite internet and television, mounted at your home. I come to you, bring the right gear and leave everything working.</p>
+        <div class="inst-hero__ctas">
+            <a href="#contact" class="inst-hero__cta inst-hero__cta--main" data-i18n="inst.hero.cta1">Request installation</a>
+            <a href="#services" class="inst-hero__cta inst-hero__cta--ghost" data-i18n="inst.hero.cta2">What I do</a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="inst-svc" id="services">
+    <div class="inst-svc__inner">
+        <h2 class="inst-svc__title" data-i18n="inst.svc.title">Services</h2>
+
+        <div class="inst-svc__row" data-reveal>
+            <h3 class="inst-svc__name" data-i18n="inst.svc.starlink.title">Starlink installation</h3>
+            <p class="inst-svc__desc" data-i18n="inst.svc.starlink.desc">Dish mounted on roof, wall or mast, cable run indoors and the router set up and tested. I aim the dish properly so you get the speed your subscription allows.</p>
+        </div>
+
+        <div class="inst-svc__row" data-reveal>
+            <h3 class="inst-svc__name" data-i18n="inst.svc.tv.title">TV installation</h3>
+            <p class="inst-svc__desc" data-i18n="inst.svc.tv.desc">TV mounted on the wall or set up on furniture, cables hidden, channels and apps configured. You only grab the remote.</p>
+        </div>
+
+        <div class="inst-svc__row" data-reveal>
+            <h3 class="inst-svc__name" data-i18n="inst.svc.other.title">Something else</h3>
+            <p class="inst-svc__desc" data-i18n="inst.svc.other.desc">Antenna points, extra outlets, cabling or a Wi-Fi dead zone at home — describe what you need and I will tell you whether I can help.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="inst-contact" id="contact">
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h2 class="section-title" data-i18n-html="contact.title">Let's build something <em>together.</em></h2>
+            <div class="contact-info-item"><span data-i18n="contact.email">EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
+            <div class="contact-info-item"><span data-i18n="contact.phone">PHONE</span><span>+36 20 977 4547</span></div>
+            <div class="contact-info-item"><span data-i18n="contact.location">LOCATION</span><span data-i18n="contact.locationVal">Kiskunhalas, Hungary</span></div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <input type="hidden" name="service" value="Starlink & TV Installation">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+            <div class="form-group">
+                <label class="form-label" for="field-name" data-i18n="form.name">Name</label>
+                <input type="text" name="name" id="field-name" class="form-input" placeholder="Your name" data-i18n-placeholder="form.namePh" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field-email" data-i18n="form.email">Email</label>
+                <input type="email" name="email" id="field-email" class="form-input" placeholder="hello@example.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field-service" data-i18n="form.service">What do you need?</label>
+                <select name="project_type" id="field-service" class="form-select">
+                    <option value="Not sure yet" data-i18n="form.serviceNone">Not sure yet</option>
+                    <option value="Starlink installation" data-i18n="inst.form.opt.starlink">Starlink installation</option>
+                    <option value="TV installation" data-i18n="inst.form.opt.tv">TV installation</option>
+                    <option value="Both" data-i18n="inst.form.opt.both">Both</option>
+                    <option value="Other" data-i18n="form.opt.other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field-message" data-i18n="form.brief">Brief</label>
+                <textarea name="message" id="field-message" class="form-textarea" placeholder="Tell me what you need..." data-i18n-placeholder="form.briefPh" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="form.submit">Send Message</button>
+        </form>
+
+        <div id="form-success" class="hidden">
+            <div class="success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3 data-i18n="form.successTitle">Message Sent</h3>
+            <p data-i18n="form.successText">Thanks for reaching out. I will respond within 24 hours.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- ─── Footer (copied from homepage) ─── -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>LEEUW.</h3>
+            <p data-i18n="footer.tagline">Dutch quality based in Hungary</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.nav">Navigation</h4>
+            <ul>
+                <li><a href="index.html" data-i18n="footer.site.home">Homepage</a></li>
+                <li><a href="videography.html" data-i18n="footer.site.video">Videography</a></li>
+                <li><a href="taarten.html" data-i18n="footer.site.taarten">Taarten van Maarten</a></li>
+                <li><a href="software-solutions.html" data-i18n="footer.site.tech">Software Solutions</a></li>
+                <li><a href="installation.html" data-i18n="footer.site.install">Installation</a></li>
+                <li><a href="Blog/index.html" data-i18n="footer.site.blog">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.contactTitle">Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+36 20 977 4547</li>
+                <li data-i18n="footer.address">Kiskunhalas, 6400 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright" data-i18n-html="footer.rights">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top" data-cursor-hover>
+            <span data-i18n="footer.top">Back to Top</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+    </div>
+</footer>
+
+<!-- ─── Scripts ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/i18n-install.js?v=1"></script>
+<script src="js/main.js?v=step5"></script>
+
+</body>
+</html>

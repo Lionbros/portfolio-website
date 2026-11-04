@@ -1,4 +1,7 @@
-﻿:root {
+/* <picture> is layout-transparent so the <img> keeps its existing box */
+picture { display: contents; }
+
+:root {
     --bg: #F4F3EF;
     --text: #000000;
     --text-soft: rgba(0, 0, 0, 0.7);
@@ -28,6 +31,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* ─── No visible page scrollbar (scrolling still works everywhere) ─── */
+html { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; }
+
 /* â”€â”€â”€ Loader (removed) â”€â”€â”€ */
 
 /* ─── Navigation ─── */
@@ -42,6 +49,14 @@ body {
     padding: clamp(6rem, 14vh, 9rem) 2rem 10rem;
     background: var(--bg);
     z-index: 2;
+    overflow: hidden;
+    overflow: clip;
+    --hero-fs: clamp(3.5rem, min(14vw, 22vh), 16rem);
+    /* Distance from the top of the hero to the top of the head in the portrait.
+       Fixed in px so the head never slides up behind the fixed navbar, whatever
+       the viewport height. 0.8748 = 1 - headroom(0.1252) of the source PNG;
+       0.14312 = headroom / (1 - headroom), used to offset the image top. */
+    --portrait-hair: 104px;
 }
 #header-bg { display: none; }
 
@@ -261,7 +276,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 .hero-title {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: clamp(3.5rem, min(14vw, 22vh), 16rem);
+    font-size: var(--hero-fs);
     line-height: 0.85;
     letter-spacing: -0.04em;
     color: var(--text);
@@ -282,13 +297,55 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 .hero-portrait {
     position: absolute;
     right: -2vw;
-    bottom: 0;
-    height: 105%;
+    bottom: auto;
+    top: calc(var(--portrait-hair) - 0.14312 * (100% - var(--portrait-hair)));
+    height: calc((100% - var(--portrait-hair)) / 0.8748);
     width: auto;
     object-fit: contain;
     object-position: bottom right;
     pointer-events: none;
     filter: drop-shadow(0 12px 40px rgba(0,0,0,0.3));
+}
+@media (max-width: 1920px) {
+    .hero-title em { display: block; }
+}
+
+/* ─── Portrait tablets: nav, hero, about ─── */
+@media (min-width: 769px) and (max-width: 1100px) {
+    /* Hamburger nav, same as mobile */
+    .nav-group { display: none; }
+    .nav-burger { display: block; }
+
+    /* Hero: smaller canvas, centered content instead of bottom-pinned */
+    #hero-container {
+        min-height: 0;
+        height: 86dvh;
+        justify-content: center;
+        padding: 6rem 2rem 5rem;
+    }
+    .hero-portrait {
+        height: 78%;
+        top: auto;
+        bottom: 0;
+        right: -4vw;
+    }
+    .hero-title,
+    .hero-meta {
+        position: relative;
+        z-index: 2;
+    }
+    .hero-title {
+        font-size: clamp(2.75rem, 10vw, 6rem);
+    }
+
+    /* About: stack like mobile (image first), constrained reading width.
+       Higher specificity: base .about-layout is defined later in the file. */
+    #about-section .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 620px;
+        margin: 0 auto;
+    }
 }
 
 /* â”€â”€â”€ Decorative Elements â”€â”€â”€ */
@@ -359,7 +416,8 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 #gateways-section {
     min-height: 80vh;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50vh;
     position: relative;
     z-index: 10;
 }
@@ -367,13 +425,20 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     position: relative;
     display: flex; align-items: center; justify-content: center;
     text-decoration: none;
-    min-height: 80vh;
+    /* height comes from the 50vh grid tracks — a min-height here would
+       make panels overflow their row and overlap the section below */
     overflow: hidden;
     cursor: pointer;
     opacity: 0; transform: translateY(40px);
     border-right: 1px solid rgba(255,255,255,0.1);
 }
 .gateway:last-child { border-right: none; }
+/* 2x2 grid (deco divs live in this section too, so target panels by
+   name, not by position): Taarten and Installation sit in the right
+   column and lose the border so hairlines don't double up along the
+   center seam; the second row gets a top hairline. */
+.gateway-taarten, .gateway-install { border-right: none; }
+.gateway-tech, .gateway-install { border-top: 1px solid rgba(255,255,255,0.1); }
 .gateway-bg {
     position: absolute; inset: 0;
     background-size: cover; background-position: center;
@@ -428,19 +493,49 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 
 /* Gateway background placeholders â€” replace these with actual images */
 .gateway-videography .gateway-bg {
-    background-image: url('../assets/img/Maarten%20Photos/Videography.jpg');
+    background-image: image-set(
+        url('../assets/img/Maarten-Photos/Videography-1024.avif') type('image/avif'),
+        url('../assets/img/Maarten-Photos/Videography-1024.webp') type('image/webp'),
+        url('../assets/img/Maarten-Photos/Videography.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: center 30%;
 }
 .gateway-taarten .gateway-bg {
-    background-image: url('../assets/img/Maarten%20Photos/Taarten.jpg');
+    background-image: image-set(
+        url('../assets/img/Maarten-Photos/Taarten-1365.avif') type('image/avif'),
+        url('../assets/img/Maarten-Photos/Taarten-1365.webp') type('image/webp'),
+        url('../assets/img/Maarten-Photos/Taarten.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: center 25%;
 }
 .gateway-tech .gateway-bg {
-    background-image: url('../assets/img/Maarten%20Photos/Technical.jpg');
+    background-image: image-set(
+        url('../assets/img/Maarten-Photos/Technical-1257.avif') type('image/avif'),
+        url('../assets/img/Maarten-Photos/Technical-1257.webp') type('image/webp'),
+        url('../assets/img/Maarten-Photos/Technical.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: center 40%;
+}
+/* Placeholder until installation photos exist: CSS-only night sky that
+   matches the installation page hero. Swap in the real photo by giving
+   this rule a background-image url. */
+.gateway-install .gateway-bg {
+    background-color: #0b0f1a;
+    background-image:
+        radial-gradient(1px 1px at 18% 30%, rgba(255,255,255,0.8) 50%, transparent 51%),
+        radial-gradient(1px 1px at 34% 62%, rgba(255,255,255,0.6) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 52% 24%, rgba(255,255,255,0.9) 50%, transparent 51%),
+        radial-gradient(1px 1px at 66% 48%, rgba(255,255,255,0.55) 50%, transparent 51%),
+        radial-gradient(1px 1px at 78% 70%, rgba(255,255,255,0.7) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 88% 20%, rgba(255,255,255,0.85) 50%, transparent 51%),
+        radial-gradient(1px 1px at 26% 82%, rgba(255,255,255,0.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 44% 44%, rgba(255,255,255,0.4) 50%, transparent 51%),
+        radial-gradient(circle at 70% 110%, rgba(188,75,35,0.35), transparent 55%),
+        linear-gradient(180deg, #0b0f1a 0%, #131b2e 70%, #1a2340 100%);
+    background-size: cover;
 }
 
 @media (max-width: 900px) {
@@ -506,6 +601,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     padding-bottom: 4.5rem;
     opacity: 0;
     transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
 }
 .timeline-item:last-child {
     padding-bottom: 0;
@@ -604,6 +700,11 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     .timeline-icon-text { font-size: 0.55rem; }
     .timeline-item { padding-bottom: 3rem; gap: 1.5rem; }
     .timeline-desc { max-width: 100%; }
+
+    /* Taller crop so the photo can be framed on the subject instead of
+       showing the full width (he sits at ~38%, which read as off-centre). */
+    .process-visual { flex: none; height: 470px; min-height: 0; }
+    .process-visual img { object-position: 0% 50%; }
 }
 
 /* â”€â”€â”€ Featured Work (Gallery Grid) â”€â”€â”€ */
@@ -989,6 +1090,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 }
 .stat-item {
     text-align: center; opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
 }
 .stat-number {
     font-size: clamp(2.5rem, 5vw, 4rem);
@@ -1000,6 +1102,11 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     text-transform: uppercase; letter-spacing: 0.1em;
     color: var(--text-muted);
 }
+.stat-note {
+    font-size: 0.65rem; font-style: italic;
+    color: var(--text-faint);
+    margin-top: 0.25rem;
+}
 .claim-splash {
     text-align: center;
     padding: 3rem 0;
@@ -1007,6 +1114,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     border-bottom: 1px solid var(--border);
     margin-bottom: 4rem;
     opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
 }
 .claim-splash p {
     font-size: clamp(1.2rem, 2.5vw, 2rem);
@@ -1025,7 +1133,9 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     border-radius: 12px;
     background: var(--bg);
     opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
 }
+.testimonial-card:nth-child(2) { transition-delay: 0.15s; }
 .testimonial-text {
     font-size: 0.95rem; line-height: 1.6;
     color: var(--text-muted);
@@ -1122,8 +1232,18 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     max-width: 1200px;
     margin: 0 auto;
 }
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 .contact-info .section-title {
     margin-bottom: 3rem;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 1.05;
+}
+.contact-info .section-title + .contact-info-item {
+    margin-top: auto;
 }
 .contact-info-item {
     display: flex;
@@ -1141,12 +1261,13 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    height: 100%;
 }
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.35rem;
 }
 .form-label {
     font-family: var(--font-mono);
@@ -1176,7 +1297,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     border-color: var(--accent);
 }
 .form-textarea {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
 }
 .form-select {
@@ -1189,7 +1310,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     padding-right: 2rem;
 }
 .submit-btn {
-    margin-top: 2rem;
+    margin-top: auto;
     padding: 1.2rem 2rem;
     border: 1px solid var(--text);
     color: var(--text);
@@ -1288,6 +1409,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     color: rgba(255,255,255,0.6);
     transition: color 0.3s;
 }
+.footer-col a { text-decoration: none; }
 .footer-col a:hover { color: var(--accent); }
 .footer-bottom {
     max-width: 1400px;
@@ -1342,11 +1464,11 @@ html.nav-open, html.nav-open body { overflow: hidden; }
 .gateway:nth-child(3) { transition-delay: 0.3s; }
 
 @media (max-width: 768px) {
-    #hero-container { min-height: 0; height: 78vh; padding: 2rem 1.5rem 1.5rem; justify-content: center; }
-    .hero-portrait { height: 65vh; right: -14vw; opacity: 0.15; }
+    #hero-container { min-height: 0; height: 70vh; padding: 88px 1rem 0; justify-content: flex-start; }
+    .hero-portrait { right: auto; bottom: auto; left: 0; top: 0; width: auto; height: auto; }
     .hero-title em { display: block; }
 
-    .hero-meta { margin-bottom: 1.5rem; }
+    .hero-meta { margin-bottom: 3.75rem; }
 
     .top-nav { padding: 1rem 1.5rem; }
 
@@ -1358,6 +1480,10 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     .social-link { padding: 0.75rem; }
 
     .footer-content { grid-template-columns: 1fr; gap: 2.5rem; }
+    /* Wordmark: 10vw fell back to the 3rem floor on phones, so it read tiny.
+       Size it from the column width instead (3.24em per "LEEUW.") so it fills
+       the row edge to edge, and cap at the desktop size for wide screens. */
+    .footer-brand h3 { font-size: clamp(3.5rem, calc(30.6vw - 1.25rem), 8rem); }
 
     #process-section { padding: 6rem 2rem 8rem; }
 }
@@ -1366,9 +1492,16 @@ html.nav-open, html.nav-open body { overflow: hidden; }
     .nav-burger { right: 0.9rem; }
 }
 
+/* ─── i18n: longer NL/HU contact titles scale down to preserve grid alignment ─── */
+html[lang="nl"] .contact-info .section-title,
+html[lang="hu"] .contact-info .section-title {
+    font-size: clamp(2rem, 3.8vw, 3.75rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;

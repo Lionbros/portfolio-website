@@ -1,0 +1,62 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {},
+  "plugin": [],
+  "username": "Maarten",
+  "mode": {},
+  "agent": {},
+  "provider": {
+    "ollama": {
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "jaahas/qwen3.5-uncensored:9b": {
+          "name": "Qwen3.5 Uncensored 9B",
+          "tool_call": true,
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        }
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ]
+    },
+    "sketchup": {
+      "type": "local",
+      "command": [
+        "C:\\Users\\Maarten\\AppData\\Local\\Microsoft\\WinGet\\Links\\uvx.exe",
+        "sketchup-mcp2==0.3.1"
+      ],
+      "environment": {
+        "SKETCHUP_MCP_HOST": "127.0.0.1",
+        "SKETCHUP_MCP_PORT": "9876",
+        "SKETCHUP_MCP_TIMEOUT": "60",
+        "SKETCHUP_MCP_LOG_LEVEL": "INFO"
+      },
+      "enabled": true,
+      "timeout": 30000
+    }
+  },
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "external_directory": "ask",
+    "webfetch": "ask",
+    "doom_loop": "ask"
+  }
+}

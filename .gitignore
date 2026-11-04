@@ -3,3 +3,24 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+# Local-only media archive (not part of the site, too large for GitHub)
+unused_assets/
+Maarten photos/
+*.NEF
+
+# Tool / agent scratch folders
+impeccable/
+.impeccable/
+.playwright-mcp/
+.zcode/
+.freebuff/
+.cloud-attachments/
+
+# Saved third-party pages and other leftovers at the project root
+assets/Mobile Car Detailing*/
+
+# Browser profile used by local screenshot checks
+_build/chrome-profile/
+_build/video_out/
+assets/*.html

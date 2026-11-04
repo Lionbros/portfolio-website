@@ -269,8 +269,13 @@ function initContactForm() {
         e.preventDefault();
         const btn = form.querySelector('.submit-btn');
         const original = btn.textContent;
+        const t = (key, fb) => {
+            const lang = typeof window.I18N_getLang === 'function' ? window.I18N_getLang() : 'en';
+            const dict = (window.I18N && (window.I18N[lang] || window.I18N.en)) || {};
+            return dict[key] || fb;
+        };
         btn.disabled = true;
-        btn.textContent = 'Sending...';
+        btn.textContent = t('form.sending', 'Sending...');
 
         try {
             const res = await fetch('https://api.web3forms.com/submit', {
@@ -290,12 +295,12 @@ function initContactForm() {
                     },
                 });
             } else {
-                alert('Something went wrong. Please try again.');
+                alert(t('form.error', 'Something went wrong. Please try again.'));
                 btn.disabled = false;
                 btn.textContent = original;
             }
         } catch (err) {
-            alert('Something went wrong. Please try again.');
+            alert(t('form.error', 'Something went wrong. Please try again.'));
             btn.disabled = false;
             btn.textContent = original;
         }
@@ -312,15 +317,29 @@ function initBackToTop() {
     });
 }
 
-// ─── Language Toggle ───
+// ─── Language Toggle (EN / NL / HU via js/i18n.js) ───
 function initLangToggle() {
     const buttons = document.querySelectorAll('.lang-btn');
     if (!buttons.length) return;
 
+    const apply = (lang) => {
+        if (typeof window.I18N_apply === 'function') {
+            window.I18N_apply(lang);
+        } else {
+            buttons.forEach((b) => b.classList.remove('active'));
+            const match = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+            if (match) match.classList.add('active');
+        }
+    };
+
+    // Apply saved language (or English) on load, before user clicks.
+    const initial = typeof window.I18N_getLang === 'function' ? window.I18N_getLang() : 'en';
+    apply(initial);
+
     buttons.forEach((btn) => {
         btn.addEventListener('click', () => {
-            buttons.forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
+            const lang = (btn.getAttribute('data-lang') || btn.textContent || 'en').trim().toLowerCase();
+            apply(lang);
         });
     });
 }
@@ -395,6 +414,107 @@ function initHeroPortraitFade() {
     }
 }
 
+// ─── Hero Portrait: dynamic placement (narrow screens) ───
+// On narrow screens the headline spans the full viewport width, so a fixed-size
+// photo swallows the title. Instead we measure the headline and slot the photo
+// into the column to the right of it: the body may graze the last line, the head
+// always stays clear of the text. Recomputed on resize, so it holds at any ratio.
+function initHeroPortraitLayout() {
+    const portrait = document.querySelector('.hero-portrait');
+    const hero = document.getElementById('hero-container');
+    const title = document.querySelector('.hero-title');
+    const lastWord = document.querySelector('.hero-title em');
+    if (!portrait || !hero || !title || !lastWord) return;
+
+    // Geometry of assets/img/Maarten-Photos/portrait-hero-802.webp
+    const HEAD_X = 0.2781;  // head left edge, as a fraction of the image width
+    const HEAD_R = 0.6471;  // head right edge, as a fraction of the image width
+    const HEAD_Y = 0.1252;  // head top edge, as a fraction of the image height
+    const ASPECT = 1254 / 802;
+    const NARROW = 768;     // must match the mobile breakpoint in main.css
+
+    // Bounding box of an element's own text (ignores block-level children)
+    function textBox(el) {
+        const range = document.createRange();
+        let box = null;
+        for (const node of el.childNodes) {
+            if (node.nodeType !== Node.TEXT_NODE) continue;
+            range.selectNodeContents(node);
+            const b = range.getBoundingClientRect();
+            if (!b.width && !b.height) continue;
+            box = box
+                ? { left: Math.min(box.left, b.left), right: Math.max(box.right, b.right),
+                    top: Math.min(box.top, b.top), bottom: Math.max(box.bottom, b.bottom) }
+                : { left: b.left, right: b.right, top: b.top, bottom: b.bottom };
+        }
+        return box;
+    }
+
+    function layout() {
+        const vw = document.documentElement.clientWidth;
+
+        if (vw > NARROW) {
+            portrait.style.width = '';
+            portrait.style.height = '';
+            portrait.style.left = '';
+            portrait.style.right = '';
+            portrait.style.top = '';
+            portrait.style.bottom = '';
+            return;
+        }
+
+        // The head reaches over the widest line of the headline
+        const lastBox = textBox(lastWord);
+        if (!lastBox) return;
+
+        let widestRight = lastBox.right;
+        title.querySelectorAll('.line .inner').forEach((inner) => {
+            const b = textBox(inner);
+            if (b) widestRight = Math.max(widestRight, b.right);
+        });
+
+        const heroBox = hero.getBoundingClientRect();
+        const fs = parseFloat(getComputedStyle(title).fontSize) || 16;
+
+        // The headline is top-aligned on mobile. The head starts level with the
+        // "Dutch Quality / Based in Hungary" line and the body grows down from
+        // there, bottom flush with the hero so the next section crops the body.
+        // offsetTop ignores the entrance transform, so this stays correct even
+        // if layout runs mid-animation.
+        const meta = document.querySelector('.hero-meta');
+        const headTop = meta ? meta.offsetTop : 0;
+
+        // The head's left edge just catches the tail of the widest headline line.
+        const headLeft = widestRight - heroBox.left - 0.20 * fs;
+
+        let height = Math.max(0, (heroBox.height - headTop) / (1 - HEAD_Y));
+        let width = height / ASPECT;
+
+        // Allow the photo to bleed slightly off the right edge (as on desktop)
+        // rather than shrink it and leave a gap under the crop.
+        const headSpan = (HEAD_R - HEAD_X) * width;
+        const maxHeadRight = vw * 1.08 - heroBox.left;
+        if (width > 0 && headLeft + headSpan > maxHeadRight) {
+            width = (maxHeadRight - headLeft) / (HEAD_R - HEAD_X);
+            height = width * ASPECT;
+        }
+        if (width <= 0 || height <= 0) return;
+
+        portrait.style.width = width + 'px';
+        portrait.style.height = 'auto';
+        portrait.style.left = (headLeft - HEAD_X * width) + 'px';
+        portrait.style.right = 'auto';
+        portrait.style.top = (headTop - HEAD_Y * height) + 'px';
+        portrait.style.bottom = 'auto';
+    }
+
+    layout();
+    window.addEventListener('resize', layout);
+    window.addEventListener('load', layout);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+    hero.addEventListener('transitionend', layout);
+}
+
 // ─── Init Everything ───
 document.addEventListener('DOMContentLoaded', () => {
     initSectionReveals();
@@ -409,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavToggle();
     initAnchors();
     initHeroPortraitFade();
+    initHeroPortraitLayout();
     ScrollTrigger.refresh();
     document.fonts.ready.then(() => ScrollTrigger.refresh());
 });
