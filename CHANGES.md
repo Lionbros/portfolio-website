@@ -9,7 +9,11 @@ Scope: `v2/` (the live site). Nothing was deleted.
 
 **Removed the two placeholder testimonials** from the homepage `#trust-section` (markup and the `trust.t1.*` / `trust.t2.*` strings in all three languages). The stats row and the "I don't believe in problems" claim stay, so the section still reads as complete.
 
-**Blog and Installation are now "under construction".** All 36 blog pages and `installation.html` serve a styled holding page (`assets/logo-badge`, mono kicker, big headline, "See the work" / "Email me"), each with the correct relative paths for its depth, and `noindex` so nothing unfinished gets crawled. The real pages are preserved in `unused_assets/drafts/` at their original paths — restore by copying them back.
+**Blog and Installation are now "under construction".** All 36 blog pages and `installation.html` serve the full site shell — real navbar (including the mobile drawer) and the black homepage footer — with a headline that highlights the word *construction*, a short explanation, an email-capture form and a "Back to homepage" button. Every page carries the correct relative paths for its depth and is `noindex`.
+
+The notify form posts to **Netlify Forms** (`name="uc-notify"`, `data-netlify="true"`), so on Netlify the address lands in the dashboard with no backend. Anywhere else the POST fails and the script falls back to opening a pre-filled mail draft, so the form never lies about having stored the address. To use a different provider, change the `action`/`fetch` URL in `js/under-construction.js`.
+
+The real pages are preserved in `unused_assets/drafts/` at their original paths — restore by copying them back.
 
 **Mobile menu rebuilt as a right-side drawer.** It used to fade a full-screen opaque panel over the page. Now:
 - the panel slides in from the right (`min(86vw, 400px)`), the page stays visible behind a dimmed, blurred backdrop

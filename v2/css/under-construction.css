@@ -1,215 +1,134 @@
-/* Under-construction page — shares the site's type and palette */
-:root {
-    --bg: #F4F3EF;
-    --ink: #111111;
-    --muted: rgba(0, 0, 0, 0.55);
-    --faint: rgba(0, 0, 0, 0.38);
-    --line: rgba(0, 0, 0, 0.12);
-    --accent: #BC4B23;
-    --sans: 'Space Grotesk', Helvetica, Arial, sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
-}
-
-* { box-sizing: border-box; }
-
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
-
-body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* faint drafting grid, echoing the main site */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
-    z-index: 0;
-}
-
-.uc-top {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: clamp(1.1rem, 2.4vw, 1.9rem) clamp(1.1rem, 4vw, 3rem);
-    border-bottom: 1px solid var(--line);
-}
-
-.uc-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    text-decoration: none;
-    color: var(--ink);
-}
-
-.uc-logo img {
-    width: 38px;
-    height: 38px;
-    object-fit: contain;
-    border-radius: 50%;
-}
-
-.uc-logo span {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-.uc-back {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--muted);
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: color 0.25s ease, border-color 0.25s ease;
-}
-
-.uc-back:hover {
-    color: var(--ink);
-    border-color: var(--ink);
-}
+/* Under-construction page — layered on top of main.css so the page keeps
+   the real navbar and footer. */
 
 .uc-main {
     position: relative;
     z-index: 1;
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: clamp(1rem, 2.4vw, 1.75rem);
-    padding: clamp(3rem, 9vh, 7rem) clamp(1.25rem, 6vw, 5.5rem);
-    max-width: 1100px;
-}
-
-.uc-kicker {
-    margin: 0;
-    display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--accent);
+    min-height: 72vh;
+    padding: clamp(7.5rem, 16vh, 11rem) clamp(1.25rem, 6vw, 5.5rem) clamp(4rem, 9vh, 7rem);
 }
 
-.uc-kicker::before {
-    content: "";
-    width: 26px;
-    height: 1px;
-    background: var(--accent);
+.uc-inner {
+    width: 100%;
+    max-width: 980px;
 }
 
 .uc-title {
-    margin: 0;
-    font-size: clamp(2.6rem, 8.4vw, 6.4rem);
-    line-height: 0.94;
-    letter-spacing: -0.035em;
+    margin: 0 0 1.5rem;
+    max-width: 15ch;
+    font-size: clamp(2.3rem, 6.6vw, 5rem);
     font-weight: 700;
-    max-width: 16ch;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
 }
 
+/* the word "construction" is highlighted in the site accent */
 .uc-title em {
     font-style: italic;
-    font-weight: 400;
     color: var(--accent);
+    padding: 0 0.04em;
+    text-decoration: underline;
+    text-decoration-color: rgba(188, 75, 35, 0.28);
+    text-decoration-thickness: 0.11em;
+    text-underline-offset: 0.08em;
+    text-decoration-skip-ink: none;
 }
 
 .uc-text {
     margin: 0;
-    max-width: 46ch;
-    font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+    max-width: 54ch;
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
     line-height: 1.65;
-    color: var(--muted);
+    color: var(--text-muted);
 }
 
-.uc-actions {
+.uc-form {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
+    gap: 0.6rem;
+    max-width: 540px;
+    margin-top: 2.2rem;
 }
 
-.uc-btn {
+.uc-form input[type="email"] {
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: 0.95rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    transition: border-color 0.25s ease;
+}
+
+.uc-form input[type="email"]::placeholder { color: var(--text-dim); }
+.uc-form input[type="email"]:focus { outline: none; border-color: var(--text); }
+
+.uc-form button {
+    padding: 0.95rem 1.65rem;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.uc-form button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.uc-note {
+    margin: 0.9rem 0 0;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.uc-note.is-error { color: #B3261E; }
+
+.uc-success {
+    margin: 2.2rem 0 0;
+    max-width: 46ch;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
+}
+
+.uc-back {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.55rem;
+    margin-top: 2.4rem;
     padding: 0.85rem 1.5rem;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--line);
     border-radius: 999px;
-    background: var(--ink);
-    color: var(--bg);
-    font-family: var(--mono);
+    font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    color: var(--text);
+    transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-.uc-btn:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
-
-.uc-btn--ghost {
-    background: transparent;
-    color: var(--ink);
-}
-
-.uc-btn--ghost:hover {
-    background: transparent;
+.uc-back:hover {
+    border-color: var(--text);
     color: var(--accent);
-    border-color: var(--accent);
+    transform: translateY(-2px);
 }
-
-.uc-foot {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    justify-content: space-between;
-    padding: 1.4rem clamp(1.1rem, 4vw, 3rem);
-    border-top: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--faint);
-}
-
-.uc-foot a { color: inherit; text-decoration: none; }
-.uc-foot a:hover { color: var(--ink); }
 
 @media (max-width: 640px) {
-    .uc-logo span { display: none; }
-    .uc-main { padding-top: clamp(2.5rem, 12vh, 5rem); }
-    .uc-actions { width: 100%; }
-    .uc-btn { flex: 1 1 auto; justify-content: center; }
+    .uc-main { padding-top: 6.5rem; min-height: 68vh; }
+    .uc-form button { flex: 1 1 100%; }
+    .uc-back { width: 100%; justify-content: center; }
 }
