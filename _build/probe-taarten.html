@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="../v2/">
+    <script>document.documentElement.classList.add('js')</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#FAF3E7">
+    <meta name="description" content="Taarten van Maarten: traditional Dutch pies baked fresh in Hungary. Appeltaart, peperkoek, kersentaart and more. Order yours today.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <title>Taarten van Maarten — Maarten van der Leeuw</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css?v=step15">
+    <link rel="stylesheet" href="css/taarten.css?v=63">
+    <link rel="preload" as="image" href="assets/img/Taarten-Page/taarten-hero-1.png">
+    <link rel="preload" as="image" href="assets/img/Taarten-Page/taarten-hero-2.png">
+    <link rel="preload" as="image" href="assets/img/Taarten-Page/taarten-hero-3.png">
+<style>[data-reveal]{opacity:1!important;transform:none!important}.section-title .inner{transform:none!important}</style></head>
+<!-- impeccable-disable overused-font: Space Grotesk + Fraunces are deliberate brand fonts -->
+<!-- impeccable-disable cream-palette: warm bakery palette is the client brief -->
+<body class="page-taarten">
+
+<!-- ─── Overlays ─── -->
+<div class="noise-overlay"></div>
+
+<!-- ─── Navigation (same as homepage) ─── -->
+<nav class="top-nav">
+    <div class="nav-group nav-group--left">
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="Blog/index.html" class="nav-link">Blog</a>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
+        <picture><source type="image/avif" srcset="assets/logo-badge-256.avif"><source type="image/webp" srcset="assets/logo-badge-256.webp"><img src="assets/logo-badge.png" alt="Maarten van der Leeuw" width="256" height="275" decoding="async"></picture>
+        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
+    </a>
+    <div class="nav-group nav-group--right">
+        <a href="index.html#contact-section" class="nav-link" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#contact-section" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" data-i18n-aria="nav.menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-overlay">
+    <div class="nav-overlay__inner">
+        <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nl">NL</button><button type="button" class="lang-btn" data-lang="hu">HU</button>
+        </div>
+        <a href="index.html#projects-section" class="nav-overlay__link" data-i18n="nav.work">Work</a>
+        <a href="index.html#about-section" class="nav-overlay__link" data-i18n="nav.about">About</a>
+        <a href="Blog/index.html" class="nav-overlay__link">Blog</a>
+        <a href="index.html#contact-section" class="nav-overlay__link" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#contact-section" class="nav-cta" data-i18n="nav.cta">Let's Talk</a>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── HERO: scroll-driven bakery poster ─── -->
+<!-- ═══════════════════════════════════════════ -->
+<header class="taart-hero" id="taartHero">
+    <div class="taart-track" id="taartTrack">
+        <div class="taart-stage" id="taartStage">
+            <div class="taart-frame">
+                <div class="taart-heroArt" id="taartHeroArt">
+                    <svg class="taart-halos" aria-hidden="true" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45.5" /></svg>
+                    <div class="taart-spinner" id="taartSpinner">
+                        <img class="taart-bake" id="taartBake1" src="assets/img/Taarten-Page/taarten-hero-1-960.webp" alt="Freshly baked lattice apple pie" data-i18n-alt="taart.hero.alt1" fetchpriority="high" width="485" height="485" decoding="async">
+                        <img class="taart-bake" id="taartBake2" src="assets/img/Taarten-Page/taarten-hero-2-960.webp" alt="Limburg crumb pie" data-i18n-alt="taart.hero.alt2" width="485" height="485" decoding="async">
+                        <img class="taart-bake" id="taartBake3" src="assets/img/Taarten-Page/taarten-hero-3-960.webp" alt="Chocolate chip cookie" data-i18n-alt="taart.hero.alt3" width="485" height="485" decoding="async">
+                    </div>
+                    <svg class="taart-arch" id="taartArch" viewBox="0 0 1000 760" role="img" aria-label="Taarten van Maarten">
+                        <g id="taartChars" font-family="Fraunces, Georgia, serif" font-weight="800" fill="#8C4A18"></g>
+                    </svg>
+                </div>
+                <div class="taart-caption">
+                    <h2 class="taart-heroH2" data-i18n="taart.hero.h2">Dutch treats, homemade in Hungary.</h2>
+                    <div class="taart-sub">
+                        <p data-i18n="taart.hero.sub">My collection of classic Dutch recipes combined with the treats I love most, baked from scratch in small batches.</p>
+                        <a href="#order" class="menu-order" data-i18n="taart.hero.order">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="taart-valley" id="taartValley" aria-hidden="true">
+                <svg viewBox="0 0 1440 600" preserveAspectRatio="none"><path d="M0,10 C450,180 990,180 1440,10 L1440,600 L0,600 Z"/></svg>
+            </div>
+            <div class="taart-valley-tail" id="taartValleyTail" aria-hidden="true"></div>
+            <div class="taart-wing taart-wing--left" aria-hidden="true">
+                <svg viewBox="0 0 360 520" preserveAspectRatio="xMinYMax meet"><g class="wb" fill="#8C4A18"><path d="M6,520 L6,200 C6,160 30,155 32,130 L32,110 L44,110 L44,94 L68,94 L68,110 L80,110 L80,130 C82,155 106,160 106,200 L106,520 Z" /><path d="M120,520 L120,220 C120,175 150,168 152,140 C153,122 165,118 171,118 C177,118 189,122 190,140 C192,168 222,175 222,220 L222,520 Z" /><circle cx="171" cy="106" r="8" /><rect x="205" y="150" width="12" height="60" /><path d="M230,520 L230,215 L250,215 L250,190 L270,190 L270,165 L280,165 L280,138 L304,138 L304,165 L314,165 L314,190 L334,190 L334,215 L354,215 L354,520 Z" /><circle cx="292" cy="128" r="8" /></g><g class="wd" fill="#8C4A18"><rect x="22" y="250" width="16" height="36" /><rect x="48" y="250" width="16" height="36" /><rect x="74" y="250" width="16" height="36" /><rect x="22" y="300" width="16" height="36" /><rect x="48" y="300" width="16" height="36" /><rect x="74" y="300" width="16" height="36" /><rect x="22" y="350" width="16" height="36" /><rect x="48" y="350" width="16" height="36" /><rect x="74" y="350" width="16" height="36" /><path d="M41,520 L41,470 Q41,458 56,458 Q71,458 71,470 L71,520 Z" /><rect x="136" y="260" width="16" height="36" /><rect x="162" y="260" width="16" height="36" /><rect x="188" y="260" width="16" height="36" /><rect x="136" y="310" width="16" height="36" /><rect x="162" y="310" width="16" height="36" /><rect x="188" y="310" width="16" height="36" /><rect x="136" y="360" width="16" height="36" /><rect x="162" y="360" width="16" height="36" /><rect x="188" y="360" width="16" height="36" /><path d="M156,520 L156,468 Q156,456 171,456 Q186,456 186,468 L186,520 Z" /><rect x="163" y="168" width="16" height="22" /><rect x="248" y="280" width="16" height="36" /><rect x="284" y="280" width="16" height="36" /><rect x="320" y="280" width="16" height="36" /><rect x="248" y="330" width="16" height="36" /><rect x="284" y="330" width="16" height="36" /><rect x="320" y="330" width="16" height="36" /><rect x="248" y="380" width="16" height="36" /><rect x="284" y="380" width="16" height="36" /><rect x="320" y="380" width="16" height="36" /><path d="M277,520 L277,466 Q277,454 292,454 Q307,454 307,466 L307,520 Z" /><rect x="284" y="205" width="16" height="20" /></g></svg>
+            </div>
+            <div class="taart-wing taart-wing--right" aria-hidden="true">
+                <svg viewBox="0 0 440 520" preserveAspectRatio="xMaxYMax meet"><defs><g id="wmblade"><path d="M314,265 L310,165 L328,165 L332,265 Z" /><path d="M311,195 L329,195 M312,225 L330,225" stroke-width="3" fill="none" /></g></defs><g class="wb" fill="#8C4A18" stroke="#8C4A18"><path d="M8,520 L8,200 L120,200 L120,520 Z" /><rect x="2" y="184" width="124" height="16" /><path d="M128,520 L128,235 L180,155 L232,235 L232,520 Z" /><rect x="174" y="128" width="12" height="30" /><path d="M277,520 L293,290 L347,290 L363,520 Z" /><path d="M287,290 C291,250 307,235 320,235 C333,235 349,250 353,290 Z" /><use href="#wmblade" transform="rotate(45 320 265)" /><use href="#wmblade" transform="rotate(135 320 265)" /><use href="#wmblade" transform="rotate(225 320 265)" /><use href="#wmblade" transform="rotate(315 320 265)" /><circle cx="320" cy="265" r="8" /></g><g class="wd" fill="#8C4A18"><rect x="24" y="218" width="16" height="22" /><rect x="56" y="218" width="16" height="22" /><rect x="88" y="218" width="16" height="22" /><rect x="24" y="260" width="16" height="36" /><rect x="56" y="260" width="16" height="36" /><rect x="88" y="260" width="16" height="36" /><rect x="24" y="310" width="16" height="36" /><rect x="56" y="310" width="16" height="36" /><rect x="88" y="310" width="16" height="36" /><rect x="24" y="360" width="16" height="36" /><rect x="56" y="360" width="16" height="36" /><rect x="88" y="360" width="16" height="36" /><path d="M49,520 L49,468 Q49,456 64,456 Q79,456 79,468 L79,520 Z" /><circle cx="180" cy="205" r="10" /><rect x="142" y="270" width="14" height="36" /><rect x="168" y="270" width="14" height="36" /><rect x="194" y="270" width="14" height="36" /><rect x="142" y="320" width="14" height="36" /><rect x="168" y="320" width="14" height="36" /><rect x="194" y="320" width="14" height="36" /><rect x="142" y="370" width="14" height="36" /><rect x="168" y="370" width="14" height="36" /><rect x="194" y="370" width="14" height="36" /><path d="M167,520 L167,470 Q167,458 180,458 Q193,458 193,470 L193,520 Z" /><path d="M308,520 L308,462 Q308,450 320,450 Q332,450 332,462 L332,520 Z" /><rect x="314" y="350" width="12" height="18" /><rect x="314" y="398" width="12" height="18" /></g></svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: Menu ─────────────────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="menu" class="section section-menu">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <h2 class="section-title-lg" data-i18n="taart.menu.title">My menu</h2>
+            <p class="section-sub" data-i18n="taart.menu.sub">I bake everything fresh after you order. Order at least a week ahead.</p>
+        </div>
+
+        <div class="menu-grid">
+            <article class="menu-card" data-cat="pies" data-reveal>
+                <div class="menu-card__photo">
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Appeltaart-final-800.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Appeltaart-final-800.webp"><img loading="lazy" src="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Appeltaart-final.jpg" alt="Appeltaart - Dutch apple pie with lattice crust" data-i18n-alt="taart.menu.alt.appeltaart" width="800" height="600" decoding="async"></picture>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Appeltaart</h3>
+                    <p class="menu-price">&euro;20 <span>24 cm</span></p>
+                    <p data-i18n="taart.menu.d.appeltaart">Dutch apple pie with cinnamon, baked in a butter crust.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Appeltaart">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="pies" data-reveal>
+                <div class="menu-card__photo">
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Limburgse-kruimelvlaai-final-800.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Limburgse-kruimelvlaai-final-800.webp"><img loading="lazy" src="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Limburgse-kruimelvlaai-final.jpg" alt="Limburgse kruimelvlaai with butter crumb topping" data-i18n-alt="taart.menu.alt.vlaai" width="800" height="600" decoding="async"></picture>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Limburgse kruimelvlaai</h3>
+                    <p class="menu-price">&euro;24,50 <span>24 cm</span></p>
+                    <p data-i18n="taart.menu.d.vlaai">Flat pie from Limburg with a creamy pudding filling under a layer of butter crumbs.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Limburgse kruimelvlaai">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="breads" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Peperkoek</h3>
+                    <p class="menu-price">&euro;12,50 <span data-i18n="taart.unit.loaf">loaf, approx. 900 g</span></p>
+                    <p data-i18n="taart.menu.d.peperkoek">Sweet, dark spiced loaf made with honey. It stays soft for days.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Peperkoek">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="sweets" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Gevulde koek</h3>
+                    <p class="menu-price">&euro;3 <span data-i18n="taart.unit.cookie">per cookie</span></p>
+                    <p data-i18n="taart.menu.d.gevulde">Large butter cookie with a layer of almond paste.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Gevulde koek">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="sweets" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Roze koeken</h3>
+                    <p class="menu-price">&euro;2,50 <span data-i18n="taart.unit.koek">per koek</span></p>
+                    <p data-i18n="taart.menu.d.roze">Small round cakes covered in a pink sugar glaze.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Roze koeken">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="pies" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Kersentaart</h3>
+                    <p class="menu-price">&euro;20 <span>24 cm</span></p>
+                    <p data-i18n="taart.menu.d.kersen">Shortcrust pie filled with sweet cherries.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Kersentaart">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="savory" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Frikandelbroodje</h3>
+                    <p class="menu-price">&euro;2,50 <span data-i18n="taart.unit.broodje">per broodje</span></p>
+                    <p data-i18n="taart.menu.d.frikandel">Puff pastry wrapped around a Dutch sausage made of minced meat with curry ketchup.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Frikandelbroodje">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="sweets" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Speculaas</h3>
+                    <p class="menu-price">&euro;1,50 <span data-i18n="taart.unit.koek">per koek</span></p>
+                    <p data-i18n="taart.menu.d.speculaas">Thin crunchy cookies with cinnamon and nutmeg.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Speculaas">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="breads" data-reveal>
+                <div class="menu-card__photo">
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Kaneelbroodjes-single-final-800.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Kaneelbroodjes-single-final-800.webp"><img loading="lazy" src="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Kaneelbroodjes-single-final.jpg" alt="Kaneelbroodje - cinnamon swirl close-up" data-i18n-alt="taart.menu.alt.kaneel" width="800" height="600" decoding="async"></picture>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Kaneelbroodjes</h3>
+                    <p class="menu-price">&euro;12 <span data-i18n="taart.unit.box">box of 4</span></p>
+                    <p data-i18n="taart.menu.d.kaneel">Soft sweet rolls swirled with cinnamon sugar.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Kaneelbroodjes">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="sweets" data-reveal>
+                <div class="menu-card__photo">
+                    <div class="photo-slot photo-slot--card">
+                        <span class="photo-slot__hint" data-i18n="taart.menu.hint.generic">I'm still collecting the photo for this bake — please come back later.</span>
+                    </div>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Tiramisu</h3>
+                    <p class="menu-price">&euro;22 <span data-i18n="taart.unit.tray">whole tray, serves 6-8</span></p>
+                    <p data-i18n="taart.menu.d.tiramisu">Cold dessert of coffee-soaked sponge layered with mascarpone and cocoa.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Tiramisu">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="sweets" data-reveal>
+                <div class="menu-card__photo">
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Chocolate-Chip-Cookies-bowl-final-800.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Chocolate-Chip-Cookies-bowl-final-800.webp"><img loading="lazy" src="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Chocolate-Chip-Cookies-bowl-final.jpg" alt="Chocolate chip cookies in a bowl" data-i18n-alt="taart.menu.alt.ccc" width="800" height="600" decoding="async"></picture>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Chocolate Chip Cookies</h3>
+                    <p class="menu-price">&euro;2,50 <span data-i18n="taart.unit.cookie">per cookie</span></p>
+                    <p data-i18n="taart.menu.d.ccc">Chewy cookies baked with dark chocolate chips.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Chocolate Chip Cookies">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="savory" data-reveal>
+                <div class="menu-card__photo">
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Brabantse-worstenbroodjes-final-800.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Brabantse-worstenbroodjes-final-800.webp"><img loading="lazy" src="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Brabantse-worstenbroodjes-final.jpg" alt="Brabantse worstenbroodjes, one cut open showing seasoned minced meat" data-i18n-alt="taart.menu.alt.worsten" width="800" height="600" decoding="async"></picture>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Brabantse worstenbroodjes</h3>
+                    <p class="menu-price">&euro;3 <span data-i18n="taart.unit.worst">per worstenbroodje</span></p>
+                    <p data-i18n="taart.menu.d.worsten">Soft white rolls filled with seasoned minced meat. They come from the Dutch province of Brabant.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Brabantse worstenbroodjes">Order this</button>
+                </div>
+            </article>
+
+            <article class="menu-card" data-cat="breads" data-reveal>
+                <div class="menu-card__photo">
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Krentenbollen-final-800.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Krentenbollen-final-800.webp"><img loading="lazy" src="assets/img/Taarten-Page/menu/Final%20Menu%20Pics/web/Krentenbollen-final.jpg" alt="Krentenbol - soft sweet bun with raisins" data-i18n-alt="taart.menu.alt.krenten" width="800" height="600" decoding="async"></picture>
+                </div>
+                <div class="menu-card__body">
+                    <h3>Krentenbollen</h3>
+                    <p class="menu-price">&euro;2 <span data-i18n="taart.unit.bun">per bun</span></p>
+                    <p data-i18n="taart.menu.d.krenten">Soft sweet buns baked with raisins and currants.</p>
+                    <p class="menu-avail" data-i18n="taart.menu.avail">Baked on request</p>
+                    <button class="menu-order" data-product="Krentenbollen">Order this</button>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section-baker">
+    <div class="wrap">
+        <div class="baker-strip" data-reveal>
+            <div class="baker-strip__text">
+                <p class="baker-kicker" data-i18n="taart.baker.kicker">About me</p>
+                <h3 data-i18n="taart.baker.title">Real Dutch baking</h3>
+                <p data-i18n="taart.baker.text">I grew up on these recipes. When my grandma visited Hungary, she taught me her apple pie. I got more and more into baking and soon started baking for neighbors and friends. That is where Taarten van Maarten (Maarten's pies) came from. My goal is to bring a taste of the Netherlands to Hungary and share my love of baking with my community. I bake everything in small batches with real ingredients.</p>
+                <p class="baker-sign">— Maarten</p>
+                <a href="#order" class="menu-order" data-i18n="taart.baker.cta">Taste it yourself</a>
+            </div>
+            <div class="baker-strip__photo">
+                <div class="baker-figure">
+                    <div class="baker-blob" aria-hidden="true"></div>
+                    <picture><source type="image/avif" srcset="assets/img/Taarten-Page/maarten-met-taart-941.avif"><source type="image/webp" srcset="assets/img/Taarten-Page/maarten-met-taart-941.webp"><img loading="lazy" src="assets/img/Taarten-Page/maarten-met-taart.png" alt="Maarten holding a freshly baked apple pie" data-i18n-alt="taart.baker.alt" width="941" height="1176" decoding="async"></picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: Bake Details ─────────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-details">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <h2 class="section-title-lg" data-i18n="taart.details.title">Allergens</h2>
+            <p class="section-sub" data-i18n="taart.details.sub">Sizes are on the menu above. Most bakes are best fresh and freeze well up to 2 weeks. Tiramisu stays chilled and keeps 3 days. If you have a severe allergy, always double-check with me first. I can provide the full ingredient list on request.</p>
+        </div>
+    </div>
+    <div class="wrap">
+
+        <div class="allergen-panel" data-reveal>
+            <div class="allergen-row" data-allergen-row>
+                <div class="allergen-side">
+                    <span class="allergen-label"><span data-i18n="taart.allergen.gluten">Gluten</span> <span class="allergen-count" data-i18n="taart.allergen.n13">13 bakes</span></span>
+                </div>
+                <ul class="allergen-grid">
+                    <li class="allergen-pill"><span class="pill-name">Appeltaart</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Kruimelvlaai</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Peperkoek</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Gevulde koek</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Roze koeken</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Kersentaart</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Frikandelbroodje</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Speculaas</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Worstenbroodjes</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Kaneelbroodjes</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Tiramisu</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Chocolate Chip Cookies</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Krentenbollen</span></li>
+                </ul>
+                <div class="allergen-toggle-wrap">
+                    <button class="allergen-toggle" aria-expanded="false"><span class="toggle-text" data-i18n="taart.allergen.show">Show all</span><span class="toggle-plus" aria-hidden="true">+</span></button>
+                </div>
+            </div>
+            <div class="allergen-row" data-allergen-row>
+                <div class="allergen-side">
+                    <span class="allergen-label"><span data-i18n="taart.allergen.dairy">Dairy</span> <span class="allergen-count" data-i18n="taart.allergen.n11">11 bakes</span></span>
+                </div>
+                <ul class="allergen-grid">
+                    <li class="allergen-pill"><span class="pill-name">Appeltaart</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Kruimelvlaai</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Gevulde koek</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Roze koeken</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Kersentaart</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Speculaas</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Worstenbroodjes</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Kaneelbroodjes</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Tiramisu</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Chocolate Chip Cookies</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Krentenbollen</span></li>
+                </ul>
+                <div class="allergen-toggle-wrap">
+                    <button class="allergen-toggle" aria-expanded="false"><span class="toggle-text" data-i18n="taart.allergen.show">Show all</span><span class="toggle-plus" aria-hidden="true">+</span></button>
+                </div>
+            </div>
+            <div class="allergen-row" data-allergen-row>
+                <div class="allergen-side">
+                    <span class="allergen-label"><span data-i18n="taart.allergen.egg">Egg</span> <span class="allergen-count" data-i18n="taart.allergen.n11">11 bakes</span></span>
+                </div>
+                <ul class="allergen-grid">
+                    <li class="allergen-pill"><span class="pill-name">Appeltaart</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Kruimelvlaai</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Gevulde koek</span></li>
+                    <li class="allergen-pill"><span class="pill-name">Roze koeken</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Kersentaart</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Frikandelbroodje</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Worstenbroodjes</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Kaneelbroodjes</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Tiramisu</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Chocolate Chip Cookies</span></li>
+                    <li class="allergen-pill pill--extra"><span class="pill-name">Krentenbollen</span></li>
+                </ul>
+                <div class="allergen-toggle-wrap">
+                    <button class="allergen-toggle" aria-expanded="false"><span class="toggle-text" data-i18n="taart.allergen.show">Show all</span><span class="toggle-plus" aria-hidden="true">+</span></button>
+                </div>
+            </div>
+            <div class="allergen-row" data-allergen-row>
+                <div class="allergen-side">
+                    <span class="allergen-label"><span data-i18n="taart.allergen.almonds">Almonds</span> <span class="allergen-count" data-i18n="taart.allergen.n1">1 bake</span></span>
+                </div>
+                <ul class="allergen-grid">
+                    <li class="allergen-pill"><span class="pill-name">Gevulde koek</span></li>
+                </ul>
+                <div class="allergen-toggle-wrap">
+                    <button class="allergen-toggle" aria-expanded="false" hidden><span class="toggle-text" data-i18n="taart.allergen.show">Show all</span><span class="toggle-plus" aria-hidden="true">+</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: How Ordering Works ───────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-order-steps">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <h2 class="section-title-lg" data-i18n="taart.steps.title">How ordering works</h2>
+        </div>
+        <ol class="steps steps--four">
+            <li data-reveal>
+                <span class="step-num" aria-hidden="true">1</span>
+                <h3 data-i18n="taart.steps.h1">Choose your treats</h3>
+                <p data-i18n="taart.steps.p1">Pick from this week's menu above.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num" aria-hidden="true">2</span>
+                <h3 data-i18n="taart.steps.h2">Send your order</h3>
+                <p data-i18n="taart.steps.p2">Fill out the short order form below.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num" aria-hidden="true">3</span>
+                <h3 data-i18n="taart.steps.h3">I confirm</h3>
+                <p data-i18n="taart.steps.p3">I'll message you with availability and pickup details.</p>
+            </li>
+            <li data-reveal>
+                <span class="step-num" aria-hidden="true">4</span>
+                <h3 data-i18n="taart.steps.h4">Pick up &amp; enjoy</h3>
+                <p data-i18n="taart.steps.p4">Freshly baked on the agreed day.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: CTA + Order Form ─────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="order" class="section section-order">
+    <div class="wrap contact-grid" id="contact-form-anchor">
+        <div class="contact-info" data-reveal>
+            <h3 data-i18n="taart.order.title">Send your order.</h3>
+            <p data-i18n="taart.order.sub">Tell me what you'd like, when you need it and where you're based. I usually reply within a day with a quote.</p>
+            <div class="contact-info-item"><span data-i18n="taart.order.email">EMAIL</span><span>hello@maartenvanderleeuw.com</span></div>
+            <div class="contact-info-item"><span data-i18n="taart.order.phone">PHONE</span><span>+36 20 977 4547</span></div>
+            <div class="contact-info-item"><span data-i18n="taart.order.pickup">PICKUP</span><span data-i18n="taart.order.address">Contact for address</span></div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+            <input type="hidden" name="access_key" value="6d3522da-23db-48df-91cf-3f038445bd53">
+            <input type="hidden" name="service" value="Taarten van Maarten">
+            <div class="form-group">
+                <label class="form-label" data-i18n="taart.form.name">Name</label>
+                <input type="text" name="name" class="form-input" placeholder="Your name" data-i18n-placeholder="taart.form.namePh" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" data-i18n="taart.form.email">Email</label>
+                <input type="email" name="email" class="form-input" placeholder="hello@example.com" required>
+            </div>
+            <div class="form-group">
+                <span class="form-label" id="order-products-label" data-i18n="taart.form.what">What would you like?</span>
+                <div class="cart-summary" id="cartSummary" role="status" aria-labelledby="order-products-label"></div>
+                <input type="hidden" name="order_lines" id="orderLines" value="">
+                <input type="hidden" name="order_total" id="orderTotal" value="">
+                <p class="cart-error" id="cartError" hidden data-i18n="taart.form.cartError">Add something tasty from the menu first.</p>
+            </div>
+            <div class="form-group">
+                <label class="form-label" data-i18n="taart.form.date">Preferred pickup date</label>
+                <input type="date" name="pickup_date" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" data-i18n="taart.form.notes">Anything I should know?</label>
+                <textarea name="message" class="form-textarea form-textarea--bakery" placeholder="Quantities, delivery wish, allergies..." data-i18n-placeholder="taart.form.notesPh"></textarea>
+            </div>
+            <button type="submit" class="submit-btn submit-btn--bakery" data-i18n="taart.form.send">Send Order Request</button>
+        </form>
+        <div id="form-success" class="hidden">
+            <h3 data-i18n="taart.form.okTitle">Order Received</h3>
+            <p data-i18n="taart.form.okText">Thanks. You'll hear back within a day with a quote.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ─── SECTION: FAQ ──────────────────────── -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-faq">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <h2 class="section-title-lg" data-i18n="taart.faq.title">Questions</h2>
+        </div>
+    </div>
+    <div class="wrap">
+
+        <div class="accordion" data-reveal>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q1">Where do I pick up?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a1">Pickup is from my house. I don't publish the address online, so contact me and I'll share it when you order.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q2">Do you deliver?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a2">Yes, delivery is possible at an increased price. The fee depends on the distance and we agree it upfront when you order.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q3">How far in advance should I order?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a3">One week ahead is perfect. In a hurry? Fast delivery is possible with a 15% increase in price.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q4">When do you bake?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a4">Everything is baked fresh on request, close to your pickup or delivery day. Nothing frozen, nothing day-old.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q5">Can I request custom quantities?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a5">Yes. Tell me how many people you're feeding (or how big the party is) and we'll work out the right amount.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q6">What allergens are present?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a6">It differs per bake &mdash; see the details above each product. If you have a severe allergy, always double-check with me first.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q7">Can I freeze the products?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a7">Yes, up to 2 weeks. Best enjoyed fresh, of course.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q8">How do payments work?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a8">Cash or bank transfer, agreed when you order.</p>
+                </div></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false"><span data-i18n="taart.faq.q9">What if I need to cancel?</span><span class="accordion-plus" aria-hidden="true">+</span></button>
+                <div class="accordion-panel"><div class="accordion-inner">
+                    <p data-i18n="taart.faq.a9">Cancel up to 3 days beforehand, no problem. Rush orders can't be cancelled once baking has started.</p>
+                </div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer class="main-footer main-footer--bakery">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>LEEUW.</h3>
+            <p data-i18n="footer.tagline">Dutch quality based in Hungary</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.nav">Navigation</h4>
+            <ul>
+                <li><a href="index.html" data-i18n="footer.site.home">Homepage</a></li>
+                <li><a href="videography.html" data-i18n="footer.site.video">Videography</a></li>
+                <li><a href="taarten.html" data-i18n="footer.site.taarten">Taarten van Maarten</a></li>
+                <li><a href="software-solutions.html" data-i18n="footer.site.tech">Software Solutions</a></li>
+                <li><a href="Blog/index.html" data-i18n="footer.site.blog">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.contactTitle">Contact</h4>
+            <ul>
+                <li>hello@maartenvanderleeuw.com</li>
+                <li>+36 20 977 4547</li>
+                <li data-i18n="footer.address">Kiskunhalas, 6400 Hungary</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright" data-i18n-html="footer.rights">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
+        <button class="back-to-top" id="back-to-top" data-cursor-hover>
+            <span data-i18n="footer.top">Back to Top</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+    </div>
+</footer>
+
+<!-- ─── Shopping cart ─── -->
+<button class="cart-fab" id="cartFab" aria-label="Open shopping cart" data-i18n-aria="taart.cart.open" hidden>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.4 11.2a1 1 0 0 1-1 0.8H7.4a1 1 0 0 1-1-0.8L5 8z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg>
+    <span class="cart-count" id="cartCount">0</span>
+</button>
+<div class="cart-backdrop" id="cartBackdrop" hidden></div>
+<aside class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Shopping cart" data-i18n-aria="taart.cart.panelAria" hidden>
+    <div class="cart-head">
+        <h3 data-i18n="taart.cart.title">Your cart</h3>
+        <button class="cart-close" id="cartClose" aria-label="Close cart" data-i18n-aria="taart.cart.close">+</button>
+    </div>
+    <ul class="cart-lines" id="cartLines"></ul>
+    <p class="cart-empty" id="cartEmpty" data-i18n="taart.cart.emptyShort">Your cart is empty. Add something tasty from the menu.</p>
+    <div class="cart-foot">
+        <div class="cart-grand"><span data-i18n="taart.cart.total">Total</span><strong id="cartGrand">€0</strong></div>
+        <button class="btn-bakery" id="cartOrder"><span data-i18n="taart.cart.order">Order</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+    </div>
+</aside>
+
+<!-- ─── Scripts ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=step4"></script>
+<script src="js/i18n.js?v=4"></script>
+<script src="js/i18n-taarten.js?v=1"></script>
+<script src="js/taart-hero.js?v=29"></script>
+<script src="js/taart-shop.js?v=5"></script>
+
+<script>
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    var m=document.getElementById("menu");
+    if(m){ window.scrollTo(0, m.getBoundingClientRect().top + window.scrollY - 90); }
+  }, 800);
+});
+</script></body>
+</html>
