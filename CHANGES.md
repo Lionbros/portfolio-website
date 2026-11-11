@@ -1,10 +1,28 @@
-# What Changed — Media Optimization, Implemented
+# What Changed
 
-Date: 2026-11-04 · Scope: `v2/` (the live site) · Nothing was deleted.
+Two passes over the site: the media optimization of 2026-11-04 and the launch prep of 2026-11-11.
+Scope: `v2/` (the live site). Nothing was deleted.
 
 ---
 
-## Result
+## 2026-11-11 — Launch preparation
+
+**Removed the two placeholder testimonials** from the homepage `#trust-section` (markup and the `trust.t1.*` / `trust.t2.*` strings in all three languages). The stats row and the "I don't believe in problems" claim stay, so the section still reads as complete.
+
+**Blog and Installation are now "under construction".** All 36 blog pages and `installation.html` serve a styled holding page (`assets/logo-badge`, mono kicker, big headline, "See the work" / "Email me"), each with the correct relative paths for its depth, and `noindex` so nothing unfinished gets crawled. The real pages are preserved in `unused_assets/drafts/` at their original paths — restore by copying them back.
+
+**Mobile menu rebuilt as a right-side drawer.** It used to fade a full-screen opaque panel over the page. Now:
+- the panel slides in from the right (`min(86vw, 400px)`), the page stays visible behind a dimmed, blurred backdrop
+- tap the backdrop, the ✕ button, or press Escape to close
+- "MENU" label, numbered links with arrows, staggered entrance, language toggle and CTA pinned to the bottom
+- focus moves to the close button on open and back to the burger on close; page scroll locks while open
+- the Videography page carries its own stylesheet, so it got a dark-themed copy of the drawer
+
+---
+
+## 2026-11-04 — Media optimization
+
+### Result
 
 | Page | Critical path before | After | @ 9 Mbps | @ 1.6 Mbps (slow 4G) |
 |---|---:|---:|---:|---:|

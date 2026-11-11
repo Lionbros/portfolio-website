@@ -24,3 +24,9 @@ assets/Mobile Car Detailing*/
 _build/chrome-profile/
 _build/video_out/
 assets/*.html
+
+# Throwaway render/screenshot artifacts
+_build/preview-*.html
+_build/shot-*.png
+_build/crop-*.png
+_build/compare-*.png

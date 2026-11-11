@@ -1220,20 +1220,42 @@
         window.addEventListener('resize', onScroll);
         update();
 
-        /* mobile menu, same behavior as the landing page */
+        /* mobile drawer, same behavior as the other pages */
         var burger = nav.querySelector('.nav-burger');
+        var overlay = document.querySelector('.nav-overlay');
+        var panel = overlay ? overlay.querySelector('.nav-overlay__inner') : null;
+        if (panel && !panel.querySelector('.nav-drawer__head')) {
+            var drawerHead = document.createElement('div');
+            drawerHead.className = 'nav-drawer__head';
+            drawerHead.innerHTML = '<span>Menu</span>' +
+                '<button type="button" class="nav-drawer__close" aria-label="Close menu">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">' +
+                '<path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+            panel.insertBefore(drawerHead, panel.firstChild);
+        }
+        var closeBtn = overlay ? overlay.querySelector('.nav-drawer__close') : null;
         function setOpen(open) {
+            var wasOpen = document.documentElement.classList.contains('nav-open');
             document.documentElement.classList.toggle('nav-open', open);
             if (burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (open && closeBtn) setTimeout(function () { closeBtn.focus({ preventScroll: true }); }, 120);
+            else if (!open && wasOpen && burger) burger.focus({ preventScroll: true });
         }
         if (burger) burger.addEventListener('click', function () {
             setOpen(!document.documentElement.classList.contains('nav-open'));
+        });
+        if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+        if (overlay) overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) setOpen(false);
         });
         document.querySelectorAll('.nav-overlay a, .nav-overlay .lang-btn').forEach(function (el) {
             el.addEventListener('click', function () { setOpen(false); });
         });
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') setOpen(false);
+        });
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 1100 && document.documentElement.classList.contains('nav-open')) setOpen(false);
         });
 
         /* footer back-to-top, same as the landing page */

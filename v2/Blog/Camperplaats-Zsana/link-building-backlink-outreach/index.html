@@ -1,160 +1,41 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
+    <meta name="robots" content="noindex">
+    <title>Blog — under construction · Maarten van der Leeuw</title>
     <link rel="icon" type="image/svg+xml" href="../../../assets/logo.svg">
-    <title>Link Building & Backlink Outreach — Maarten van der Leeuw</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../../../css/main.css">
-    <link rel="stylesheet" href="../../../css/blog.css">
-    <link rel="stylesheet" href="../../../css/blog-article.css">
-
-    <style>
-        .article-hero__title .inner { display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
-        .article-hero.is-in .article-hero__title .inner { transform: translateY(0); }
-        .article-hero__meta { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s; }
-        .article-hero.is-in .article-hero__meta { opacity: 1; transform: translateY(0); }
-        .no-animation .article-hero__title .inner, .no-animation .article-hero__meta { transform: none !important; opacity: 1 !important; transition: none !important; }
-    </style>
-
-    <script>
-        (function(){
-            var visited = sessionStorage.getItem('v');
-            if(visited) { document.documentElement.classList.add('no-animation'); }
-            else { sessionStorage.setItem('v','1'); }
-            document.addEventListener('DOMContentLoaded', function(){
-                var h = document.querySelector('.article-hero');
-                if(h) { if(visited) { h.classList.add('is-in'); } else { setTimeout(function(){ h.classList.add('is-in'); }, 100); } }
-            });
-        })();
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/under-construction.css">
 </head>
-<body>
+<body data-uc="1">
 
-<div class="grid-overlay"></div>
-<div class="noise-overlay"></div>
+    <header class="uc-top">
+        <a class="uc-logo" href="../../../index.html" aria-label="Maarten van der Leeuw - home">
+            <img src="../../../assets/logo-badge-256.webp" alt="Maarten van der Leeuw" width="38" height="38">
+            <span>Maarten<br>van der Leeuw</span>
+        </a>
+        <a class="uc-back" href="../../../index.html">&larr; Back to home</a>
+    </header>
 
-<nav class="top-nav">
-    <div class="nav-group nav-group--left">
-        <div class="lang-toggle">
-            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
+    <main class="uc-main">
+        <p class="uc-kicker">Blog &mdash; under construction</p>
+        <h1 class="uc-title">Still <em>building</em><br>this page.</h1>
+        <p class="uc-text">The project write-ups are being finished before launch, so this part of the site is not ready yet. The work itself is all there — have a look around in the meantime.</p>
+        <div class="uc-actions">
+            <a class="uc-btn" href="../../../index.html#projects-section">See the work</a>
+            <a class="uc-btn uc-btn--ghost" href="mailto:hello@maartenvanderleeuw.com">Email me</a>
         </div>
-        <a href="../../../index.html#projects-section" class="nav-link">Work</a>
-        <a href="../../../index.html#about-section" class="nav-link">About</a>
-        <a href="../../index.html" class="nav-link">Blog</a>
-    </div>
-    <a href="../../../index.html" class="nav-logo" aria-label="Maarten van der Leeuw - home">
-        <picture><source type="image/avif" srcset="../../../assets/logo-badge-256.avif"><source type="image/webp" srcset="../../../assets/logo-badge-256.webp"><img src="../../../assets/logo-badge.png" alt="Maarten van der Leeuw" width="256" height="275" decoding="async"></picture>
-        <span class="nav-logo__word">MAARTEN<br>VAN DER LEEUW</span>
-    </a>
-    <div class="nav-group nav-group--right">
-        <a href="../../../index.html#contact-section" class="nav-link">Contact</a>
-        <a href="../../../index.html#contact-section" class="nav-cta">Let's Talk</a>
-    </div>
-    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</nav>
-<div class="nav-overlay">
-    <div class="nav-overlay__inner">
-        <div class="lang-toggle">
-            <button class="lang-btn active">EN</button><button class="lang-btn">NL</button><button class="lang-btn">HU</button>
-        </div>
-        <a href="../../../index.html#projects-section" class="nav-overlay__link">Work</a>
-        <a href="../../../index.html#about-section" class="nav-overlay__link">About</a>
-        <a href="../../index.html" class="nav-overlay__link">Blog</a>
-        <a href="../../../index.html#contact-section" class="nav-overlay__link">Contact</a>
-        <a href="../../../index.html#contact-section" class="nav-cta">Let's Talk</a>
-    </div>
-</div>
+    </main>
 
-<header class="article-hero">
-    <div class="article-breadcrumb">
-        <a href="../../../index.html">Home</a>
-        <span class="crumb-sep">/</span>
-        <a href="../index.html">Camperplaats Zsana</a>
-    </div>
-    <h1 class="article-hero__title"><span class="line"><span class="inner">Link Building & Backlink Outreach</span></span></h1>
-    <div class="article-hero__meta"><span><strong>Category:</strong> SEO &amp; Digital Marketing</span><span><strong>Client:</strong> Camperplaats Zsana</span></div>
-</header>
+    <footer class="uc-foot">
+        <span>&copy; 2026 Maarten van der Leeuw</span>
+        <span><a href="mailto:hello@maartenvanderleeuw.com">hello@maartenvanderleeuw.com</a></span>
+    </footer>
 
-<!-- Cover image placeholder: put your image file in this folder and uncomment / point the src -->
-<div class="article-cover">
-    <figure class="img-slot">
-        <!-- <img src="cover.jpg" alt="Backlink outreach spreadsheet and directory listings"> -->
-        <span>Cover image · drop your image here</span>
-    </figure>
-</div>
-
-<main class="article-body">
-<h2>Authority Takes Effort</h2>
-<p>A brand-new site has no authority. To rank against established campsites, the site needed real backlinks from relevant, trusted sources.</p>
-
-<h2>The Outreach</h2>
-<p>I ran structured link building: analysing competitor backlinks, compiling lists of relevant directory and travel sites across the three languages, and doing manual outreach to get the campsite listed. Every placement was logged in a tracking spreadsheet so the effort was measurable and repeatable.</p>
-
-    <div class="article-tools">
-        <div class="tools-block">
-            <span class="tools-label">Languages &amp; Tools</span>
-            <span class="tools-value">Screaming Frog, Ahrefs, spreadsheet-based outreach CRM, directory outreach, competitor backlink analysis</span>
-        </div>
-    </div>
-</main>
-
-<!-- Gallery placeholder: add your images here and point the src attributes -->
-<div class="article-gallery">
-    <div class="article-gallery__title">Gallery</div>
-    <div class="article-gallery__grid">
-        <figure class="img-slot"><!-- <img src="photo-1.jpg" alt="..."> --><span>Photo 1 · drop your image here</span></figure>
-        <figure class="img-slot"><!-- <img src="photo-2.jpg" alt="..."> --><span>Photo 2 · drop your image here</span></figure>
-        <figure class="img-slot"><!-- <img src="photo-3.jpg" alt="..."> --><span>Photo 3 · drop your image here</span></figure>
-    </div>
-</div>
-
-<nav class="article-footer-nav">
-    <a href="../index.html">← Back to Camperplaats Zsana</a>
-</nav>
-
-<footer class="main-footer">
-    <div class="footer-content">
-        <div class="footer-brand"><h3>LEEUW.</h3><p>Software. Film. Baking. All from scratch.</p></div>
-        <div class="footer-col">
-            <h4>Navigation</h4>
-            <ul>
-                <li><a href="../../../index.html">Homepage</a></li>
-                <li><a href="../../../videography.html">Videography</a></li>
-                <li><a href="../../../taarten.html">Taarten van Maarten</a></li>
-                <li><a href="../../../software-solutions.html">Software Solutions</a></li>
-                <li><a href="../../../Blog/index.html">Blog</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Contact</h4>
-            <ul>
-                <li>hello@maartenvanderleeuw.com</li>
-                <li>+36 20 977 4547</li>
-                <li>Kiskunhalas, 6400 Hungary</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="footer-copyright">&copy; 2026 Maarten van der Leeuw. All Rights Reserved.</div>
-        <button class="back-to-top" id="back-to-top">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-        </button>
-    </div>
-</footer>
-
-<svg style="position:absolute;width:0;height:0;pointer-events:none;">
-    <defs><filter id="threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 255 -140"/></filter></defs>
-</svg>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="../../../js/main.js"></script>
 </body>
 </html>

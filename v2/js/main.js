@@ -344,18 +344,46 @@ function initLangToggle() {
     });
 }
 
-// ─── Mobile Nav ───
+// ─── Mobile Nav (right-side drawer) ───
 function initNavToggle() {
     const burger = document.querySelector('.nav-burger');
-    if (!burger) return;
+    const overlay = document.querySelector('.nav-overlay');
+    if (!burger || !overlay) return;
+    const panel = overlay.querySelector('.nav-overlay__inner');
+
+    // drawer chrome: small "Menu" label + close button
+    if (panel && !panel.querySelector('.nav-drawer__head')) {
+        const head = document.createElement('div');
+        head.className = 'nav-drawer__head';
+        head.innerHTML =
+            '<span>Menu</span>' +
+            '<button type="button" class="nav-drawer__close" aria-label="Close menu">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">' +
+            '<path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+        panel.prepend(head);
+    }
+    const closeBtn = overlay.querySelector('.nav-drawer__close');
 
     const setOpen = (open) => {
+        const wasOpen = document.documentElement.classList.contains('nav-open');
         document.documentElement.classList.toggle('nav-open', open);
         burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) {
+            if (closeBtn) setTimeout(() => closeBtn.focus({ preventScroll: true }), 120);
+        } else if (wasOpen) {
+            burger.focus({ preventScroll: true });
+        }
     };
 
     burger.addEventListener('click', () => {
         setOpen(!document.documentElement.classList.contains('nav-open'));
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
+
+    // tap the dimmed page behind the drawer to close
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) setOpen(false);
     });
 
     document.querySelectorAll('.nav-overlay a, .nav-overlay .lang-btn').forEach((el) => {
@@ -364,6 +392,13 @@ function initNavToggle() {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') setOpen(false);
+    });
+
+    // never leave the page locked if the window grows past the mobile nav
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1100 && document.documentElement.classList.contains('nav-open')) {
+            setOpen(false);
+        }
     });
 }
 
