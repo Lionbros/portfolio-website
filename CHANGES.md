@@ -22,6 +22,8 @@ The real pages are preserved in `unused_assets/drafts/` at their original paths 
 - focus moves to the close button on open and back to the burger on close; page scroll locks while open
 - the Videography page carries its own stylesheet, so it got a dark-themed copy of the drawer
 
+**Homepage spacing after the testimonials were removed.** The gap between the "I don't believe in problems" claim and the About section was three stacked spacings that only made sense when the testimonial cards sat between them (claim `margin-bottom: 4rem` + section `padding-bottom: 6rem` + About `padding-top: 8rem`). Now: claim margin `0`, trust section `3rem`, About `4rem`, and the orphaned bottom border on the claim is gone. The decorative dash moved into the new, smaller gap so it no longer crosses the text.
+
 ---
 
 ## 2026-11-04 — Media optimization

@@ -1178,7 +1178,7 @@ html.nav-open .nav-overlay__inner .nav-cta { transition-delay: 0.40s; }
 
 /* â”€â”€â”€ Trust & Stats â”€â”€â”€ */
 #trust-section {
-    padding: 6rem 5% 6rem;
+    padding: 6rem 5% 3rem;
 }
 .trust-container { max-width: 1200px; margin: 0 auto; }
 .stats-grid {
@@ -1209,8 +1209,7 @@ html.nav-open .nav-overlay__inner .nav-cta { transition-delay: 0.40s; }
     text-align: center;
     padding: 3rem 0;
     border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 4rem;
+    margin-bottom: 0;
     opacity: 0; transform: translateY(20px);
     transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
 }
@@ -1250,7 +1249,7 @@ html.nav-open .nav-overlay__inner .nav-cta { transition-delay: 0.40s; }
 
 /* â”€â”€â”€ About Me â”€â”€â”€ */
 #about-section {
-    padding: 8rem 5%;
+    padding: 4rem 5% 8rem;
 }
 .about-container { max-width: 1200px; margin: 0 auto; }
 .about-layout {
